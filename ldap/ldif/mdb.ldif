@@ -1,0 +1,10 @@
+dn: olcDatabase=mdb,cn=config 
+objectClass: olcDatabaseConfig 
+objectClass: olcMdbConfig 
+olcDatabase: mdb 
+OlcDbMaxSize: 1073741824 
+olcSuffix: dc=tortuga,dc=piratepress,dc=org 
+olcRootDN: cn=Manager,dc=tortuga,dc=piratepress,dc=org 
+olcRootPW: secret 
+olcDbDirectory: /var/lib/ldap 
+olcDbIndex: objectClass eq

@@ -1,0 +1,4457 @@
+dn: cn=root,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: root
+userPassword: {crypt}x
+gidNumber: 0
+
+dn: cn=daemon,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: daemon
+userPassword: {crypt}x
+gidNumber: 1
+
+dn: cn=bin,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: bin
+userPassword: {crypt}x
+gidNumber: 2
+
+dn: cn=sys,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: sys
+userPassword: {crypt}x
+gidNumber: 3
+
+dn: cn=adm,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: adm
+userPassword: {crypt}x
+gidNumber: 4
+memberUid: pi
+memberUid: smollet
+
+dn: cn=tty,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: tty
+userPassword: {crypt}x
+gidNumber: 5
+
+dn: cn=disk,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: disk
+userPassword: {crypt}x
+gidNumber: 6
+
+dn: cn=lp,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: lp
+userPassword: {crypt}x
+gidNumber: 7
+
+dn: cn=mail,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: mail
+userPassword: {crypt}x
+gidNumber: 8
+
+dn: cn=news,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: news
+userPassword: {crypt}x
+gidNumber: 9
+
+dn: cn=uucp,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: uucp
+userPassword: {crypt}x
+gidNumber: 10
+
+dn: cn=man,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: man
+userPassword: {crypt}x
+gidNumber: 12
+
+dn: cn=proxy,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: proxy
+userPassword: {crypt}x
+gidNumber: 13
+
+dn: cn=kmem,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: kmem
+userPassword: {crypt}x
+gidNumber: 15
+
+dn: cn=dialout,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: dialout
+userPassword: {crypt}x
+gidNumber: 20
+memberUid: pi
+
+dn: cn=fax,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: fax
+userPassword: {crypt}x
+gidNumber: 21
+
+dn: cn=voice,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: voice
+userPassword: {crypt}x
+gidNumber: 22
+
+dn: cn=cdrom,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: cdrom
+userPassword: {crypt}x
+gidNumber: 24
+memberUid: pi
+
+dn: cn=floppy,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: floppy
+userPassword: {crypt}x
+gidNumber: 25
+
+dn: cn=tape,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: tape
+userPassword: {crypt}x
+gidNumber: 26
+
+dn: cn=sudo,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: sudo
+userPassword: {crypt}x
+gidNumber: 27
+memberUid: pi
+memberUid: smollet
+
+dn: cn=audio,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: audio
+userPassword: {crypt}x
+gidNumber: 29
+memberUid: pi
+memberUid: pulse
+
+dn: cn=dip,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: dip
+userPassword: {crypt}x
+gidNumber: 30
+
+dn: cn=www-data,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: www-data
+userPassword: {crypt}x
+gidNumber: 33
+
+dn: cn=backup,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: backup
+userPassword: {crypt}x
+gidNumber: 34
+
+dn: cn=operator,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: operator
+userPassword: {crypt}x
+gidNumber: 37
+
+dn: cn=list,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: list
+userPassword: {crypt}x
+gidNumber: 38
+
+dn: cn=irc,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: irc
+userPassword: {crypt}x
+gidNumber: 39
+
+dn: cn=src,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: src
+userPassword: {crypt}x
+gidNumber: 40
+
+dn: cn=gnats,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: gnats
+userPassword: {crypt}x
+gidNumber: 41
+
+dn: cn=shadow,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: shadow
+userPassword: {crypt}x
+gidNumber: 42
+
+dn: cn=utmp,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: utmp
+userPassword: {crypt}x
+gidNumber: 43
+
+dn: cn=video,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: video
+userPassword: {crypt}x
+gidNumber: 44
+memberUid: pi
+
+dn: cn=sasl,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: sasl
+userPassword: {crypt}x
+gidNumber: 45
+
+dn: cn=plugdev,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: plugdev
+userPassword: {crypt}x
+gidNumber: 46
+memberUid: pi
+
+dn: cn=staff,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: staff
+userPassword: {crypt}x
+gidNumber: 50
+
+dn: cn=games,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: games
+userPassword: {crypt}x
+gidNumber: 60
+memberUid: pi
+
+dn: cn=users,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: users
+userPassword: {crypt}x
+gidNumber: 100
+memberUid: pi
+
+dn: cn=nogroup,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: nogroup
+userPassword: {crypt}x
+gidNumber: 65534
+
+dn: cn=input,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: input
+userPassword: {crypt}x
+gidNumber: 101
+memberUid: pi
+
+dn: cn=systemd-journal,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: systemd-journal
+userPassword: {crypt}x
+gidNumber: 102
+
+dn: cn=systemd-timesync,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: systemd-timesync
+userPassword: {crypt}x
+gidNumber: 103
+
+dn: cn=systemd-network,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: systemd-network
+userPassword: {crypt}x
+gidNumber: 104
+
+dn: cn=systemd-resolve,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: systemd-resolve
+userPassword: {crypt}x
+gidNumber: 105
+
+dn: cn=systemd-bus-proxy,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: systemd-bus-proxy
+userPassword: {crypt}x
+gidNumber: 106
+
+dn: cn=crontab,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: crontab
+userPassword: {crypt}x
+gidNumber: 107
+
+dn: cn=netdev,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: netdev
+userPassword: {crypt}x
+gidNumber: 108
+memberUid: pi
+
+dn: cn=pi,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: pi
+userPassword: {crypt}x
+gidNumber: 1000
+
+dn: cn=messagebus,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: messagebus
+userPassword: {crypt}x
+gidNumber: 109
+
+dn: cn=avahi,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: avahi
+userPassword: {crypt}x
+gidNumber: 110
+
+dn: cn=ntp,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: ntp
+userPassword: {crypt}x
+gidNumber: 111
+
+dn: cn=ssh,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: ssh
+userPassword: {crypt}x
+gidNumber: 112
+
+dn: cn=bluetooth,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: bluetooth
+userPassword: {crypt}x
+gidNumber: 113
+
+dn: cn=spi,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: spi
+userPassword: {crypt}x
+gidNumber: 999
+memberUid: pi
+
+dn: cn=i2c,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: i2c
+userPassword: {crypt}x
+gidNumber: 998
+memberUid: pi
+
+dn: cn=gpio,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: gpio
+userPassword: {crypt}x
+gidNumber: 997
+memberUid: pi
+
+dn: cn=lightdm,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: lightdm
+userPassword: {crypt}x
+gidNumber: 114
+
+dn: cn=lpadmin,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: lpadmin
+userPassword: {crypt}x
+gidNumber: 115
+
+dn: cn=pulse,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: pulse
+userPassword: {crypt}x
+gidNumber: 116
+
+dn: cn=pulse-access,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: pulse-access
+userPassword: {crypt}x
+gidNumber: 117
+
+dn: cn=rtkit,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: rtkit
+userPassword: {crypt}x
+gidNumber: 118
+
+dn: cn=Debian-exim,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: Debian-exim
+userPassword: {crypt}x
+gidNumber: 119
+
+dn: cn=openldap,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: openldap
+userPassword: {crypt}x
+gidNumber: 120
+
+dn: cn=nslcd,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: nslcd
+userPassword: {crypt}x
+gidNumber: 121
+
+dn: cn=ssl-cert,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: ssl-cert
+userPassword: {crypt}x
+gidNumber: 122
+
+dn: cn=smollet,ou=Group,dc=tortuga,dc=piratepress,dc=org
+objectClass: posixGroup
+objectClass: top
+cn: smollet
+userPassword: {crypt}x
+gidNumber: 1001
+
+dn: cn=localhost,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 127.0.0.1
+cn: localhost
+
+dn: cn=localhost,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: ::1
+cn: localhost
+cn: ip6-localhost
+cn: ip6-loopback
+
+dn: cn=ip6-allnodes,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: ff02::1
+cn: ip6-allnodes
+
+dn: cn=ip6-allrouters,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: ff02::2
+cn: ip6-allrouters
+
+dn: cn=raspberrypi,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 127.0.1.1
+cn: raspberrypi
+
+dn: cn=pi.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 192.168.41.1
+cn: pi.tortuga.piratepress.org
+
+dn: cn=kadmin.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 192.168.41.1
+cn: kadmin.tortuga.piratepress.org
+
+dn: cn=kdc.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 192.168.41.1
+cn: kdc.tortuga.piratepress.org
+
+dn: cn=default,ou=Networks,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipNetwork
+objectClass: top
+ipNetworkNumber: 0.0.0.0
+cn: default
+
+dn: cn=loopback,ou=Networks,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipNetwork
+objectClass: top
+ipNetworkNumber: 127.0.0.0
+cn: loopback
+
+dn: cn=link-local,ou=Networks,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipNetwork
+objectClass: top
+ipNetworkNumber: 169.254.0.0
+cn: link-local
+
+dn: uid=root,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: root
+cn: root
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/bash
+uidNumber: 0
+gidNumber: 0
+homeDirectory: /root
+gecos: root
+
+dn: uid=daemon,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: daemon
+cn: daemon
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 1
+gidNumber: 1
+homeDirectory: /usr/sbin
+gecos: daemon
+
+dn: uid=bin,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: bin
+cn: bin
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 2
+gidNumber: 2
+homeDirectory: /bin
+gecos: bin
+
+dn: uid=sys,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: sys
+cn: sys
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 3
+gidNumber: 3
+homeDirectory: /dev
+gecos: sys
+
+dn: uid=sync,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: sync
+cn: sync
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/sync
+uidNumber: 4
+gidNumber: 65534
+homeDirectory: /bin
+gecos: sync
+
+dn: uid=games,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: games
+cn: games
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 5
+gidNumber: 60
+homeDirectory: /usr/games
+gecos: games
+
+dn: uid=man,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: man
+cn: man
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 6
+gidNumber: 12
+homeDirectory: /var/cache/man
+gecos: man
+
+dn: uid=lp,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: lp
+cn: lp
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 7
+gidNumber: 7
+homeDirectory: /var/spool/lpd
+gecos: lp
+
+dn: uid=mail,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: mail
+cn: mail
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 8
+gidNumber: 8
+homeDirectory: /var/mail
+gecos: mail
+
+dn: uid=news,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: news
+cn: news
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 9
+gidNumber: 9
+homeDirectory: /var/spool/news
+gecos: news
+
+dn: uid=uucp,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: uucp
+cn: uucp
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 10
+gidNumber: 10
+homeDirectory: /var/spool/uucp
+gecos: uucp
+
+dn: uid=proxy,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: proxy
+cn: proxy
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 13
+gidNumber: 13
+homeDirectory: /bin
+gecos: proxy
+
+dn: uid=www-data,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: www-data
+cn: www-data
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 33
+gidNumber: 33
+homeDirectory: /var/www
+gecos: www-data
+
+dn: uid=backup,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: backup
+cn: backup
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 34
+gidNumber: 34
+homeDirectory: /var/backups
+gecos: backup
+
+dn: uid=list,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: list
+cn: Mailing List Manager
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 38
+gidNumber: 38
+homeDirectory: /var/list
+gecos: Mailing List Manager
+
+dn: uid=irc,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: irc
+cn: ircd
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 39
+gidNumber: 39
+homeDirectory: /var/run/ircd
+gecos: ircd
+
+dn: uid=gnats,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: gnats
+cn: Gnats Bug-Reporting System (admin)
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 41
+gidNumber: 41
+homeDirectory: /var/lib/gnats
+gecos: Gnats Bug-Reporting System (admin)
+
+dn: uid=nobody,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: nobody
+cn: nobody
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 65534
+gidNumber: 65534
+homeDirectory: /nonexistent
+gecos: nobody
+
+dn: uid=systemd-timesync,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: systemd-timesync
+cn: systemd Time Synchronization
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 100
+gidNumber: 103
+homeDirectory: /run/systemd
+gecos: systemd Time Synchronization,,,
+
+dn: uid=systemd-network,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: systemd-network
+cn: systemd Network Management
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 101
+gidNumber: 104
+homeDirectory: /run/systemd/netif
+gecos: systemd Network Management,,,
+
+dn: uid=systemd-resolve,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: systemd-resolve
+cn: systemd Resolver
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 102
+gidNumber: 105
+homeDirectory: /run/systemd/resolve
+gecos: systemd Resolver,,,
+
+dn: uid=systemd-bus-proxy,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: systemd-bus-proxy
+cn: systemd Bus Proxy
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 103
+gidNumber: 106
+homeDirectory: /run/systemd
+gecos: systemd Bus Proxy,,,
+
+dn: uid=pi,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: pi
+cn: pi
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/bash
+uidNumber: 1000
+gidNumber: 1000
+homeDirectory: /home/pi
+gecos: ,,,
+
+dn: uid=messagebus,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: messagebus
+cn: messagebus
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 104
+gidNumber: 109
+homeDirectory: /var/run/dbus
+
+dn: uid=avahi,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: avahi
+cn: Avahi mDNS daemon
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 105
+gidNumber: 110
+homeDirectory: /var/run/avahi-daemon
+gecos: Avahi mDNS daemon,,,
+
+dn: uid=ntp,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: ntp
+cn: ntp
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 106
+gidNumber: 111
+homeDirectory: /home/ntp
+
+dn: uid=sshd,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: sshd
+cn: sshd
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /usr/sbin/nologin
+uidNumber: 107
+gidNumber: 65534
+homeDirectory: /var/run/sshd
+
+dn: uid=statd,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: statd
+cn: statd
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 108
+gidNumber: 65534
+homeDirectory: /var/lib/nfs
+
+dn: uid=lightdm,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: lightdm
+cn: Light Display Manager
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 109
+gidNumber: 114
+homeDirectory: /var/lib/lightdm
+gecos: Light Display Manager
+
+dn: uid=pulse,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: pulse
+cn: PulseAudio daemon
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 110
+gidNumber: 116
+homeDirectory: /var/run/pulse
+gecos: PulseAudio daemon,,,
+
+dn: uid=rtkit,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: rtkit
+cn: RealtimeKit
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 111
+gidNumber: 118
+homeDirectory: /proc
+gecos: RealtimeKit,,,
+
+dn: uid=Debian-exim,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: Debian-exim
+cn: Debian-exim
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 112
+gidNumber: 119
+homeDirectory: /var/spool/exim4
+
+dn: uid=n2n-supernode,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: n2n-supernode
+cn: n2n-supernode
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 65533
+gidNumber: 65533
+homeDirectory: /tmp
+gecos: ,,,
+
+dn: uid=n2n-edge,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: n2n-edge
+cn: n2n-edge
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 65534
+gidNumber: 65534
+homeDirectory: /tmp
+gecos: ,,,
+
+dn: uid=openldap,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: openldap
+cn: OpenLDAP Server Account
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 113
+gidNumber: 120
+homeDirectory: /var/lib/ldap
+gecos: OpenLDAP Server Account,,,
+
+dn: uid=nslcd,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: nslcd
+cn: nslcd name service LDAP connection daemon
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 114
+gidNumber: 121
+homeDirectory: /var/run/nslcd/
+gecos: nslcd name service LDAP connection daemon,,,
+
+dn: uid=distccd,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: distccd
+cn: distccd
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/false
+uidNumber: 115
+gidNumber: 65534
+homeDirectory: /
+
+dn: uid=smollet,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: smollet
+cn: smollet
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+userPassword: {crypt}x
+loginShell: /bin/bash
+uidNumber: 1001
+gidNumber: 1001
+homeDirectory: /home/smollet
+gecos: ,,,
+
+dn: cn=ip,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ip
+ipProtocolNumber: 0
+cn: ip
+
+dn: cn=hopopt,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol hopopt
+ipProtocolNumber: 0
+cn: hopopt
+
+dn: cn=icmp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol icmp
+ipProtocolNumber: 1
+cn: icmp
+
+dn: cn=igmp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol igmp
+ipProtocolNumber: 2
+cn: igmp
+
+dn: cn=ggp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ggp
+ipProtocolNumber: 3
+cn: ggp
+
+dn: cn=ipencap,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ipencap
+ipProtocolNumber: 4
+cn: ipencap
+cn: IP-ENCAP
+
+dn: cn=st,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol st
+ipProtocolNumber: 5
+cn: st
+
+dn: cn=tcp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol tcp
+ipProtocolNumber: 6
+cn: tcp
+
+dn: cn=egp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol egp
+ipProtocolNumber: 8
+cn: egp
+
+dn: cn=igp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol igp
+ipProtocolNumber: 9
+cn: igp
+
+dn: cn=pup,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol pup
+ipProtocolNumber: 12
+cn: pup
+
+dn: cn=udp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol udp
+ipProtocolNumber: 17
+cn: udp
+
+dn: cn=hmp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol hmp
+ipProtocolNumber: 20
+cn: hmp
+
+dn: cn=xns-idp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol xns-idp
+ipProtocolNumber: 22
+cn: xns-idp
+
+dn: cn=rdp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol rdp
+ipProtocolNumber: 27
+cn: rdp
+
+dn: cn=iso-tp4,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol iso-tp4
+ipProtocolNumber: 29
+cn: iso-tp4
+
+dn: cn=dccp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol dccp
+ipProtocolNumber: 33
+cn: dccp
+
+dn: cn=xtp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol xtp
+ipProtocolNumber: 36
+cn: xtp
+
+dn: cn=ddp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ddp
+ipProtocolNumber: 37
+cn: ddp
+
+dn: cn=idpr-cmtp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol idpr-cmtp
+ipProtocolNumber: 38
+cn: idpr-cmtp
+
+dn: cn=ipv6,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ipv6
+ipProtocolNumber: 41
+cn: ipv6
+
+dn: cn=ipv6-route,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ipv6-route
+ipProtocolNumber: 43
+cn: ipv6-route
+
+dn: cn=ipv6-frag,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ipv6-frag
+ipProtocolNumber: 44
+cn: ipv6-frag
+
+dn: cn=idrp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol idrp
+ipProtocolNumber: 45
+cn: idrp
+
+dn: cn=rsvp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol rsvp
+ipProtocolNumber: 46
+cn: rsvp
+
+dn: cn=gre,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol gre
+ipProtocolNumber: 47
+cn: gre
+
+dn: cn=esp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol esp
+ipProtocolNumber: 50
+cn: esp
+cn: IPSEC-ESP
+
+dn: cn=ah,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ah
+ipProtocolNumber: 51
+cn: ah
+cn: IPSEC-AH
+
+dn: cn=skip,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol skip
+ipProtocolNumber: 57
+cn: skip
+
+dn: cn=ipv6-icmp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ipv6-icmp
+ipProtocolNumber: 58
+cn: ipv6-icmp
+
+dn: cn=ipv6-nonxt,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ipv6-nonxt
+ipProtocolNumber: 59
+cn: ipv6-nonxt
+
+dn: cn=ipv6-opts,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ipv6-opts
+ipProtocolNumber: 60
+cn: ipv6-opts
+
+dn: cn=rspf,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol rspf
+ipProtocolNumber: 73
+cn: rspf
+cn: CPHB
+
+dn: cn=vmtp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol vmtp
+ipProtocolNumber: 81
+cn: vmtp
+
+dn: cn=eigrp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol eigrp
+ipProtocolNumber: 88
+cn: eigrp
+
+dn: cn=ospf,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ospf
+ipProtocolNumber: 89
+cn: ospf
+cn: OSPFIGP
+
+dn: cn=ax.25,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ax.25
+ipProtocolNumber: 93
+cn: ax.25
+
+dn: cn=ipip,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ipip
+ipProtocolNumber: 94
+cn: ipip
+
+dn: cn=etherip,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol etherip
+ipProtocolNumber: 97
+cn: etherip
+
+dn: cn=encap,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol encap
+ipProtocolNumber: 98
+cn: encap
+
+dn: cn=pim,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol pim
+ipProtocolNumber: 103
+cn: pim
+
+dn: cn=ipcomp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol ipcomp
+ipProtocolNumber: 108
+cn: ipcomp
+
+dn: cn=vrrp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol vrrp
+ipProtocolNumber: 112
+cn: vrrp
+
+dn: cn=l2tp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol l2tp
+ipProtocolNumber: 115
+cn: l2tp
+
+dn: cn=isis,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol isis
+ipProtocolNumber: 124
+cn: isis
+
+dn: cn=sctp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol sctp
+ipProtocolNumber: 132
+cn: sctp
+
+dn: cn=fc,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol fc
+ipProtocolNumber: 133
+cn: fc
+
+dn: cn=mobility-header,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol mobility-header
+ipProtocolNumber: 135
+cn: mobility-header
+
+dn: cn=udplite,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol udplite
+ipProtocolNumber: 136
+cn: udplite
+
+dn: cn=mpls-in-ip,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol mpls-in-ip
+ipProtocolNumber: 137
+cn: mpls-in-ip
+
+dn: cn=manet,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol manet
+ipProtocolNumber: 138
+cn: manet
+
+dn: cn=hip,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol hip
+ipProtocolNumber: 139
+cn: hip
+
+dn: cn=shim6,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol shim6
+ipProtocolNumber: 140
+cn: shim6
+
+dn: cn=wesp,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol wesp
+ipProtocolNumber: 141
+cn: wesp
+
+dn: cn=rohc,ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipProtocol
+objectClass: top
+description: Protocol rohc
+ipProtocolNumber: 142
+cn: rohc
+
+dn: cn=portmapper,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC portmapper
+oncRpcNumber: 100000
+cn: portmapper
+cn: portmap
+cn: sunrpc
+
+dn: cn=rstatd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC rstatd
+oncRpcNumber: 100001
+cn: rstatd
+cn: perfmeter
+cn: rstat
+cn: rstat_svc
+cn: rup
+
+dn: cn=rusersd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC rusersd
+oncRpcNumber: 100002
+cn: rusersd
+cn: rusers
+
+dn: cn=nfs,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC nfs
+oncRpcNumber: 100003
+cn: nfs
+cn: nfsprog
+
+dn: cn=ypserv,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC ypserv
+oncRpcNumber: 100004
+cn: ypserv
+cn: ypprog
+
+dn: cn=mountd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC mountd
+oncRpcNumber: 100005
+cn: mountd
+cn: mount
+cn: showmount
+
+dn: cn=ypbind,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC ypbind
+oncRpcNumber: 100007
+cn: ypbind
+
+dn: cn=walld,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC walld
+oncRpcNumber: 100008
+cn: walld
+cn: rwall
+cn: shutdown
+
+dn: cn=yppasswdd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC yppasswdd
+oncRpcNumber: 100009
+cn: yppasswdd
+cn: yppasswd
+
+dn: cn=etherstatd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC etherstatd
+oncRpcNumber: 100010
+cn: etherstatd
+cn: etherstat
+
+dn: cn=rquotad,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC rquotad
+oncRpcNumber: 100011
+cn: rquotad
+cn: quota
+cn: rquota
+cn: rquotaprog
+
+dn: cn=sprayd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC sprayd
+oncRpcNumber: 100012
+cn: sprayd
+cn: spray
+
+dn: cn=3270_mapper,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC 3270_mapper
+oncRpcNumber: 100013
+cn: 3270_mapper
+
+dn: cn=rje_mapper,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC rje_mapper
+oncRpcNumber: 100014
+cn: rje_mapper
+
+dn: cn=selection_svc,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC selection_svc
+oncRpcNumber: 100015
+cn: selection_svc
+cn: selnsvc
+
+dn: cn=database_svc,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC database_svc
+oncRpcNumber: 100016
+cn: database_svc
+
+dn: cn=rexd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC rexd
+oncRpcNumber: 100017
+cn: rexd
+cn: rex
+
+dn: cn=alis,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC alis
+oncRpcNumber: 100018
+cn: alis
+
+dn: cn=sched,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC sched
+oncRpcNumber: 100019
+cn: sched
+
+dn: cn=llockmgr,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC llockmgr
+oncRpcNumber: 100020
+cn: llockmgr
+
+dn: cn=nlockmgr,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC nlockmgr
+oncRpcNumber: 100021
+cn: nlockmgr
+
+dn: cn=x25.inr,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC x25.inr
+oncRpcNumber: 100022
+cn: x25.inr
+
+dn: cn=statmon,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC statmon
+oncRpcNumber: 100023
+cn: statmon
+
+dn: cn=status,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC status
+oncRpcNumber: 100024
+cn: status
+
+dn: cn=bootparam,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC bootparam
+oncRpcNumber: 100026
+cn: bootparam
+
+dn: cn=ypupdated,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC ypupdated
+oncRpcNumber: 100028
+cn: ypupdated
+cn: ypupdate
+
+dn: cn=keyserv,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC keyserv
+oncRpcNumber: 100029
+cn: keyserv
+cn: keyserver
+
+dn: cn=tfsd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC tfsd
+oncRpcNumber: 100037
+cn: tfsd
+
+dn: cn=nsed,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC nsed
+oncRpcNumber: 100038
+cn: nsed
+
+dn: cn=nsemntd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC nsemntd
+oncRpcNumber: 100039
+cn: nsemntd
+
+dn: cn=ypxfrd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC ypxfrd
+oncRpcNumber: 100069
+cn: ypxfrd
+
+dn: cn=pcnfsd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC pcnfsd
+oncRpcNumber: 150001
+cn: pcnfsd
+
+dn: cn=amd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC amd
+oncRpcNumber: 300019
+cn: amd
+cn: amq
+
+dn: cn=sgi_fam,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC sgi_fam
+oncRpcNumber: 391002
+cn: sgi_fam
+
+dn: cn=ugidd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC ugidd
+oncRpcNumber: 545580417
+cn: ugidd
+
+dn: cn=fypxfrd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC fypxfrd
+oncRpcNumber: 600100069
+cn: fypxfrd
+cn: freebsd-ypxfrd
+
+dn: cn=bwnfsd,ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+objectClass: oncRpc
+objectClass: top
+description: RPC bwnfsd
+oncRpcNumber: 788585389
+cn: bwnfsd
+
+dn: cn=tcpmux,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1
+ipServiceProtocol: tcp
+cn: tcpmux
+
+dn: cn=rtmp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1
+ipServiceProtocol: ddp
+cn: rtmp
+
+dn: cn=nbp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2
+ipServiceProtocol: ddp
+cn: nbp
+
+dn: cn=echo+ipServiceProtocol=ddp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4
+ipServiceProtocol: ddp
+cn: echo
+
+dn: cn=zip,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6
+ipServiceProtocol: ddp
+cn: zip
+
+dn: cn=echo+ipServiceProtocol=tcp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: echo
+
+dn: cn=discard,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 9
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: discard
+cn: sink
+cn: null
+
+dn: cn=systat,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 11
+ipServiceProtocol: tcp
+cn: users
+cn: systat
+
+dn: cn=daytime,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 13
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: daytime
+
+dn: cn=netstat,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 15
+ipServiceProtocol: tcp
+cn: netstat
+
+dn: cn=qotd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 17
+ipServiceProtocol: tcp
+cn: quote
+cn: qotd
+
+dn: cn=msp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 18
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: msp
+
+dn: cn=chargen,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 19
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: chargen
+cn: source
+cn: ttytst
+
+dn: cn=ftp-data,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 20
+ipServiceProtocol: tcp
+cn: ftp-data
+
+dn: cn=ftp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 21
+ipServiceProtocol: tcp
+cn: ftp
+
+dn: cn=fsp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 21
+ipServiceProtocol: udp
+cn: fspd
+cn: fsp
+
+dn: cn=ssh,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 22
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ssh
+
+dn: cn=telnet,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 23
+ipServiceProtocol: tcp
+cn: telnet
+
+dn: cn=smtp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 25
+ipServiceProtocol: tcp
+cn: smtp
+cn: mail
+
+dn: cn=time,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 37
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: time
+cn: timserver
+
+dn: cn=rlp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 39
+ipServiceProtocol: udp
+cn: resource
+cn: rlp
+
+dn: cn=nameserver,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 42
+ipServiceProtocol: tcp
+cn: name
+cn: nameserver
+
+dn: cn=whois,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 43
+ipServiceProtocol: tcp
+cn: nicname
+cn: whois
+
+dn: cn=tacacs,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 49
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: tacacs
+
+dn: cn=re-mail-ck,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 50
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: re-mail-ck
+
+dn: cn=domain,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 53
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: domain
+
+dn: cn=mtp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 57
+ipServiceProtocol: tcp
+cn: mtp
+
+dn: cn=tacacs-ds,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 65
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: tacacs-ds
+
+dn: cn=bootps,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 67
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: bootps
+
+dn: cn=bootpc,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 68
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: bootpc
+
+dn: cn=tftp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 69
+ipServiceProtocol: udp
+cn: tftp
+
+dn: cn=gopher,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 70
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: gopher
+
+dn: cn=rje,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 77
+ipServiceProtocol: tcp
+cn: netrjs
+cn: rje
+
+dn: cn=finger,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 79
+ipServiceProtocol: tcp
+cn: finger
+
+dn: cn=http,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 80
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: http
+cn: www
+
+dn: cn=link,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 87
+ipServiceProtocol: tcp
+cn: link
+cn: ttylink
+
+dn: cn=kerberos,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 88
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: krb5
+cn: kerberos-sec
+cn: kerberos
+cn: kerberos5
+
+dn: cn=supdup,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 95
+ipServiceProtocol: tcp
+cn: supdup
+
+dn: cn=linuxconf,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 98
+ipServiceProtocol: tcp
+cn: linuxconf
+
+dn: cn=hostnames,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 101
+ipServiceProtocol: tcp
+cn: hostname
+cn: hostnames
+
+dn: cn=iso-tsap,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 102
+ipServiceProtocol: tcp
+cn: iso-tsap
+cn: tsap
+
+dn: cn=acr-nema,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 104
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: dicom
+cn: acr-nema
+
+dn: cn=csnet-ns,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 105
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: cso-ns
+cn: csnet-ns
+
+dn: cn=poppassd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 106
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: poppassd
+
+dn: cn=rtelnet,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 107
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: rtelnet
+
+dn: cn=pop2,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 109
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: postoffice
+cn: pop-2
+cn: pop2
+
+dn: cn=pop3,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 110
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: pop3
+cn: pop-3
+
+dn: cn=sunrpc,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 111
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: sunrpc
+cn: portmapper
+
+dn: cn=auth,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 113
+ipServiceProtocol: tcp
+cn: ident
+cn: auth
+cn: tap
+cn: authentication
+
+dn: cn=sftp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 115
+ipServiceProtocol: tcp
+cn: sftp
+
+dn: cn=uucp-path,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 117
+ipServiceProtocol: tcp
+cn: uucp-path
+
+dn: cn=nntp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 119
+ipServiceProtocol: tcp
+cn: untp
+cn: nntp
+cn: readnews
+
+dn: cn=ntp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 123
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ntp
+
+dn: cn=pwdgen,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 129
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: pwdgen
+
+dn: cn=loc-srv,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 135
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: epmap
+cn: loc-srv
+
+dn: cn=netbios-ns,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 137
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: netbios-ns
+
+dn: cn=netbios-dgm,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 138
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: netbios-dgm
+
+dn: cn=netbios-ssn,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 139
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: netbios-ssn
+
+dn: cn=imap2,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 143
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: imap
+cn: imap2
+
+dn: cn=snmp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 161
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: snmp
+
+dn: cn=snmp-trap,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 162
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: snmp-trap
+cn: snmptrap
+
+dn: cn=cmip-man,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 163
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: cmip-man
+
+dn: cn=cmip-agent,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 164
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: cmip-agent
+
+dn: cn=mailq,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 174
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: mailq
+
+dn: cn=xdmcp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 177
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: xdmcp
+
+dn: cn=nextstep,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 178
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: nextstep
+cn: NeXTStep
+cn: NextStep
+
+dn: cn=bgp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 179
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: bgp
+
+dn: cn=prospero,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 191
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: prospero
+
+dn: cn=irc,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 194
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: irc
+
+dn: cn=smux,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 199
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: smux
+
+dn: cn=at-rtmp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 201
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: at-rtmp
+
+dn: cn=at-nbp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 202
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: at-nbp
+
+dn: cn=at-echo,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 204
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: at-echo
+
+dn: cn=at-zis,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 206
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: at-zis
+
+dn: cn=qmtp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 209
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: qmtp
+
+dn: cn=z3950,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 210
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: wais
+cn: z3950
+
+dn: cn=ipx,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 213
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ipx
+
+dn: cn=imap3,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 220
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: imap3
+
+dn: cn=pawserv,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 345
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: pawserv
+
+dn: cn=zserv,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 346
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: zserv
+
+dn: cn=fatserv,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 347
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: fatserv
+
+dn: cn=rpc2portmap,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 369
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: rpc2portmap
+
+dn: cn=codaauth2,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 370
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: codaauth2
+
+dn: cn=clearcase,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 371
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: clearcase
+cn: Clearcase
+
+dn: cn=ulistserv,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 372
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ulistserv
+
+dn: cn=ldap,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 389
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ldap
+
+dn: cn=imsp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 406
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: imsp
+
+dn: cn=svrloc,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 427
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: svrloc
+
+dn: cn=https,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 443
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: https
+
+dn: cn=snpp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 444
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: snpp
+
+dn: cn=microsoft-ds,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 445
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: microsoft-ds
+
+dn: cn=kpasswd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 464
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: kpasswd
+
+dn: cn=urd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 465
+ipServiceProtocol: tcp
+cn: smtps
+cn: urd
+cn: ssmtp
+
+dn: cn=saft,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 487
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: saft
+
+dn: cn=isakmp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 500
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: isakmp
+
+dn: cn=exec,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 512
+ipServiceProtocol: tcp
+cn: exec
+
+dn: cn=biff,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 512
+ipServiceProtocol: udp
+cn: biff
+cn: comsat
+
+dn: cn=login,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 513
+ipServiceProtocol: tcp
+cn: login
+
+dn: cn=who,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 513
+ipServiceProtocol: udp
+cn: whod
+cn: who
+
+dn: cn=shell,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 514
+ipServiceProtocol: tcp
+cn: cmd
+cn: shell
+
+dn: cn=syslog,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 514
+ipServiceProtocol: udp
+cn: syslog
+
+dn: cn=printer,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 515
+ipServiceProtocol: tcp
+cn: spooler
+cn: printer
+
+dn: cn=talk,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 517
+ipServiceProtocol: udp
+cn: talk
+
+dn: cn=ntalk,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 518
+ipServiceProtocol: udp
+cn: ntalk
+
+dn: cn=route,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 520
+ipServiceProtocol: udp
+cn: route
+cn: routed
+cn: router
+
+dn: cn=timed,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 525
+ipServiceProtocol: udp
+cn: timeserver
+cn: timed
+
+dn: cn=tempo,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 526
+ipServiceProtocol: tcp
+cn: tempo
+cn: newdate
+
+dn: cn=courier,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 530
+ipServiceProtocol: tcp
+cn: rpc
+cn: courier
+
+dn: cn=conference,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 531
+ipServiceProtocol: tcp
+cn: conference
+cn: chat
+
+dn: cn=netnews,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 532
+ipServiceProtocol: tcp
+cn: netnews
+cn: readnews
+
+dn: cn=netwall,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 533
+ipServiceProtocol: udp
+cn: netwall
+
+dn: cn=gdomap,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 538
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: gdomap
+
+dn: cn=uucp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 540
+ipServiceProtocol: tcp
+cn: uucpd
+cn: uucp
+
+dn: cn=klogin,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 543
+ipServiceProtocol: tcp
+cn: klogin
+
+dn: cn=kshell,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 544
+ipServiceProtocol: tcp
+cn: kshell
+cn: krcmd
+
+dn: cn=dhcpv6-client,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 546
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: dhcpv6-client
+
+dn: cn=dhcpv6-server,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 547
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: dhcpv6-server
+
+dn: cn=afpovertcp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 548
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afpovertcp
+
+dn: cn=idfp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 549
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: idfp
+
+dn: cn=rtsp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 554
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: rtsp
+
+dn: cn=remotefs,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 556
+ipServiceProtocol: tcp
+cn: remotefs
+cn: rfs_server
+cn: rfs
+
+dn: cn=nntps,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 563
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: nntps
+cn: snntp
+
+dn: cn=submission,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 587
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: submission
+
+dn: cn=nqs,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 607
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: nqs
+
+dn: cn=npmp-local,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 610
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: npmp-local
+cn: dqs313_qmaster
+
+dn: cn=npmp-gui,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 611
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: npmp-gui
+cn: dqs313_execd
+
+dn: cn=hmmp-ind,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 612
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: hmmp-ind
+cn: dqs313_intercell
+
+dn: cn=asf-rmcp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 623
+ipServiceProtocol: udp
+cn: asf-rmcp
+
+dn: cn=qmqp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 628
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: qmqp
+
+dn: cn=ipp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 631
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ipp
+
+dn: cn=ldaps,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 636
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ldaps
+
+dn: cn=tinc,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 655
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: tinc
+
+dn: cn=silc,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 706
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: silc
+
+dn: cn=kerberos-adm,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 749
+ipServiceProtocol: tcp
+cn: kerberos-adm
+
+dn: cn=kerberos4,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 750
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: kerberos-iv
+cn: kerberos4
+cn: kdc
+
+dn: cn=kerberos-master,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 751
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: kerberos_master
+cn: kerberos-master
+
+dn: cn=passwd-server,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 752
+ipServiceProtocol: udp
+cn: passwd-server
+cn: passwd_server
+
+dn: cn=krb-prop,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 754
+ipServiceProtocol: tcp
+cn: krb-prop
+cn: hprop
+cn: krb_prop
+cn: krb5_prop
+
+dn: cn=krbupdate,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 760
+ipServiceProtocol: tcp
+cn: kreg
+cn: krbupdate
+
+dn: cn=webster,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 765
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: webster
+
+dn: cn=moira-db,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 775
+ipServiceProtocol: tcp
+cn: moira_db
+cn: moira-db
+
+dn: cn=moira-update,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 777
+ipServiceProtocol: tcp
+cn: moira_update
+cn: moira-update
+
+dn: cn=moira-ureg,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 779
+ipServiceProtocol: udp
+cn: moira-ureg
+cn: moira_ureg
+
+dn: cn=spamd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 783
+ipServiceProtocol: tcp
+cn: spamd
+
+dn: cn=omirr,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 808
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: omirrd
+cn: omirr
+
+dn: cn=supfilesrv,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 871
+ipServiceProtocol: tcp
+cn: supfilesrv
+
+dn: cn=rsync,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 873
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: rsync
+
+dn: cn=swat,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 901
+ipServiceProtocol: tcp
+cn: swat
+
+dn: cn=ftps-data,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 989
+ipServiceProtocol: tcp
+cn: ftps-data
+
+dn: cn=ftps,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 990
+ipServiceProtocol: tcp
+cn: ftps
+
+dn: cn=telnets,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 992
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: telnets
+
+dn: cn=imaps,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 993
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: imaps
+
+dn: cn=ircs,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 994
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ircs
+
+dn: cn=pop3s,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 995
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: pop3s
+
+dn: cn=customs,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1001
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: customs
+
+dn: cn=socks,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1080
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: socks
+
+dn: cn=proofd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1093
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: proofd
+
+dn: cn=rootd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1094
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: rootd
+
+dn: cn=rmiregistry,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1099
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: rmiregistry
+
+dn: cn=kpop,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1109
+ipServiceProtocol: tcp
+cn: kpop
+
+dn: cn=supfiledbg,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1127
+ipServiceProtocol: tcp
+cn: supfiledbg
+
+dn: cn=skkserv,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1178
+ipServiceProtocol: tcp
+cn: skkserv
+
+dn: cn=openvpn,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1194
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: openvpn
+
+dn: cn=predict,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1210
+ipServiceProtocol: udp
+cn: predict
+
+dn: cn=kazaa,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1214
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: kazaa
+
+dn: cn=rmtcfg,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1236
+ipServiceProtocol: tcp
+cn: rmtcfg
+
+dn: cn=nessus,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1241
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: nessus
+
+dn: cn=wipld,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1300
+ipServiceProtocol: tcp
+cn: wipld
+
+dn: cn=xtel,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1313
+ipServiceProtocol: tcp
+cn: xtel
+
+dn: cn=xtelw,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1314
+ipServiceProtocol: tcp
+cn: xtelw
+
+dn: cn=lotusnote,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1352
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: lotusnotes
+cn: lotusnote
+
+dn: cn=ms-sql-s,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1433
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ms-sql-s
+
+dn: cn=ms-sql-m,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1434
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ms-sql-m
+
+dn: cn=ingreslock,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1524
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ingreslock
+
+dn: cn=prospero-np,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1525
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: prospero-np
+
+dn: cn=support,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1529
+ipServiceProtocol: tcp
+cn: support
+
+dn: cn=datametrics,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1645
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: datametrics
+cn: old-radius
+
+dn: cn=sa-msg-port,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1646
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: sa-msg-port
+cn: old-radacct
+
+dn: cn=kermit,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1649
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: kermit
+
+dn: cn=groupwise,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1677
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: groupwise
+
+dn: cn=l2f,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1701
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: l2tp
+cn: l2f
+
+dn: cn=radius,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1812
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: radius
+
+dn: cn=radius-acct,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1813
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: radius-acct
+cn: radacct
+
+dn: cn=msnp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1863
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: msnp
+
+dn: cn=unix-status,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1957
+ipServiceProtocol: tcp
+cn: unix-status
+
+dn: cn=log-server,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1958
+ipServiceProtocol: tcp
+cn: log-server
+
+dn: cn=remoteping,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 1959
+ipServiceProtocol: tcp
+cn: remoteping
+
+dn: cn=cisco-sccp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2000
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: cisco-sccp
+
+dn: cn=cfinger,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2003
+ipServiceProtocol: tcp
+cn: cfinger
+
+dn: cn=search,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2010
+ipServiceProtocol: tcp
+cn: ndtp
+cn: search
+
+dn: cn=pipe-server,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2010
+ipServiceProtocol: tcp
+cn: pipe-server
+cn: pipe_server
+
+dn: cn=nfs,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2049
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: nfs
+
+dn: cn=knetd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2053
+ipServiceProtocol: tcp
+cn: knetd
+
+dn: cn=gnunet,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2086
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: gnunet
+
+dn: cn=rtcm-sc104,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2101
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: rtcm-sc104
+
+dn: cn=zephyr-srv,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2102
+ipServiceProtocol: udp
+cn: zephyr-srv
+
+dn: cn=zephyr-clt,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2103
+ipServiceProtocol: udp
+cn: zephyr-clt
+
+dn: cn=zephyr-hm,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2104
+ipServiceProtocol: udp
+cn: zephyr-hm
+
+dn: cn=eklogin,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2105
+ipServiceProtocol: tcp
+cn: eklogin
+
+dn: cn=kx,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2111
+ipServiceProtocol: tcp
+cn: kx
+
+dn: cn=gsigatekeeper,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2119
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: gsigatekeeper
+
+dn: cn=iprop,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2121
+ipServiceProtocol: tcp
+cn: iprop
+
+dn: cn=frox,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2121
+ipServiceProtocol: tcp
+cn: frox
+
+dn: cn=gris,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2135
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: gris
+
+dn: cn=ninstall,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2150
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ninstall
+
+dn: cn=cvspserver,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2401
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: cvspserver
+
+dn: cn=venus,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2430
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: venus
+
+dn: cn=venus-se,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2431
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: venus-se
+
+dn: cn=codasrv,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2432
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: codasrv
+
+dn: cn=codasrv-se,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2433
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: codasrv-se
+
+dn: cn=mon,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2583
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: mon
+
+dn: cn=zebrasrv,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2600
+ipServiceProtocol: tcp
+cn: zebrasrv
+
+dn: cn=zebra,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2601
+ipServiceProtocol: tcp
+cn: zebra
+
+dn: cn=ripd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2602
+ipServiceProtocol: tcp
+cn: ripd
+
+dn: cn=ripngd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2603
+ipServiceProtocol: tcp
+cn: ripngd
+
+dn: cn=ospfd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2604
+ipServiceProtocol: tcp
+cn: ospfd
+
+dn: cn=bgpd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2605
+ipServiceProtocol: tcp
+cn: bgpd
+
+dn: cn=ospf6d,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2606
+ipServiceProtocol: tcp
+cn: ospf6d
+
+dn: cn=ospfapi,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2607
+ipServiceProtocol: tcp
+cn: ospfapi
+
+dn: cn=isisd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2608
+ipServiceProtocol: tcp
+cn: isisd
+
+dn: cn=dict,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2628
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: dict
+
+dn: cn=f5-globalsite,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2792
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: f5-globalsite
+
+dn: cn=gsiftp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2811
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: gsiftp
+
+dn: cn=gpsd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2947
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: gpsd
+
+dn: cn=afbackup,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2988
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afbackup
+
+dn: cn=afmbackup,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 2989
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afmbackup
+
+dn: cn=gds-db,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 3050
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: gds-db
+cn: gds_db
+
+dn: cn=icpv2,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 3130
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: icpv2
+cn: icp
+
+dn: cn=iscsi-target,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 3260
+ipServiceProtocol: tcp
+cn: iscsi-target
+
+dn: cn=mysql,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 3306
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: mysql
+
+dn: cn=nut,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 3493
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: nut
+
+dn: cn=distcc,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 3632
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: distcc
+
+dn: cn=daap,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 3689
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: daap
+
+dn: cn=svn,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 3690
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: subversion
+cn: svn
+
+dn: cn=suucp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4031
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: suucp
+
+dn: cn=sysrqd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4094
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: sysrqd
+
+dn: cn=sieve,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4190
+ipServiceProtocol: tcp
+cn: sieve
+
+dn: cn=xtell,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4224
+ipServiceProtocol: tcp
+cn: xtell
+
+dn: cn=f5-iquery,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4353
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: f5-iquery
+
+dn: cn=epmd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4369
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: epmd
+
+dn: cn=remctl,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4373
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: remctl
+
+dn: cn=ipsec-nat-t,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4500
+ipServiceProtocol: udp
+cn: ipsec-nat-t
+
+dn: cn=fax,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4557
+ipServiceProtocol: tcp
+cn: fax
+
+dn: cn=hylafax,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4559
+ipServiceProtocol: tcp
+cn: hylafax
+
+dn: cn=iax,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4569
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: iax
+
+dn: cn=distmp3,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4600
+ipServiceProtocol: tcp
+cn: distmp3
+
+dn: cn=mtn,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4691
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: mtn
+
+dn: cn=radmin-port,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4899
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: radmin-port
+
+dn: cn=munin,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 4949
+ipServiceProtocol: tcp
+cn: lrrd
+cn: munin
+
+dn: cn=rfe,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5002
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: rfe
+
+dn: cn=mmcc,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5050
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: mmcc
+
+dn: cn=enbd-cstatd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5051
+ipServiceProtocol: tcp
+cn: enbd-cstatd
+
+dn: cn=enbd-sstatd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5052
+ipServiceProtocol: tcp
+cn: enbd-sstatd
+
+dn: cn=sip,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5060
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: sip
+
+dn: cn=sip-tls,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5061
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: sip-tls
+
+dn: cn=pcrd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5151
+ipServiceProtocol: tcp
+cn: pcrd
+
+dn: cn=aol,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5190
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: aol
+
+dn: cn=xmpp-client,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5222
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: xmpp-client
+cn: jabber-client
+
+dn: cn=xmpp-server,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5269
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: xmpp-server
+cn: jabber-server
+
+dn: cn=cfengine,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5308
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: cfengine
+
+dn: cn=mdns,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5353
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: mdns
+
+dn: cn=noclog,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5354
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: noclog
+
+dn: cn=hostmon,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5355
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: hostmon
+
+dn: cn=postgresql,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5432
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: postgresql
+cn: postgres
+
+dn: cn=rplay,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5555
+ipServiceProtocol: udp
+cn: rplay
+
+dn: cn=freeciv,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5556
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: freeciv
+cn: rptp
+
+dn: cn=nrpe,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5666
+ipServiceProtocol: tcp
+cn: nrpe
+
+dn: cn=nsca,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5667
+ipServiceProtocol: tcp
+cn: nsca
+
+dn: cn=amqps,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5671
+ipServiceProtocol: tcp
+cn: amqps
+
+dn: cn=amqp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5672
+ipServiceProtocol: sctp
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: amqp
+
+dn: cn=mrtd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5674
+ipServiceProtocol: tcp
+cn: mrtd
+
+dn: cn=bgpsim,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5675
+ipServiceProtocol: tcp
+cn: bgpsim
+
+dn: cn=canna,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5680
+ipServiceProtocol: tcp
+cn: canna
+
+dn: cn=ggz,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 5688
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: ggz
+
+dn: cn=x11,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6000
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: x11
+cn: x11-0
+
+dn: cn=x11-1,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6001
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: x11-1
+
+dn: cn=x11-2,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6002
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: x11-2
+
+dn: cn=x11-3,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6003
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: x11-3
+
+dn: cn=x11-4,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6004
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: x11-4
+
+dn: cn=x11-5,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6005
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: x11-5
+
+dn: cn=x11-6,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6006
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: x11-6
+
+dn: cn=x11-7,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6007
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: x11-7
+
+dn: cn=gnutella-svc,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6346
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: gnutella-svc
+
+dn: cn=gnutella-rtr,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6347
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: gnutella-rtr
+
+dn: cn=sge-qmaster,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6444
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: sge_qmaster
+cn: sge-qmaster
+
+dn: cn=sge-execd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6445
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: sge_execd
+cn: sge-execd
+
+dn: cn=mysql-proxy,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6446
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: mysql-proxy
+
+dn: cn=syslog-tls,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6514
+ipServiceProtocol: tcp
+cn: syslog-tls
+
+dn: cn=sane-port,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6566
+ipServiceProtocol: tcp
+cn: saned
+cn: sane
+cn: sane-port
+
+dn: cn=ircd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 6667
+ipServiceProtocol: tcp
+cn: ircd
+
+dn: cn=afs3-fileserver,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7000
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: bbs
+cn: afs3-fileserver
+
+dn: cn=afs3-callback,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7001
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afs3-callback
+
+dn: cn=afs3-prserver,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7002
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afs3-prserver
+
+dn: cn=afs3-vlserver,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7003
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afs3-vlserver
+
+dn: cn=afs3-kaserver,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7004
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afs3-kaserver
+
+dn: cn=afs3-volser,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7005
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afs3-volser
+
+dn: cn=afs3-errors,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7006
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afs3-errors
+
+dn: cn=afs3-bos,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7007
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afs3-bos
+
+dn: cn=afs3-update,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7008
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afs3-update
+
+dn: cn=afs3-rmtsys,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7009
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: afs3-rmtsys
+
+dn: cn=font-service,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 7100
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: font-service
+cn: xfs
+
+dn: cn=zope-ftp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 8021
+ipServiceProtocol: tcp
+cn: zope-ftp
+
+dn: cn=http-alt,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 8080
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: http-alt
+cn: webcache
+
+dn: cn=tproxy,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 8081
+ipServiceProtocol: tcp
+cn: tproxy
+
+dn: cn=omniorb,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 8088
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: omniorb
+
+dn: cn=clc-build-daemon,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 8990
+ipServiceProtocol: tcp
+cn: clc-build-daemon
+
+dn: cn=xinetd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 9098
+ipServiceProtocol: tcp
+cn: xinetd
+
+dn: cn=bacula-dir,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 9101
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: bacula-dir
+
+dn: cn=bacula-fd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 9102
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: bacula-fd
+
+dn: cn=bacula-sd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 9103
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: bacula-sd
+
+dn: cn=mandelspawn,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 9359
+ipServiceProtocol: udp
+cn: mandelspawn
+cn: mandelbrot
+
+dn: cn=git,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 9418
+ipServiceProtocol: tcp
+cn: git
+
+dn: cn=xmms2,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 9667
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: xmms2
+
+dn: cn=zope,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 9673
+ipServiceProtocol: tcp
+cn: zope
+
+dn: cn=webmin,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 10000
+ipServiceProtocol: tcp
+cn: webmin
+
+dn: cn=zabbix-agent,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 10050
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: zabbix-agent
+
+dn: cn=zabbix-trapper,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 10051
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: zabbix-trapper
+
+dn: cn=amanda,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 10080
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: amanda
+
+dn: cn=kamanda,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 10081
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: kamanda
+
+dn: cn=amandaidx,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 10082
+ipServiceProtocol: tcp
+cn: amandaidx
+
+dn: cn=amidxtape,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 10083
+ipServiceProtocol: tcp
+cn: amidxtape
+
+dn: cn=nbd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 10809
+ipServiceProtocol: tcp
+cn: nbd
+
+dn: cn=dicom,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 11112
+ipServiceProtocol: tcp
+cn: dicom
+
+dn: cn=smsqp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 11201
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: smsqp
+
+dn: cn=hkp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 11371
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: hkp
+
+dn: cn=bprd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 13720
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: bprd
+
+dn: cn=bpdbm,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 13721
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: bpdbm
+
+dn: cn=bpjava-msvc,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 13722
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: bpjava-msvc
+
+dn: cn=vnetd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 13724
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: vnetd
+
+dn: cn=bpcd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 13782
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: bpcd
+
+dn: cn=vopied,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 13783
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: vopied
+
+dn: cn=xpilot,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 15345
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: xpilot
+
+dn: cn=sgi-cmsd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 17001
+ipServiceProtocol: udp
+cn: sgi-cmsd
+
+dn: cn=sgi-crsd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 17002
+ipServiceProtocol: udp
+cn: sgi-crsd
+
+dn: cn=sgi-gcd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 17003
+ipServiceProtocol: udp
+cn: sgi-gcd
+
+dn: cn=sgi-cad,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 17004
+ipServiceProtocol: tcp
+cn: sgi-cad
+
+dn: cn=db-lsp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 17500
+ipServiceProtocol: tcp
+cn: db-lsp
+
+dn: cn=isdnlog,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 20011
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: isdnlog
+
+dn: cn=vboxd,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 20012
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: vboxd
+
+dn: cn=dcap,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 22125
+ipServiceProtocol: tcp
+cn: dcap
+
+dn: cn=gsidcap,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 22128
+ipServiceProtocol: tcp
+cn: gsidcap
+
+dn: cn=wnn6,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 22273
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: wnn6
+
+dn: cn=binkp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 24554
+ipServiceProtocol: tcp
+cn: binkp
+
+dn: cn=asp,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 27374
+ipServiceProtocol: tcp
+ipServiceProtocol: udp
+cn: asp
+
+dn: cn=csync2,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 30865
+ipServiceProtocol: tcp
+cn: csync2
+
+dn: cn=dircproxy,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 57000
+ipServiceProtocol: tcp
+cn: dircproxy
+
+dn: cn=tfido,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 60177
+ipServiceProtocol: tcp
+cn: tfido
+
+dn: cn=fido,ou=Services,dc=tortuga,dc=piratepress,dc=org
+objectClass: ipService
+objectClass: top
+ipServicePort: 60179
+ipServiceProtocol: tcp
+cn: fido
+
