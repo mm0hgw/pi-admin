@@ -1,0 +1,10 @@
+127.0.0.1	localhost
+::1		localhost ip6-localhost ip6-loopback
+ff02::1		ip6-allnodes
+ff02::2		ip6-allrouters
+
+192.168.41.1	raspberrypi.tortuga.piratepress.org raspberrypi
+192.168.41.2	brain.tortuga.piratepress.org brain
+192.168.41.1	kadmin.tortuga.piratepress.org kadmin
+192.168.41.2	kdc.tortuga.piratepress.org kdc
+

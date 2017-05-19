@@ -1,10 +1,3 @@
-dn: dc=tortuga,dc=piratepress,dc=org
-objectClass: dcObject
-objectClass: top
-objectClass: organisation
-o: Tilly Coding Club 
-dc: tortuga
-
 dn: cn=root,ou=Group,dc=tortuga,dc=piratepress,dc=org
 objectClass: posixGroup
 objectClass: top
