@@ -107,8 +107,6 @@ log-facility local7;
 #}
 
 
-allow booting;
-
 # tortuga.piratepress.org pi range
 subnet 10.127.127.0 netmask 255.255.255.0 {
   range dynamic-bootp 10.127.127.21 10.127.127.254;
@@ -118,13 +116,4 @@ subnet 10.127.127.0 netmask 255.255.255.0 {
   option broadcast-address 10.127.127.255;
   default-lease-time 600;
   max-lease-time 7200;
-  filename "pxelinux.0"
 }
-
-group {
-  next-server 10.127.127.1;
-  host tftpclient {
-    filename "pxelinux.0"
-  }
-}
-
