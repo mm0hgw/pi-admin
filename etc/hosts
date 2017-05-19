@@ -7,4 +7,16 @@ ff02::2		ip6-allrouters
 192.168.41.2	brain.tortuga.piratepress.org brain
 192.168.41.1	kadmin.tortuga.piratepress.org kadmin
 192.168.41.2	kdc.tortuga.piratepress.org kdc
+192.168.41.1	ns1.tortuga.piratepress.org ns1
+192.168.41.2	ns2.tortuga.piratepress.org ns2
 
+10.127.127.1	raspberrypi.pispace.tortuga.piratepress.org
+10.127.127.21	slavepi1.pispace.tortuga.piratepress.org
+10.127.127.22	slavepi2.pispace.tortuga.piratepress.org
+10.127.127.23	slavepi3.pispace.tortuga.piratepress.org
+10.127.127.24	slavepi4.pispace.tortuga.piratepress.org
+10.127.127.25	slavepi5.pispace.tortuga.piratepress.org
+10.127.127.26	slavepi6.pispace.tortuga.piratepress.org
+10.127.127.27	slavepi7.pispace.tortuga.piratepress.org
+10.127.127.28	slavepi8.pispace.tortuga.piratepress.org
+10.127.127.29	slavepi9.pispace.tortuga.piratepress.org
