@@ -1,0 +1,101 @@
+# extended LDIF
+#
+# LDAPv3
+# base <dc=tortuga,dc=piratepress,dc=org> (default) with scope subtree
+# filter: (objectclass=*)
+# requesting: ALL
+#
+
+# tortuga.piratepress.org
+dn: dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: tortuga.piratepress.org
+dc: tortuga
+
+# admin, tortuga.piratepress.org
+dn: cn=admin,dc=tortuga,dc=piratepress,dc=org
+objectClass: simpleSecurityObject
+objectClass: organizationalRole
+cn: admin
+description: LDAP administrator
+
+# Mounts, tortuga.piratepress.org
+dn: ou=Mounts,dc=tortuga,dc=piratepress,dc=org
+ou: Mounts
+objectClass: top
+objectClass: organizationalUnit
+
+# Protocols, tortuga.piratepress.org
+dn: ou=Protocols,dc=tortuga,dc=piratepress,dc=org
+ou: Protocols
+objectClass: top
+objectClass: organizationalUnit
+
+# Services, tortuga.piratepress.org
+dn: ou=Services,dc=tortuga,dc=piratepress,dc=org
+ou: Services
+objectClass: top
+objectClass: organizationalUnit
+
+# Group, tortuga.piratepress.org
+dn: ou=Group,dc=tortuga,dc=piratepress,dc=org
+ou: Group
+objectClass: top
+objectClass: organizationalUnit
+
+# netgroup.byhost, tortuga.piratepress.org
+dn: nisMapName=netgroup.byhost,dc=tortuga,dc=piratepress,dc=org
+nisMapName: netgroup.byhost
+objectClass: top
+objectClass: nisMap
+
+# Rpc, tortuga.piratepress.org
+dn: ou=Rpc,dc=tortuga,dc=piratepress,dc=org
+ou: Rpc
+objectClass: top
+objectClass: organizationalUnit
+
+# Hosts, tortuga.piratepress.org
+dn: ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+ou: Hosts
+objectClass: top
+objectClass: organizationalUnit
+
+# Networks, tortuga.piratepress.org
+dn: ou=Networks,dc=tortuga,dc=piratepress,dc=org
+ou: Networks
+objectClass: top
+objectClass: organizationalUnit
+
+# People, tortuga.piratepress.org
+dn: ou=People,dc=tortuga,dc=piratepress,dc=org
+ou: People
+objectClass: top
+objectClass: organizationalUnit
+
+# netgroup.byuser, tortuga.piratepress.org
+dn: nisMapName=netgroup.byuser,dc=tortuga,dc=piratepress,dc=org
+nisMapName: netgroup.byuser
+objectClass: top
+objectClass: nisMap
+
+# Netgroup, tortuga.piratepress.org
+dn: ou=Netgroup,dc=tortuga,dc=piratepress,dc=org
+ou: Netgroup
+objectClass: top
+objectClass: organizationalUnit
+
+# Aliases, tortuga.piratepress.org
+dn: ou=Aliases,dc=tortuga,dc=piratepress,dc=org
+ou: Aliases
+objectClass: top
+objectClass: organizationalUnit
+
+# search result
+#search: 5
+#result: 0 Success
+
+# numResponses: 15
+# numEntries: 14

@@ -1,0 +1,7 @@
+Name: Register check to see if default password has been changed when SSH is enabled
+Default: yes
+Priority: 0
+Session-Interactive-Only: yes
+Session-Type: Additional
+Session:
+	optional	pam_chksshpwd.so
