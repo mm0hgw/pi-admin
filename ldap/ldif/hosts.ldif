@@ -1,0 +1,148 @@
+dn: cn=localhost,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 127.0.0.1
+cn: localhost
+
+dn: cn=localhost,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: ::1
+cn: localhost
+cn: ip6-localhost
+cn: ip6-loopback
+
+dn: cn=ip6-allnodes,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: ff02::1
+cn: ip6-allnodes
+
+dn: cn=ip6-allrouters,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: ff02::2
+cn: ip6-allrouters
+
+dn: cn=raspberrypi.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 192.168.41.1
+cn: raspberrypi.tortuga.piratepress.org
+cn: raspberrypi
+
+dn: cn=brain.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 192.168.41.2
+cn: brain.tortuga.piratepress.org
+cn: brain
+
+dn: cn=kadmin.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 192.168.41.1
+cn: kadmin.tortuga.piratepress.org
+cn: kadmin
+
+dn: cn=kdc.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 192.168.41.2
+cn: kdc.tortuga.piratepress.org
+cn: kdc
+
+dn: cn=ns1.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 192.168.41.1
+cn: ns1.tortuga.piratepress.org
+cn: ns1
+
+dn: cn=ns2.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 192.168.41.2
+cn: ns2.tortuga.piratepress.org
+cn: ns2
+
+dn: cn=raspberrypi.pispace.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 10.127.127.1
+cn: raspberrypi.pispace.tortuga.piratepress.org
+
+dn: cn=slavepi1.pispace.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 10.127.127.21
+cn: slavepi1.pispace.tortuga.piratepress.org
+
+dn: cn=slavepi2.pispace.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 10.127.127.22
+cn: slavepi2.pispace.tortuga.piratepress.org
+
+dn: cn=slavepi3.pispace.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 10.127.127.23
+cn: slavepi3.pispace.tortuga.piratepress.org
+
+dn: cn=slavepi4.pispace.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 10.127.127.24
+cn: slavepi4.pispace.tortuga.piratepress.org
+
+dn: cn=slavepi5.pispace.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 10.127.127.25
+cn: slavepi5.pispace.tortuga.piratepress.org
+
+dn: cn=slavepi6.pispace.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 10.127.127.26
+cn: slavepi6.pispace.tortuga.piratepress.org
+
+dn: cn=slavepi7.pispace.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 10.127.127.27
+cn: slavepi7.pispace.tortuga.piratepress.org
+
+dn: cn=slavepi8.pispace.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 10.127.127.28
+cn: slavepi8.pispace.tortuga.piratepress.org
+
+dn: cn=slavepi9.pispace.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 10.127.127.29
+cn: slavepi9.pispace.tortuga.piratepress.org
+

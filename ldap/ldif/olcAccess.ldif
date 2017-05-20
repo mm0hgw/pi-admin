@@ -2,6 +2,6 @@ dn: olcDatabase={1}hdb,cn=config
 changetype: modify 
 add: olcAccess 
 olcAccess: {1}to attrs=loginShell,gecos
-  by dn="cn=admin,dc=example,dc=com" write
+  by dn="cn=admin,dc=tortuga,dc=piratepress,dc=org" write
   by self write
   by * read

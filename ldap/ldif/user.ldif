@@ -1,0 +1,27 @@
+dn: uid=smollet,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: smollet
+cn: smollet
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+loginShell: /bin/bash
+uidNumber: 1001
+gidNumber: 1001
+homeDirectory: /home/smollet
+gecos: smollet
+userPassword: {SASL}smollet@TORTUGA.PIRATEPRESS.ORG
+
+dn: uid=zenrhe,ou=People,dc=tortuga,dc=piratepress,dc=org
+uid: zenrhe
+cn: zenrhe
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+loginShell: /bin/bash
+uidNumber: 1010
+gidNumber: 1010
+homeDirectory: /home/zenrhe
+gecos: zenrhe
+userPassword: {SASL}zenrhe@TORTUGA.PIRATEPRESS.ORG
+
+
