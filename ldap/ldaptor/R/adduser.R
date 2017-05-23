@@ -27,11 +27,9 @@ is_subnet_layout <- function(s){
  TRUE
 }	
 
-test_admin <- c('brain','hispaniola')
+test_admin <- c('grandpioverlord','pioverlord')
 
-test_route <- c(apple=20,orange=5,pear=10,banana=6)
-
-test_boot <- c(pispace=10,pispace2=10)
+test_route <- c(pispace=8)
 
 hisec_db <- list(list(c('kadmin','kdc','ldap','nfs','www','ns1')),
  list(c('kadmin','ldap','ns1'),c('kdc','nfs','www','ns2')),
@@ -42,7 +40,6 @@ hisec_db <- list(list(c('kadmin','kdc','ldap','nfs','www','ns1')),
 krb_realm <- function(realm=default_realm,
 	admin_hosts=test_admin,
 	routed_subnet_layout=test_route,
-	booted_subnet_layout=test_boot,
 	base_ip=default_base_ip
 ){
 	stopifnot(length(realm)==1)
@@ -56,18 +53,15 @@ krb_realm <- function(realm=default_realm,
 	out <- list()
 	out$realm <- realm
 	out$domain <- tolower(realm)
-	b_nets <- length(booted_subnet_layout)
 	r_nets <- length(routed_subnet_layout)
-	a <- subnet_size(r_nets+b_nets+length(admin_hosts))
+	a <- subnet_size(r_nets+length(admin_hosts))
 	r <- sapply(routed_subnet_layout,subnet_size)
 	names(r) <- names(routed_subnet_layout)
-	b <- sapply(booted_subnet_layout,subnet_size)
-	names(b) <- names(booted_subnet_layout)
-	netlist <- sort(c(admin=a,r,b))
+	netlist <- sort(c(admin=a,r))
 	out$networks <- list()
 	out$hosts <- list()
-	hostnames<-subnet_layout_names(c(routed_subnet_layout,booted_subnet_layout))
-	hostnames$admin <- c(admin_hosts,names(r),names(b))
+	hostnames<-subnet_layout_names(routed_subnet_layout)
+	hostnames$admin <- c(admin_hosts,names(r))
 	i<-1
 	while(i<=length(netlist)){
 		net<-names(netlist)[i]
@@ -80,10 +74,11 @@ krb_realm <- function(realm=default_realm,
 		while(j<=length(hostnames[[net]])){
 			hostname <- hostnames[[net]][j]
 			if(net=='admin'){					fqdn <- paste(sep='.',hostname,out$domain)
-				if(j<kdc){
+				if(j<=kdc){
 					servicenames <- do.call(c,c(hostname,hisec[j]))
-					fqdns <- paste(collapse=' ',c(hostnames,paste(sep='.',servicenames,out$domain)))
-					out$hosts[[fqdns]] <- host_ip
+					admin_dns<-paste(collapse=' ',servicenames)
+					fqdns <- paste(collapse=' ',sep='.',servicenames,out$domain)
+					out$hosts[[paste(admin_dns,fqdns)]] <- host_ip
 				}else{
 					fqdn <- paste(sep='.',hostname,out$domain)
 					out$hosts[[paste(hostname,fqdn)]] <- host_ip
