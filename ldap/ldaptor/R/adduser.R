@@ -33,7 +33,7 @@ test_route <- c(apple=20,orange=5,pear=10,banana=6)
 
 test_boot <- c(pispace=10,pispace2=10)
 
-hisec <- list(list(c('kadmin','kdc','ldap','nfs','www','ns1')),
+hisec_db <- list(list(c('kadmin','kdc','ldap','nfs','www','ns1')),
  list(c('kadmin','ldap','ns1'),c('kdc','nfs','www','ns2')),
  list(c('kadmin'),c('kdc','ldap','ns1'),c('kdc2','nfs','www','ns2')),
  list(c('kadmin'),c('kdc','ldap'),c('kdc2','nfs','ns1'),c('kdc3','www','ns2'))
@@ -52,7 +52,7 @@ krb_realm <- function(realm=default_realm,
 	stopifnot(all(sapply(admin_hosts,nchar)<=20))
 	kdc <- length(admin_hosts)
 	ldap <- min(2,kdc)
-	
+	hisec <- hisec_db[[min(length(hisec_db),length(admin_hosts))]]
 	out <- list()
 	out$realm <- realm
 	out$domain <- tolower(realm)
@@ -79,8 +79,8 @@ krb_realm <- function(realm=default_realm,
 		j<-1
 		while(j<=length(hostnames[[net]])){
 			hostname <- hostnames[[net]][j]
-			if(net=='admin'){
-				fqdn <- paste(sep='.',hostname,out$domain)
+			if(net=='admin'&&j<=length(hisec)){
+				fqdn <- paste(collapse=' ',sep='.',c(hostname,hisec[[j]]),out$domain)
 			}else
 				fqdn <- paste(sep='.',hostname,net,out$domain)
 			out$hosts[[paste(hostname,fqdn)]] <- host_ip
