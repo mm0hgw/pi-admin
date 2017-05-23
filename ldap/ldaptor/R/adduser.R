@@ -33,16 +33,17 @@ test_route <- c(apple=20,orange=5,pear=10,banana=6)
 
 test_boot <- c(pispace=10,pispace2=10)
 
-test_hisec_servers <- c('kadmin','kdc','ldap','nfs','www')
-
-test_losec_servers <- c('dns')
+hisec <- list(list(c('kadmin','kdc','ldap','nfs','www','ns1')),
+ list(c('kadmin','ldap','ns1'),c('kdc','nfs','www','ns2')),
+ list(c('kadmin'),c('kdc','ldap','ns1'),c('kdc2','nfs','www','ns2')),
+ list(c('kadmin'),c('kdc','ldap'),c('kdc2','nfs','ns1'),c('kdc3','www','ns2'))
+)
 
 krb_realm <- function(realm=default_realm,
 	admin_hosts=test_admin,
 	routed_subnet_layout=test_route,
 	booted_subnet_layout=test_boot,
-	base_ip=default_base_ip,
-	hisec=
+	base_ip=default_base_ip
 ){
 	stopifnot(length(realm)==1)
 	stopifnot(all(strsplit(realm,'')[[1]] %in% valid_realm_chars))
@@ -78,9 +79,9 @@ krb_realm <- function(realm=default_realm,
 		j<-1
 		while(j<=length(hostnames[[net]])){
 			hostname <- hostnames[[net]][j]
-			if(net=='admin')
+			if(net=='admin'){
 				fqdn <- paste(sep='.',hostname,out$domain)
-			else
+			}else
 				fqdn <- paste(sep='.',hostname,net,out$domain)
 			out$hosts[[paste(hostname,fqdn)]] <- host_ip
 			host_ip <- inc_ip(host_ip)
