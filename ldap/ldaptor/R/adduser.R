@@ -80,8 +80,8 @@ krb_realm <- function(realm=default_realm,
 		while(j<=length(hostnames[[net]])){
 			hostname <- hostnames[[net]][j]
 			if(net=='admin'&&j<kdc){
-				hostnames <- c(hostname,hisec[j])
-				fqdns <- paste(collapse=' ',c(hostnames,paste(sep='.',hostnames,out$domain)))
+				servicenames <- do.call(c,c(hostname,hisec[j]))
+				fqdns <- paste(collapse=' ',c(hostnames,paste(sep='.',servicenames,out$domain)))
 				out$hosts[[fqdns]] <- host_ip
 				}else
 					fqdn <- paste(sep='.'hostname,out$domain)
