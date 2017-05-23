@@ -79,11 +79,16 @@ krb_realm <- function(realm=default_realm,
 		j<-1
 		while(j<=length(hostnames[[net]])){
 			hostname <- hostnames[[net]][j]
-			if(net=='admin'&&j<=length(hisec)){
-				fqdn <- paste(collapse=' ',sep='.',c(hostname,hisec[[j]]),out$domain)
-			}else
+			if(net=='admin'&&j<kdc){
+				hostnames <- c(hostname,hisec[j])
+				fqdns <- paste(collapse=' ',c(hostnames,paste(sep='.',hostnames,out$domain)))
+				out$hosts[[fqdns]] <- host_ip
+				}else
+					fqdn <- paste(sep='.'hostname,out$domain)
+			}else{
 				fqdn <- paste(sep='.',hostname,net,out$domain)
-			out$hosts[[paste(hostname,fqdn)]] <- host_ip
+				out$hosts[[paste(hostname,fqdn)]] <- host_ip
+			}
 			host_ip <- inc_ip(host_ip)
 			j<-j+1
 		}
