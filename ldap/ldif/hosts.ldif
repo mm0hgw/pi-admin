@@ -48,15 +48,23 @@ dn: cn=kadmin.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
 objectClass: top
 objectClass: ipHost
 objectClass: device
-ipHostNumber: 192.168.41.1
+ipHostNumber: 192.168.41.2
 cn: kadmin.tortuga.piratepress.org
 cn: kadmin
+
+dn: cn=ldap.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
+objectClass: top
+objectClass: ipHost
+objectClass: device
+ipHostNumber: 192.168.41.2
+cn: ldap.tortuga.piratepress.org
+cn: ldap
 
 dn: cn=kdc.tortuga.piratepress.org,ou=Hosts,dc=tortuga,dc=piratepress,dc=org
 objectClass: top
 objectClass: ipHost
 objectClass: device
-ipHostNumber: 192.168.41.2
+ipHostNumber: 192.168.41.1
 cn: kdc.tortuga.piratepress.org
 cn: kdc
 

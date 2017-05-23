@@ -1,0 +1,7 @@
+dn: cn=ldaproot,dc=tortuga,dc=piratepress,dc=org
+objectClass: simpleSecurityObject
+objectClass: organizationalRole
+cn: ldaproot
+description: Kerberos Authenticated Admin
+userPassword: {SASL}*/admin@TORTUGA.PIRATEPRESS.ORG
+

@@ -1,0 +1,232 @@
+
+
+valid_realm_chars <- c('.',LETTERS)
+valid_host_chars <- c(letters,seq(0,9))
+valid_domain_chars <- c('.',valid_host_chars)
+
+subnet_key <- 2^seq(24)-2
+
+is_subnet_layout <- function(s){
+ if(any(s%%1!=0))
+  return(FALSE)
+ if(is.null(n<-names(s)))
+  return(FALSE)
+ if(
+  length(
+   setdiff(
+    do.call(c,
+     strsplit(n,
+      ''
+     )
+    ),
+    valid_host_chars
+   )
+  )!=0
+ )
+  return(FALSE)
+ TRUE
+}	
+
+test_admin <- c('brain','hispaniola')
+
+test_route <- c(apple=20,orange=5,pear=10,banana=6)
+
+test_boot <- c(pispace=10,pispace2=10)
+
+test_hisec_servers <- c('kadmin','kdc','ldap','nfs','www')
+
+test_losec_servers <- c('dns')
+
+krb_realm <- function(realm=default_realm,
+	admin_hosts=test_admin,
+	routed_subnet_layout=test_route,
+	booted_subnet_layout=test_boot,
+	base_ip=default_base_ip,
+	hisec=
+){
+	stopifnot(length(realm)==1)
+	stopifnot(all(strsplit(realm,'')[[1]] %in% valid_realm_chars))
+	stopifnot(length(admin_hosts)>0)
+	stopifnot(all(do.call(c,strsplit(admin_hosts,'')) %in% letters))
+	stopifnot(all(sapply(admin_hosts,nchar)<=20))
+	kdc <- length(admin_hosts)
+	ldap <- min(2,kdc)
+	
+	out <- list()
+	out$realm <- realm
+	out$domain <- tolower(realm)
+	b_nets <- length(booted_subnet_layout)
+	r_nets <- length(routed_subnet_layout)
+	a <- subnet_size(r_nets+b_nets+length(admin_hosts))
+	r <- sapply(routed_subnet_layout,subnet_size)
+	names(r) <- names(routed_subnet_layout)
+	b <- sapply(booted_subnet_layout,subnet_size)
+	names(b) <- names(booted_subnet_layout)
+	netlist <- sort(c(admin=a,r,b))
+	out$networks <- list()
+	out$hosts <- list()
+	hostnames<-subnet_layout_names(c(routed_subnet_layout,booted_subnet_layout))
+	hostnames$admin <- c(admin_hosts,names(r),names(b))
+	i<-1
+	while(i<=length(netlist)){
+		net<-names(netlist)[i]
+		if(net=='admin')
+			out$networks[[strsplit(out$domain,'\\.')[[1]][1]]] <- c(base_ip,netlist[i])
+		else
+			out$networks[[net]] <- c(base_ip,netlist[i])
+		host_ip <- inc_ip(base_ip)
+		j<-1
+		while(j<=length(hostnames[[net]])){
+			hostname <- hostnames[[net]][j]
+			if(net=='admin')
+				fqdn <- paste(sep='.',hostname,out$domain)
+			else
+				fqdn <- paste(sep='.',hostname,net,out$domain)
+			out$hosts[[paste(hostname,fqdn)]] <- host_ip
+			host_ip <- inc_ip(host_ip)
+			j<-j+1
+		}
+		base_ip <- next_subnet(base_ip,netlist[i])
+		i<-i+1
+	}
+	out
+}
+
+inc_ip <- function(ip){
+	i<-4
+	overflow <- TRUE
+	while(overflow){
+		ip[i]<-ip[i]+1
+		if(ip[i]<256)
+			overflow<-FALSE
+		else{
+			ip[i]<-0
+			i<-i-1
+		}
+	}
+	ip
+}
+
+default_realm = "TORTUGA.PIRATEPRESS.ORG"
+default_basedn = "dc=tortuga,dc=piratepress,dc=org"
+default_shell = '/bin/bash'
+default_base_ip = as.integer(c(10,0,0,0))
+
+addusertogroup <- function(user,group,basedn=default_basedn){
+	paste(sep='', 'dn: cn=',group,',',basedn,'\n',
+		'changeType: modify\n',
+		'add: memberUid',
+		'memberUid: ',user,'\n',
+		'\n'
+	)
+}
+
+adduser <- function(user,uid,gid,
+	gecos=user,
+	shell=default_shell,
+	basedn=default_basedn,
+	domain=default_domain
+){
+	paste(sep='','dn: uid=',user,',ou=users,',basedn,'\n',
+		'objectClass: top\n',
+		'objectClass: account\n',
+		'objectClass: posixAccount\n',
+		'cn: ',user,'\n',
+		'uid: ',user,'\n',
+		'uidNumber: ',uid,'\n',
+		'gidNumber: ',gid,'\n',
+		'homeDirectory: /home/',user,'\n',
+		'loginShell: ',shell,'\n',
+		'gecos: ',gecos,'\n',
+		'userPassword: {SASL}',user,'@',domain,'\n',
+		'\n'
+	)
+}
+
+addgroup <- function(group, gid, basedn=default_basedn){
+	paste(sep='','dn: cn=',group,',ou=groups,',basedn,'\n',
+		'objectClass: top\n',
+		'objectClass: posixGroup\n',
+		'gidNumber: ',gid,'\n',
+		'\n'
+	)
+}
+
+addusers <- function( users, 
+	startuid=2000, 
+	usersgid=100, 
+	basedn = default_basedn,
+	domain = default_domain
+){
+	sapply(seq_along(users),
+		function(i){
+			uid = startuid - 1 + i
+			adduser(users[i],uid,usersgid,
+				basedn = default_basedn,
+				domain = default_domain
+			)
+		}
+	)
+}
+
+subnet_names <- function(netname,hosts){
+	paste(sep='-',netname,seq(hosts))
+}
+
+subnet_layout_names <- function(s){
+	out<-lapply(seq_along(s),
+		function(i){
+			subnet_names(names(s)[i],s[i])
+		}
+	)
+	names(out) <- names(s)
+	out
+}
+
+subnet_size <- function(s){
+	out <- 31
+	i <- 1
+	while(s>subnet_key[i]){
+		out<-out-1
+		i<-i+1
+	}
+	out
+}
+
+next_subnet <- function(ip,sn){
+	i<-1
+	while(sn>8){
+		sn <- sn-8
+		i <- i+1
+	}
+	ip[i]<-ip[i]+2^(8-sn)
+	ip
+}
+
+export_networks_flatfile <- function(networks){
+	paste(collapse='\n',
+	c(
+		sapply(seq_along(networks),
+			function(i){
+				n <- networks[[i]]
+				ip <- paste(collapse='.',n[1:4])
+				net <- paste(sep='/',ip,n[5])
+				paste(sep='\t',net,names(networks[i]))
+			}
+		),'')
+	)
+}
+
+export_hosts_flatfile <- function(hosts){
+	paste(collapse='\n',
+	c(
+		sapply(seq_along(hosts),
+			function(i){
+				n <- hosts[[i]]
+				ip <- paste(collapse='.',n)
+				paste(sep='\t',ip,names(hosts[i]))
+			}
+		),'')
+	)
+}
+
