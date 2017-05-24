@@ -15,7 +15,6 @@ ldapkv <- function(key, value) {
     out
 }
 
-
 format.ldapkv <- function(x, sep = ": ", ...) {
     gsub(RFC2253specialregex, "\\\\\\1", paste(collapse = sep, x))
 }
@@ -23,8 +22,6 @@ format.ldapkv <- function(x, sep = ": ", ...) {
 is.ldapkv <- function(x) {
     inherits(x, "ldapkv")
 }
-
-
 
 ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
     stopifnot(is.ldapkv(pkey))
@@ -48,7 +45,6 @@ format.ldapquery <- function(x, ...) {
 is.ldapquery <- function(x) {
     inherits(x, "ldapquery")
 }
-
 
 is.basedn.class <- function(x) {
     inherits(x, "basedn.class")
