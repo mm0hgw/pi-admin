@@ -186,10 +186,6 @@ export_hosts_flatfile <- function(hosts) {
     }), ""))
 }
 
-ldif_line <- function(key,value){
-	paste(sep='',key,': ',value,'\n')
-}
-
 text_ip <- function(ip){
 	paste(collapse='.',ip)
 }
@@ -212,87 +208,6 @@ subnetmask <- function(bits){
 }
 
 server_ldif <- function(server,domain){
-	basedn <- basednFromDomain(domain)
-
-dn: cn=config, ou=dhcp,dc=example,dc=com
-cn: config
-objectClass: top
-objectClass: dhcpService
-dhcpPrimaryDN:  cn=server,ou=dhcp,dc=example,dc=com
-dhcpStatements: ddns-update-style none
-dhcpStatements: get-lease-hostnames true
-dhcpStatements: use-host-decl-names true
-}
-
-RFC1123 <- c(letters,LETTERS,'.','-',seq(0,9))
-
-domain.class <- function(name){
-	stopifnot(is.character(name))
-	stopifnot(length(name)==1)
-	stopifnot(length(setdiff(strsplit(name,'')[[1]],RFC1123))==0)
-	out<- name
-	class(out)<-c('domain.class',class(out))
-	out
-}
-
-ldapquery <- function(pkey,basedn,skeylist=list(),kvlist=list()){
-	stopifnot(is.ldapkv(key))
-	stopifnot(is.basedn.class(basedn))
-	stopifnot(all(sapply(c(skeylist,kvlist),is.ldapkv)))
-	
-	out<-list(pkey=pkey,basedn=basedn,skeylist=skeylist,kvlist=kvlist)
-	class(out)<-'ldapquery'
-	out
-}
-
-format.ldapquery <- function(x,...){
-	dn <- sapply(x,format,sep='=')
-	format(ldifkv('dn',paste(collapse=',',dn)))
-
-}
-
-is.ldapkv <- function(x){
-	inherits(x,'ldapkv')
-}
-is.domain.class <- function(x){
-	inherits(x,'domain.class')
-}
-is.basedn.class <- function(x){
-	inherits(x,'basedn.class')
-}
-
-basedn.class <- function(domain){
-	
-	out <- lapply(strsplit(domain,'\\.')[[1]],ldifkv,x='dc')
-	class(out) <- 'basedn.class'
-	out
-}
-
-format.ldapdn <- function(x,...){
-	dn <- sapply(x,format,sep='=')
-	format(ldifkv('dn',paste(collapse=',',dn)))
-}
-
-
-# RFC2253 without '\' because Trumpette says '\' is silly
-RFC2253special <- c( ",", "+", "\"", "<", ">", ";") 
-RFC2253 <- c(RFC1123,RFC2253special)
-
-ldapkv <- function(key,value){
-	stopifnot(is.character(key))
-	stopifnot(length(key)==1)
-	stopifnot(length(setdiff(strsplit(key,'')[[1]],RFC2253))==0)
-	stopifnot(is.character(value))
-	stopifnot(length(value)==1)
-	stopifnot(length(setdiff(strsplit(value,'')[[1]],RFC2253))==0)
-	value<-list
-	out<-c(x,...)
-	class(out)<-'ldapkv'
-	out
-}
-
-format.ldapkv <- function(x,sep=': ',...){
-	gsub(paste(collapse='',RFC2253),'\\\\\\1',paste(collapse=sep,x))
 }
 
 
