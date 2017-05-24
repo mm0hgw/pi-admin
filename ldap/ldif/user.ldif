@@ -5,8 +5,8 @@ objectClass: account
 objectClass: posixAccount
 objectClass: top
 loginShell: /bin/bash
-uidNumber: 1001
-gidNumber: 1001
+uidNumber: 1000
+gidNumber: 1000
 homeDirectory: /home/smollet
 gecos: smollet
 userPassword: {SASL}smollet@TORTUGA.PIRATEPRESS.ORG

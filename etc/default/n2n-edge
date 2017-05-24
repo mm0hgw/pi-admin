@@ -9,15 +9,27 @@ N2N_COMMUNITY="facehaving"
 N2N_KEY="bumsbums"
 
 # Sets the n2n supernode IP address to register to.
-N2N_SUPERNODE="tortuga.piratepress.org"
-N2N_SN_PORT="1234"
+N2N_SN_HOST=tortuga.piratepress.org
+N2N_SN_PORT=1234
 
-# Sets the n2n virtual LAN IP address being claimed. This is a private IP
-# address. All IP addresses in an n2n community typical belong to the same /24
-# net‐ work (ie. only the last octet of the IP addresses varies).
-N2N_IP="static:192.168.41.1"
+# We use 'getent' to pull the host IP/ethernet address from the environment. 
+# The hostname is pointed to an address in the 127.0.0.0 block by default. 
+# Very Bad Things can happen if the hostname is not resolvable to an IP 
+# address, however, this isn't an issue if we always run the n2n edge daemon.
+# It does mean that the IP/ethernet addresses are not set here but by the nss 
+# system, as available at boot time which probably means /etc/hosts and 
+# /etc/ethers depending upon your setup
+HOSTNAME=`uname -n`
+N2N_IP_ADDR=`getent hosts $HOSTNAME | awk '{print  $1}'`
+N2N_IP="static:$N2N_IP_ADDR"
+N2N_MAC_ADDR=`getent ethers $HOSTNAME | awk '{print  $1}'`
 
-DAEMON_OPTS="-r"
+
+# -r Enable packet forwarding
+# -b Periodically resolve supernode IP (resolution often fails at boot-time)
+# -E Accept muilticast MAC addresses (for DHCP server)
+
+DAEMON_OPTS="-r -b -E"
 
 # Uncomment this to get edge node started.
 N2N_EDGE_CONFIG_DONE="yes"
