@@ -24,8 +24,13 @@ hisec_db <- list(list(c("kadmin", "kdc1", "ldap", "nfs", "www", "ns1")), list(c(
     "kdc2", "ldap", "ns1"), c("kdc1", "nfs", "www", "ns2")), list(c("kadmin", "kdc2"), 
     c("kdc1", "ldap", "ns1"), c("nfs", "www", "ns2")), list(c("kadmin", "kdc2"), 
     c("kdc1", "ldap"), c("nfs", "ns1"), c("www", "ns2")))
+    
+basednFromDomain <- function(domain){
+	parts <- strsplit(domain,'\\.')[[1]]
+	paste(collapse=',',sep='','dc=',parts)
+}
 
-krb_realm <- function(realm = default_realm, admin_hosts = test_admin, routed_subnet_layout = test_route, 
+krb_realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     base_ip = default_base_ip) {
     stopifnot(length(realm) == 1)
     stopifnot(all(strsplit(realm, "")[[1]] %in% valid_realm_chars))
@@ -36,16 +41,17 @@ krb_realm <- function(realm = default_realm, admin_hosts = test_admin, routed_su
     ldap <- min(2, kdc)
     hisec <- hisec_db[[min(length(hisec_db), length(admin_hosts))]]
     out <- list()
-    out$realm <- realm
-    out$domain <- tolower(realm)
-    r_nets <- length(routed_subnet_layout)
+    out$realm <- toupper(domain)
+    out$domain <- domain
+    out$basedn <- basednFromDomain(domain)
+    r_nets <- length(subnet_layout)
     a <- subnet_size(r_nets + length(admin_hosts))
     r <- sapply(routed_subnet_layout, subnet_size)
-    names(r) <- names(routed_subnet_layout)
-    netlist <- sort(c(admin = a, r))
+    names(s) <- names(subnet_layout)
+    netlist <- sort(c(admin = a, s))
     out$networks <- list()
     out$hosts <- list()
-    hostnames <- subnet_layout_names(routed_subnet_layout)
+    hostnames <- subnet_layout_names(subnet_layout)
     hostnames$admin <- c(admin_hosts, names(r))
     i <- 1
     while (i <= length(netlist)) {
@@ -80,22 +86,25 @@ krb_realm <- function(realm = default_realm, admin_hosts = test_admin, routed_su
     out
 }
 
-inc_ip <- function(ip) {
+inc_ip <- function(ip,n=1) {
+j<-1
+while(j<=n){
     i <- 4
     overflow <- TRUE
     while (overflow) {
         ip[i] <- ip[i] + 1
         if (ip[i] < 256) 
-            overflow <- FALSE else {
+            {overflow <- FALSE} else {
             ip[i] <- 0
             i <- i - 1
         }
     }
+    j<-j+1
+   }
     ip
+    
 }
 
-default_realm = "TORTUGA.PIRATEPRESS.ORG"
-default_basedn = "dc=tortuga,dc=piratepress,dc=org"
 default_shell = "/bin/bash"
 default_base_ip = as.integer(c(10, 0, 0, 0))
 
@@ -104,8 +113,9 @@ addusertogroup <- function(user, group, basedn = default_basedn) {
         "add: memberUid", "memberUid: ", user, "\n", "\n")
 }
 
-adduser <- function(user, uid, gid, gecos = user, shell = default_shell, basedn = default_basedn, 
-    domain = default_domain) {
+adduser <- function(user, uid, gid, gecos = user, shell = default_shell, 
+    domain) {
+    basedn <- basednFromDomain(domain)
     paste(sep = "", "dn: uid=", user, ",ou=users,", basedn, "\n", "objectClass: top\n", 
         "objectClass: account\n", "objectClass: posixAccount\n", "cn: ", user, "\n", 
         "uid: ", user, "\n", "uidNumber: ", uid, "\n", "gidNumber: ", gid, "\n", 
@@ -113,16 +123,17 @@ adduser <- function(user, uid, gid, gecos = user, shell = default_shell, basedn 
         gecos, "\n", "userPassword: {SASL}", user, "@", domain, "\n", "\n")
 }
 
-addgroup <- function(group, gid, basedn = default_basedn) {
+addgroup <- function(group, gid, domain) {
+    basedn <- basednFromDomain(domain)
     paste(sep = "", "dn: cn=", group, ",ou=groups,", basedn, "\n", "objectClass: top\n", 
         "objectClass: posixGroup\n", "gidNumber: ", gid, "\n", "\n")
 }
 
-addusers <- function(users, startuid = 2000, usersgid = 100, basedn = default_basedn, 
-    domain = default_domain) {
+addusers <- function(users, startuid = 2000, usersgid = 100,
+    domain) {
     sapply(seq_along(users), function(i) {
         uid = startuid - 1 + i
-        adduser(users[i], uid, usersgid, basedn = default_basedn, domain = default_domain)
+        adduser(users[i], uid, usersgid, domain)
     })
 }
 
@@ -175,12 +186,74 @@ export_hosts_flatfile <- function(hosts) {
     }), ""))
 }
 
+ldif_line <- function(key,value){
+	paste(sep='',key,': ',value,'\n')
+}
+
+text_ip <- function(ip){
+	paste(collapse='.',ip)
+}
+
+subnetmask <- function(bits){
+	out<-rep(0,4)
+	i<-1
+	while(bits>8){
+		bits<-bits-8
+		out[i]<-255
+		i<-i+1
+	}
+	octet <- 7
+	while(bits>0){
+		out[i]<-out[i]+2^octet
+		octet<-octet-1
+		bits<-bits-1
+	}
+	out
+}
+
+server_ldif <- function(server,domain){
+	basedn <- basednFromDomain(domain)
+
+dn: cn=config, ou=dhcp,dc=example,dc=com
+cn: config
+objectClass: top
+objectClass: dhcpService
+dhcpPrimaryDN:  cn=server,ou=dhcp,dc=example,dc=com
+dhcpStatements: ddns-update-style none
+dhcpStatements: get-lease-hostnames true
+dhcpStatements: use-host-decl-names true
+
+subnet_ldif <- function(subnet,hosts,domain){
+	net_ip <- subnet[1:4]
+	router_ip <- inc_ip(net_ip)
+	range_start <- inc_ip(router_ip)
+	range_end <- inc_ip(range_start,hosts-2)
+	netmask <- subnet[5]
+	subnet <- subnetmask(netmask)
+	basedn <- basednFromDomain(domain)
+	list(c('dn',paste(sep='','cn=',net_ip,',cn=config,ou=dhcp,',basedn)),
+		c('cn',text_ip(net_ip)),
+		c('objectClass','top'),
+		c('objectClass','dhcpSubnet'),
+		c('objectClass','dhcpOptions'),
+		c('dhcpNetMask',netmask),
+		c('dhcpRange',do.call(paste,lapply(c(range_start,range_end),text_ip))),
+		c('dhcpStatements','default-lease-time 14400'),
+		c('dhcpStatements','max-lease-time 28800'),
+		c('dhcpOption',paste('subnet-mask',text_ip(subnet))),
+		c('dhcpOption',paste('routers',text_ip(router_ip))),
+		c('dhcpOption',paste('domain-name-servers',text_ip(router_ip))),
+		c('dhcpOption',paste(sep='','domain-name "',domain,'"'))
+	)
+}
+
 export_networks_ldif <- function(networks) {
     paste(collapse = "\n", c(sapply(seq_along(networks), function(i) {
+					name <- names(networks)[i]
         n <- networks[[i]]
         ip <- paste(collapse = ".", n[1:4])
         net <- paste(sep = "/", ip, n[5])
-        paste(sep = "\t", net, names(networks[i]))
+        paste(sep = "\t", net, name)
     }), ""))
 }
 
