@@ -1,14 +1,14 @@
 
 #RFC1123
 
-RFC1123chars <- c(letters,'-',seq(0,9))
+RFC1123chars <- c(letters,LETTERS,'-',seq(0,9))
 
 host.class <- function(x){
     stopifnot(is.host.class(x))
     x
 }
 
-is.host.class(x){
+is.host.class <- function(x){
     if(!is.character(x))
         return(FALSE)
     if(length(x)!=1)
@@ -24,7 +24,7 @@ domain.class <-function(x){
     x
 }
 
-is.domain.class(x){
+is.domain.class <- function(x){
     if(!is.character(x))
         return(FALSE)
     if(length(x)!=1)
