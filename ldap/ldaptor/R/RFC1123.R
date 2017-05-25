@@ -1,7 +1,5 @@
 
-# RFC1123
-
-RFC1123chars <- c(letters, LETTERS, "-", seq(0, 9))
+RFC1123hostregex <- '([a-zA-z0-9\\-])'
 
 host.class <- function(x) {
     stopifnot(is.host.class(x))
@@ -13,8 +11,7 @@ is.host.class <- function(x) {
         return(FALSE)
     if (length(x) != 1) 
         return(FALSE)
-    hostchars <- strsplit(x, "")[[1]]
-    if (length(setdiff(hostchars, RFC1123chars)) != 0) 
+    if (gsub(RFC1123hostregex,'',x)!='') 
         return(FALSE)
     return(TRUE)
 }
@@ -29,8 +26,8 @@ is.domain.class <- function(x) {
         return(FALSE)
     if (length(x) != 1) 
         return(FALSE)
-    dcs <- strsplit(x, "\\.")[[1]]
-    if (length(dcs) < 2 || !all(sapply(dcs, is.host.class))) 
+    dots <- strsplit(gsub(RFC1123hostregex,'',x),'')[[1]]
+    if (length(dots)==0 || any(dots != '.'))
         return(FALSE)
     return(TRUE)
 }

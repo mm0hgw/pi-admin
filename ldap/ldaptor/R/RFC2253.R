@@ -1,15 +1,28 @@
 
-RFC2253special <- c(",", "+", "\"", "<", ">", ";")
+RFC2253special <- c(",", "+", "\"", "\\", "<", ">", ";")
 RFC2253specialregex <- paste(collapse = "", c("([", RFC2253special, "])"))
 RFC2253chars <- c(RFC1123chars, ".", RFC2253special)
+
+Rspecialregex <- c('([\\\"\\\\\\[\\]\\(\\)\\{\\}])')
+
+charsetregex <- function(charset){
+	gsub(Rspecialregex,'\\\\\\1',paste(collapse = "", c("([", charset, "])")))
+}
+
+charcheck <- function(x,charset){
+	errors <- gsub(charsetregex(charset),'',x)
+	if(length(errors>0))
+		stop(paste('x:',x,'errors:',errors))
+	return(TRUE)
+}
 
 ldapkv <- function(key, value) {
     stopifnot(is.character(key))
     stopifnot(length(key) == 1)
-    stopifnot(length(setdiff(strsplit(key, "")[[1]], RFC2253chars)) == 0)
+    stopifnot(charcheck(key, RFC2253chars))
     stopifnot(is.character(value))
     stopifnot(length(value) == 1)
-    stopifnot(length(setdiff(strsplit(value, "")[[1]], RFC2253chars)) == 0)
+    stopifnot(charcheck(value, RFC2253chars))
     out <- c(key, value)
     class(out) <- "ldapkv"
     out
@@ -36,10 +49,10 @@ ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
 }
 
 format.ldapquery <- function(x, ...) {
-    dnlist <- c(x$pkey, x$skeylist, x$basedn)
-    dn <- sapply(dnlist, format, sep = "=")
-    format(ldapkv("dn", paste(collapse = ",", dn)))
-    
+    dnlist <- c(list(x$pkey), x$skeylist, x$basedn)
+    dn <- ldapkv('dn',paste(collapse=',',sapply(dnlist, format, sep = "=")))
+    querylist <- c(list(dn),list(x$pkey),x$kvlist)
+		querylist
 }
 
 is.ldapquery <- function(x) {
