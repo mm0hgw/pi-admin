@@ -45,7 +45,7 @@ krb_realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_rou
     out$basedn <- basedn.class(domain)
     r_nets <- length(subnet_layout)
     a <- subnet_size(r_nets + length(admin_hosts))
-    r <- sapply(routed_subnet_layout, subnet_size)
+    r <- sapply(subnet_layout, subnet_size)
     names(s) <- names(subnet_layout)
     netlist <- sort(c(admin = a, s))
     out$networks <- list()
