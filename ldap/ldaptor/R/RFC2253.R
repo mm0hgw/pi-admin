@@ -1,53 +1,54 @@
-
+# RFC2253 special characters c(",", "+", "\"", "\\", "<", ">", ";")
 
 #'RFC2253Regex
 #'@description A regex to identify valid RFC1123 string characters
 #'@export
-RFC2253Regex <- "([a-zA-z0-9\\-.,\\+\\\"\\<>;])"
+RFC2253Regex <- "([a-zA-z0-9\\-\\.,+\\\"\\\\<>;])"
 
+#'RFC2253SpecialRegex
+#'@description A regex to identify valid RFC1123 special characters
+#'@export
+RFC2253SpecialRegex <- '([,+\\\"\\\\<>;])'
 
-RFC2253Special <- c(",", "+", "\"", "\\", "<", ">", ";")
-
-Rspecialregex <- c("([\\\"\\\\\\-\\+])")
-
-
-#' RFC2253string
-#' @description a container for a valid RFC2253 string
+#' RFC2253Character
+#' @description a container RFC2253 character data 
 #' @param string a 'character' string
 #'@export
-RFC2253string <- function(string) {
-    stopifnot(valid.RFC2253string(string))
-    class(string) <- "RFC2253string"
+RFC2253Character <- function(string) {
+    stopifnot(valid.RFC2253Character(string))
+    class(string) <- "RFC2253Character"
     string
 }
 
-#' is.RFC2253string
+#' is.RFC2253Character
 #' @param x test object
 #'@export
-is.RFC2253string <- function(x) {
-    inherits(x, "RFC2253string")
+is.RFC2253Character <- function(x) {
+    inherits(x, "RFC2253Character")
 }
 
-#' valid.RFC2253string
+#' valid.RFC2253Character
 #' @param x test object
 #'@export
-valid.RFC2253string <- function(x) {
-    if (!is.character(x)) 
-        return(FALSE)
-    if (length(x) != 1) 
-        return(FALSE)
-    if (gsub(RFC2253Regex, "", x) != "") 
+valid.RFC2253Character <- function(x) {
+    x <- as.character(x)
+    if (any(gsub(RFC2253Regex, "", x) != "") )
         return(FALSE)
     return(TRUE)
 }
 
+#'@method format RFC2253Character
+format.RFC2253Character <- function(x,...){
+	gsub(RFC2253SpecialRegex, "\\\\\\1", x)
+}
+
 #' ldapkv
 #' @description a container for a valid LDAP key/value pair
-#' @param key a valid 'RFC2253string'
-#' @param value a valid 'RFC2253string'
+#' @param key a valid 'RFC2253Character'
+#' @param value a valid 'RFC2253Character'
 #'@export
 ldapkv <- function(key, value) {
-    out <- c(RFC2253string(key),RFC2253string (value))
+    out <- RFC2253Character(c(key,value))
     class(out) <- "ldapkv"
     out
 }
@@ -63,12 +64,17 @@ is.ldapkv <- function(x) {
 #'@param x ldapkv object
 #'@param sep the 'character' used to divide key and value 
 #'@export
-format.ldapkv <- function(x, sep = ": ", ...) {
-    gsub(RFC2253specialregex, "\\\\\\1", paste(collapse = sep, x))
+format.ldapkv <- function(x, collapse = ": ", ...) {
+   paste(collapse=collapse,sapply(x,format.RFC2253Character))
 }
 
-
-
+#' ldapquery
+#' @description a container for a valid LDAP query
+#' @param pkey a 'ldapkv' the primary key for the query
+#' @param basedn a valid 'domain.class' or a 'basedn.class' the base dn for the query
+#' @param skeylist a 'list' of 'ldapkv' objects (default==0) the secondary keys for the query
+#' @param kvlist a 'list' of 'ldapkv' objects (default==0) the content of the query
+#'@export
 ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
     stopifnot(is.ldapkv(pkey))
     if (valid.domain.class(basedn)) 
@@ -81,21 +87,32 @@ ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
     out
 }
 
+#'@method format ldapquery
 format.ldapquery <- function(x, ...) {
     dnlist <- c(list(x$pkey), x$skeylist, x$basedn)
-    dn <- ldapkv("dn", paste(collapse = ",", sapply(dnlist, format, sep = "=")))
-    querylist <- c(list(dn), list(x$pkey), x$kvlist)
-    querylist
+    dn <- paste('dn:',paste(collapse=',',sapply(dnlist,format,collapse='=')))
+    qlist <- sapply(c(list(x$pkey), x$kvlist),format)
+		paste(collapse='\n',c(dn,qlist,''))   
 }
 
+#'is.ldapquery
+#' @param x test object
+#'@export
 is.ldapquery <- function(x) {
     inherits(x, "ldapquery")
 }
 
+#'is.basedn.class
+#' @param x test object
+#'@export
 is.basedn.class <- function(x) {
     inherits(x, "basedn.class")
 }
 
+#'basedn.class
+#'@description A container for a LDAP basedn
+#' @param domain a valid 'domain.class'
+#'@export
 basedn.class <- function(domain) {
     stopifnot(valid.domain.class(domain))
     dcs <- strsplit(domain, "\\.")[[1]]
@@ -104,8 +121,8 @@ basedn.class <- function(domain) {
     out
 }
 
-format.basedn <- function(x, ...) {
-    dn <- sapply(x, format, sep = "=")
-    format(ldifkv("dn", paste(collapse = ",", dn)))
+#'@method format basedn.class
+format.basedn.class <- function(x, ...) {
+	paste(collapse=',',sapply(dnlist,format,collapse='='))
 }
 
