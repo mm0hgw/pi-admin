@@ -33,8 +33,8 @@ basednFromDomain <- function(domain) {
 krb_realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     base_ip = default_base_ip) {
     stopifnot(length(admin_hosts) > 0)
-    stopifnot(all(sapply(admin_hosts,valid.hostname.class)))
-    stopifnot(all(sapply(domain,valid.domain.class)))
+    stopifnot(all(sapply(admin_hosts, valid.hostname.class)))
+    stopifnot(all(sapply(domain, valid.domain.class)))
     stopifnot(all(sapply(admin_hosts, nchar) <= 50))
     kdc <- length(admin_hosts)
     ldap <- min(2, kdc)
@@ -221,8 +221,8 @@ subnet_ldif <- function(subnet, domain) {
     kvlist <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpSubnet"), 
         ldapkv("objectClass", "dhcpOptions"), ldapkv("dhcpNetMask", netmask), ldapkv("dhcpStatements", 
             "default-lease-time 14400"), ldapkv("dhcpStatements", "max-lease-time 28800"), 
-        ldapkv("dhcpOption", paste("subnet-mask", text_ip(subnet))),
-         ldapkv("dhcpOption", paste("broadcast-address", text_ip(broadcast))), ldapkv("dhcpOption", 
+        ldapkv("dhcpOption", paste("subnet-mask", text_ip(subnet))), ldapkv("dhcpOption", 
+            paste("broadcast-address", text_ip(broadcast))), ldapkv("dhcpOption", 
             paste("routers", text_ip(router_ip))), ldapkv("dhcpOption", paste("domain-name-servers", 
             text_ip(router_ip))), ldapkv("dhcpOption", paste(sep = "", "domain-name \"", 
             domain, "\"")))
@@ -233,7 +233,7 @@ export_networks_ldif <- function(networks, domain) {
     lapply(seq_along(networks), function(i) {
         name <- names(networks)[i]
         n <- networks[[i]]
-					subnet_ldif(n,domain)
+        subnet_ldif(n, domain)
     })
 }
 
