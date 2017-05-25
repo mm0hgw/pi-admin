@@ -6,6 +6,17 @@
 \usage{
 valid.domain.class(x)
 }
+\arguments{
+\item{x}{test object}
+}
 \description{
 valid.domain.class
+}
+\examples{
+hexchars <-'123456789ABCDEF'
+stopifnot(valid.hostname.class(vector())==FALSE)
+stopifnot(valid.hostname.class('')==FALSE)
+stopifnot(valid.hostname.class(paste(collapse='',rep(16,hexchars)))==FALSE)
+stopifnot(valid.hostname.class(':')==FALSE)
+stopifnot(valid.hostname.class(paste(collapse='',c(letters,,'.',LETTERS,'-')))==TRUE)
 }

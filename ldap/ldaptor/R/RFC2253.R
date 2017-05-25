@@ -47,7 +47,7 @@ valid.RFC2253string <- function(x) {
 #' @param value a valid 'RFC2253string'
 #'@export
 ldapkv <- function(key, value) {
-    out <- c(RFC2253string(key),RFC2253string (value))
+    out <- c(RFC2253string(key), RFC2253string(value))
     class(out) <- "ldapkv"
     out
 }

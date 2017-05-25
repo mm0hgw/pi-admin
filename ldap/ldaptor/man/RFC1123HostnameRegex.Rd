@@ -9,6 +9,6 @@
 RFC1123HostnameRegex
 }
 \description{
-RFC1123HostnameRegex
+A regex to identify valid RFC1123 hostname characters
 }
 \keyword{datasets}
