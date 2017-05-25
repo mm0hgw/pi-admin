@@ -103,7 +103,6 @@ inc_ip <- function(ip, n = 1) {
         j <- j + 1
     }
     ip
-    
 }
 
 default_shell = "/bin/bash"
@@ -217,15 +216,19 @@ subnet_ldif <- function(subnet, hosts, domain) {
     range_end <- inc_ip(range_start, hosts - 2)
     netmask <- subnet[5]
     subnet <- subnetmask(netmask)
-    basedn <- basednFromDomain(domain)
+    basedn <- basedn.class(domain)
+    pkey <- ldapkv("cn", text_ip(net_ip))
+    skeylist <- list( ldapkv("cn", 'config'),
+    	ldapkv("ou", 'dhcp'))
     list(c("dn", paste(sep = "", "cn=", net_ip, ",cn=config,ou=dhcp,", basedn)), 
-        c("cn", text_ip(net_ip)), c("objectClass", "top"), c("objectClass", "dhcpSubnet"), 
-        c("objectClass", "dhcpOptions"), c("dhcpNetMask", netmask), c("dhcpRange", 
-            do.call(paste, lapply(c(range_start, range_end), text_ip))), c("dhcpStatements", 
-            "default-lease-time 14400"), c("dhcpStatements", "max-lease-time 28800"), 
-        c("dhcpOption", paste("subnet-mask", text_ip(subnet))), c("dhcpOption", paste("routers", 
-            text_ip(router_ip))), c("dhcpOption", paste("domain-name-servers", text_ip(router_ip))), 
-        c("dhcpOption", paste(sep = "", "domain-name \"", domain, "\"")))
+   kvlist <-list(     ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpSubnet"), 
+        ldapkv("objectClass", "dhcpOptions"), ldapkv("dhcpNetMask", netmask), ldapkv("dhcpRange", 
+            do.call(paste, lapply(c(range_start, range_end), text_ip))), ldapkv("dhcpStatements", 
+            "default-lease-time 14400"), ldapkv("dhcpStatements", "max-lease-time 28800"), 
+        ldapkv("dhcpOption", paste("subnet-mask", text_ip(subnet))), ldapkv("dhcpOption", paste("routers", 
+            text_ip(router_ip))), ldapkv("dhcpOption", paste("domain-name-servers", text_ip(router_ip))), 
+        ldapkv("dhcpOption", paste(sep = "", "domain-name \"", domain, "\"")))
+        format(ldapquery(pkey,basedn,skeylist,kvlist))
 }
 
 export_networks_ldif <- function(networks) {
