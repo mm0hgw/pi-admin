@@ -24,9 +24,10 @@ is.hostname.class <- function(x) {
 #' valid.hostname.class
 #' @param x test object
 #'@examples
+#'hexchars <-'123456789ABCDEF'
 #'stopifnot(valid.hostname.class(vector())==FALSE)
 #'stopifnot(valid.hostname.class('')==FALSE)
-#'stopifnot(valid.hostname.class('1234567890123456789012345678901234567890123456789012345678901234')==FALSE)
+#'stopifnot(valid.hostname.class(paste(collapse='',rep(4,hexchars)))==FALSE)
 #'stopifnot(valid.hostname.class(':')==FALSE)
 #'stopifnot(valid.hostname.class(paste(collapse='',c(letters,LETTERS,'-')))==TRUE)
 #'@export
@@ -34,7 +35,7 @@ valid.hostname.class <- function(x) {
     x <- as.character(x)
     if (length(x) != 1) 
         return(FALSE)
-    if (nchar(x) <= 0 || nchar(x)>63) 
+    if (nchar(x) == 0 || nchar(x)>63) 
         return(FALSE)
     if (gsub(RFC1123HostnameRegex, "", x) != "") 
         return(FALSE)
@@ -58,15 +59,24 @@ is.domain.class <- function(x) {
     inherits(x, "domain.class")
 }
 
-#'valid.domain.class
+#' valid.domain.class
+#' @param x test object
+#'@examples
+#'hexchars <-'123456789ABCDEF'
+#'stopifnot(valid.hostname.class(vector())==FALSE)
+#'stopifnot(valid.hostname.class('')==FALSE)
+#'stopifnot(valid.hostname.class(paste(collapse='',rep(16,hexchars)))==FALSE)
+#'stopifnot(valid.hostname.class(':')==FALSE)
+#'stopifnot(valid.hostname.class(paste(collapse='',c(letters,,'.',LETTERS,'-')))==TRUE)
 #'@export
 valid.domain.class <- function(x) {
-    if (!is.character(x)) 
-        return(FALSE)
+    x <- as.character(x)
     if (length(x) != 1) 
         return(FALSE)
-    dots <- strsplit(gsub(RFC1123HostnameRegex, "", x), "")[[1]]
-    if (length(dots) == 0 || any(dots != ".")) 
+    if (nchar(x) == 0 || nchar(x)>253) 
+        return(FALSE)
+    dcs <- strsplit( x, ".")[[1]]
+    if (all(sapply(dcs,valid.hostname.class)) 
         return(FALSE)
     return(TRUE)
 }
