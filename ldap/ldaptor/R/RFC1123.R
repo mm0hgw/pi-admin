@@ -35,7 +35,7 @@ valid.hostname.class <- function(x) {
     x <- as.character(x)
     if (length(x) != 1) 
         return(FALSE)
-    if (nchar(x) == 0 || nchar(x)>63) 
+    if (nchar(x) == 0 || nchar(x) > 63) 
         return(FALSE)
     if (gsub(RFC1123HostnameRegex, "", x) != "") 
         return(FALSE)
@@ -73,10 +73,10 @@ valid.domain.class <- function(x) {
     x <- as.character(x)
     if (length(x) != 1) 
         return(FALSE)
-    if (nchar(x) == 0 || nchar(x)>253) 
+    if (nchar(x) == 0 || nchar(x) > 253) 
         return(FALSE)
-    dcs <- strsplit( x, ".")[[1]]
-    if (all(sapply(dcs,valid.hostname.class)))
+    dcs <- strsplit(x, ".")[[1]]
+    if (all(sapply(dcs, valid.hostname.class))) 
         return(FALSE)
     return(TRUE)
 }

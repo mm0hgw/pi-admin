@@ -12,3 +12,11 @@ valid.hostname.class(x)
 \description{
 valid.hostname.class
 }
+\examples{
+hexchars <-'123456789ABCDEF'
+stopifnot(valid.hostname.class(vector())==FALSE)
+stopifnot(valid.hostname.class('')==FALSE)
+stopifnot(valid.hostname.class(paste(collapse='',rep(4,hexchars)))==FALSE)
+stopifnot(valid.hostname.class(':')==FALSE)
+stopifnot(valid.hostname.class(paste(collapse='',c(letters,LETTERS,'-')))==TRUE)
+}
