@@ -76,7 +76,7 @@ valid.domain.class <- function(x) {
     if (nchar(x) == 0 || nchar(x)>253) 
         return(FALSE)
     dcs <- strsplit( x, ".")[[1]]
-    if (all(sapply(dcs,valid.hostname.class)) 
+    if (all(sapply(dcs,valid.hostname.class)))
         return(FALSE)
     return(TRUE)
 }
