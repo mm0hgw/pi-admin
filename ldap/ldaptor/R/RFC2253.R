@@ -33,7 +33,7 @@ is.RFC2253Character <- function(x) {
 valid.RFC2253Character <- function(x) {
     x <- as.character(x)
     if (any(gsub(RFC2253Regex, "", x) != "")) 
-        return(FALSE)
+        stop(x)
     return(TRUE)
 }
 
