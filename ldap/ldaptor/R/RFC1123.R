@@ -9,7 +9,7 @@ RFC1123HostnameRegex <- "([a-zA-z0-9\\-])"
 #' @param hostname a 'character' identifier
 #'@export
 hostname.class <- function(hostname) {
-    stopifnot(valid.host.class(hostname))
+    stopifnot(valid.hostname.class(hostname))
     class(hostname) <- "hostname.class"
     hostname
 }
@@ -39,7 +39,7 @@ valid.hostname.class <- function(x) {
 #' @param domain a 'character' identifier
 #'@export
 domain.class <- function(domain) {
-    stopifnot(valid.host.class(domain))
+    stopifnot(valid.domain.class(domain))
     class(domain) <- "domain.class"
     domain
 }

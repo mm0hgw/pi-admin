@@ -1,7 +1,65 @@
 
 
-RFC1123domainregex <- "([a-zA-z0-9\\-.])"
-RFC2253ldapregex <- "([a-zA-z0-9\\-.,\\+\\\"\\<>;])"
+#'RFC2253Regex
+#'@description A regex to identify valid RFC1123 string characters
+#'@export
+RFC2253Regex <- "([a-zA-z0-9\\-.,\\+\\\"\\<>;])"
+
+#' RFC2253string
+#' @description a container for a valid RFC2253 string
+#' @param string a 'character' string
+#'@export
+RFC2253string <- function(string) {
+    stopifnot(valid.RFC2253string(string))
+    class(string) <- "RFC2253string"
+    string
+}
+
+#' is.RFC2253string
+#' @param x test object
+#'@export
+is.RFC2253string <- function(x) {
+    inherits(x, "RFC2253string")
+}
+
+#' valid.RFC2253string
+#' @param x test object
+#'@export
+valid.RFC2253string <- function(x) {
+    if (!is.character(x)) 
+        return(FALSE)
+    if (length(x) != 1) 
+        return(FALSE)
+    if (gsub(RFC2253Regex, "", x) != "") 
+        return(FALSE)
+    return(TRUE)
+}
+
+#' ldapkv
+#' @description a container for a valid LDAP key/value pair
+#' @param key a valid 'RFC2253string'
+#' @param value a valid 'RFC2253string'
+#'@export
+ldapkv <- function(key, value) {
+    out <- c(RFC2253string(key),RFC2253string (value))
+    class(out) <- "ldapkv"
+    out
+}
+
+#'is.ldapkv
+#' @param x test object
+#'@export
+is.ldapkv <- function(x) {
+    inherits(x, "ldapkv")
+}
+
+#'format.ldapkv
+#'@param x ldapkv object
+#'@param sep the 'character' used to divide key and value 
+#'@export
+format.ldapkv <- function(x, sep = ": ", ...) {
+    gsub(RFC2253specialregex, "\\\\\\1", paste(collapse = sep, x))
+}
 
 
 RFC2253special <- c(",", "+", "\"", "\\", "<", ">", ";")
@@ -10,40 +68,10 @@ RFC2253chars <- c(RFC1123chars, ".", RFC2253special)
 
 Rspecialregex <- c("([\\\"\\\\\\-\\+])")
 
-charsetregex <- function(charset) {
-    gsub(Rspecialregex, "\\\\\\1", paste(collapse = "", c("([", charset, "])")))
-}
-
-charcheck <- function(x, charset) {
-    errors <- gsub(charsetregex(charset), "", x)
-    if (length(errors > 0)) 
-        stop(paste("x:", x, "errors:", errors))
-    return(TRUE)
-}
-
-ldapkv <- function(key, value) {
-    stopifnot(is.character(key))
-    stopifnot(length(key) == 1)
-    stopifnot(charcheck(key, RFC2253chars))
-    stopifnot(is.character(value))
-    stopifnot(length(value) == 1)
-    stopifnot(charcheck(value, RFC2253chars))
-    out <- c(key, value)
-    class(out) <- "ldapkv"
-    out
-}
-
-format.ldapkv <- function(x, sep = ": ", ...) {
-    gsub(RFC2253specialregex, "\\\\\\1", paste(collapse = sep, x))
-}
-
-is.ldapkv <- function(x) {
-    inherits(x, "ldapkv")
-}
 
 ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
     stopifnot(is.ldapkv(pkey))
-    if (is.domain.class(basedn)) 
+    if (valid.domain.class(basedn)) 
         basedn <- basedn.class(basedn)
     stopifnot(is.basedn.class(basedn))
     stopifnot(all(sapply(c(skeylist, kvlist), is.ldapkv)))
@@ -69,7 +97,7 @@ is.basedn.class <- function(x) {
 }
 
 basedn.class <- function(domain) {
-    stopifnot(is.domain.class(domain))
+    stopifnot(valid.domain.class(domain))
     dcs <- strsplit(domain, "\\.")[[1]]
     out <- lapply(dcs, ldapkv, key = "dc")
     class(out) <- "basedn.class"
