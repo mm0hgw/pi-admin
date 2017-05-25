@@ -5,6 +5,12 @@
 #'@export
 RFC2253Regex <- "([a-zA-z0-9\\-.,\\+\\\"\\<>;])"
 
+
+RFC2253Special <- c(",", "+", "\"", "\\", "<", ">", ";")
+
+Rspecialregex <- c("([\\\"\\\\\\-\\+])")
+
+
 #' RFC2253string
 #' @description a container for a valid RFC2253 string
 #' @param string a 'character' string
@@ -61,12 +67,6 @@ format.ldapkv <- function(x, sep = ": ", ...) {
     gsub(RFC2253specialregex, "\\\\\\1", paste(collapse = sep, x))
 }
 
-
-RFC2253special <- c(",", "+", "\"", "\\", "<", ">", ";")
-RFC2253specialregex <- paste(collapse = "", c("([", RFC2253special, "])"))
-RFC2253chars <- c(RFC1123chars, ".", RFC2253special)
-
-Rspecialregex <- c("([\\\"\\\\\\-\\+])")
 
 
 ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
