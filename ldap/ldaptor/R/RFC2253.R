@@ -48,6 +48,8 @@ format.RFC2253Character <- function(x, ...) {
 #' @param value a valid 'RFC2253Character'
 #'@export
 ldapkv <- function(key, value) {
+	stopifnot(length(key)==1)
+	stopifnot(length(value)==1)
     out <- RFC2253Character(c(key, value))
     class(out) <- "ldapkv"
     out
