@@ -32,11 +32,10 @@ basednFromDomain <- function(domain) {
 
 krb_realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     base_ip = default_base_ip) {
-    stopifnot(length(realm) == 1)
-    stopifnot(all(strsplit(realm, "")[[1]] %in% valid_realm_chars))
     stopifnot(length(admin_hosts) > 0)
-    stopifnot(all(do.call(c, strsplit(admin_hosts, "")) %in% letters))
-    stopifnot(all(sapply(admin_hosts, nchar) <= 20))
+    stopifnot(all(sapply(admin_hosts,valid.hostname.class)
+    stopifnot(all(sapply(domain,valid.domain.class)
+    stopifnot(all(sapply(admin_hosts, nchar) <= 50))
     kdc <- length(admin_hosts)
     ldap <- min(2, kdc)
     hisec <- hisec_db[[min(length(hisec_db), length(admin_hosts))]]
@@ -210,38 +209,32 @@ server_ldif <- function(server, domain) {
 
 
 
-subnet_ldif <- function(subnet, hosts, domain) {
+subnet_ldif <- function(subnet, domain) {
     net_ip <- subnet[1:4]
     router_ip <- inc_ip(net_ip)
-    range_start <- inc_ip(router_ip, hosts + 1)
-    
     netmask <- subnet[5]
     subnet <- subnetmask(netmask)
-    range_end <- net_ip + rep(256, 4) - subnet
+    broadcast <- net_ip + rep(255, 4) - subnet
     basedn <- basedn.class(domain)
     pkey <- ldapkv("cn", text_ip(net_ip))
     skeylist <- list(ldapkv("cn", "config"), ldapkv("ou", "dhcp"))
     kvlist <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpSubnet"), 
         ldapkv("objectClass", "dhcpOptions"), ldapkv("dhcpNetMask", netmask), ldapkv("dhcpStatements", 
             "default-lease-time 14400"), ldapkv("dhcpStatements", "max-lease-time 28800"), 
-        ldapkv("dhcpOption", paste("subnet-mask", text_ip(subnet))), ldapkv("dhcpOption", 
+        ldapkv("dhcpOption", paste("subnet-mask", text_ip(subnet))),
+         ldapkv("dhcpOption", paste("broadcast-address", text_ip(broadcast))), ldapkv("dhcpOption", 
             paste("routers", text_ip(router_ip))), ldapkv("dhcpOption", paste("domain-name-servers", 
             text_ip(router_ip))), ldapkv("dhcpOption", paste(sep = "", "domain-name \"", 
             domain, "\"")))
-    if (any(range_end > range_start) || all(range_end == range_start)) 
-        kvlist <- c(kvlist, ldapkv("dhcpRange", do.call(paste, lapply(c(range_start, 
-            range_end), text_ip))))
     ldapquery(pkey, basedn, skeylist, kvlist)
 }
 
-export_networks_ldif <- function(networks, hosts, domain) {
-    paste(collapse = "\n", c(sapply(seq_along(networks), function(i) {
+export_networks_ldif <- function(networks, domain) {
+    lapply(seq_along(networks), function(i) {
         name <- names(networks)[i]
         n <- networks[[i]]
-        ip <- paste(collapse = ".", n[1:4])
-        net <- paste(sep = "/", ip, n[5])
-        paste(sep = "\t", net, name)
-    }), ""))
+					subnet_ldif(n,domain)
+    })
 }
 
 export_hosts_ldif <- function(hosts) {
