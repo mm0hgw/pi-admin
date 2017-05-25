@@ -220,7 +220,6 @@ subnet_ldif <- function(subnet, hosts, domain) {
     pkey <- ldapkv("cn", text_ip(net_ip))
     skeylist <- list( ldapkv("cn", 'config'),
     	ldapkv("ou", 'dhcp'))
-    list(c("dn", paste(sep = "", "cn=", net_ip, ",cn=config,ou=dhcp,", basedn)), 
    kvlist <-list(     ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpSubnet"), 
         ldapkv("objectClass", "dhcpOptions"), ldapkv("dhcpNetMask", netmask), ldapkv("dhcpRange", 
             do.call(paste, lapply(c(range_start, range_end), text_ip))), ldapkv("dhcpStatements", 
