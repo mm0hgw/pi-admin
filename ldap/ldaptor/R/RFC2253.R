@@ -1,9 +1,14 @@
 
+
+RFC1123domainregex <- '([a-zA-z0-9\\-.])'
+RFC2253ldapregex <- '([a-zA-z0-9\\-.,\\+\\\"\\<>;])'
+
+
 RFC2253special <- c(",", "+", "\"", "\\", "<", ">", ";")
 RFC2253specialregex <- paste(collapse = "", c("([", RFC2253special, "])"))
 RFC2253chars <- c(RFC1123chars, ".", RFC2253special)
 
-Rspecialregex <- c('([\\\"\\\\\\[\\]\\(\\)\\{\\}])')
+Rspecialregex <- c('([\\\"\\\\\\-\\+])')
 
 charsetregex <- function(charset){
 	gsub(Rspecialregex,'\\\\\\1',paste(collapse = "", c("([", charset, "])")))
