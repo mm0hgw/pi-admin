@@ -1,5 +1,6 @@
 
 #'RFC1123HostnameRegex
+#'@description A regex to identify valid RFC1123 hostname characters
 #'@export
 RFC1123HostnameRegex <- "([a-zA-z0-9\\-])"
 
@@ -28,7 +29,7 @@ valid.hostname.class <- function(x) {
         return(FALSE)
     if (length(x) != 1) 
         return(FALSE)
-    if (gsub(RFC1123hostregex, "", x) != "") 
+    if (gsub(RFC1123HostnameRegex, "", x) != "") 
         return(FALSE)
     return(TRUE)
 }
@@ -57,7 +58,7 @@ valid.domain.class <- function(x) {
         return(FALSE)
     if (length(x) != 1) 
         return(FALSE)
-    dots <- strsplit(gsub(RFC1123hostregex, "", x), "")[[1]]
+    dots <- strsplit(gsub(RFC1123HostnameRegex, "", x), "")[[1]]
     if (length(dots) == 0 || any(dots != ".")) 
         return(FALSE)
     return(TRUE)
