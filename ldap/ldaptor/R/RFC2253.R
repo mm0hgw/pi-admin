@@ -3,7 +3,7 @@
 #'RFC2253Regex
 #'@description A regex to identify valid RFC2253 string characters
 #'@export
-RFC2253Regex <- "([a-zA-z0-9\\-\\.,+\\\"\\\\<>;])"
+RFC2253Regex <- "([\\sa-zA-z0-9\\-\\.,+\\\"\\\\<>;])"
 
 #'RFC2253SpecialRegex
 #'@description A regex to identify valid RFC2253 special characters
@@ -48,8 +48,8 @@ format.RFC2253Character <- function(x, ...) {
 #' @param value a valid 'RFC2253Character'
 #'@export
 ldapkv <- function(key, value) {
-    stopifnot(length(key) == 1)
-    stopifnot(length(value) == 1)
+	stopifnot(length(key)==1)
+	stopifnot(length(value)==1)
     out <- RFC2253Character(c(key, value))
     class(out) <- "ldapkv"
     out
