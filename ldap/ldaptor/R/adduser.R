@@ -43,15 +43,15 @@ krb_realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_rou
     out$realm <- toupper(domain)
     out$domain <- domain.class(domain)
     out$basedn <- basedn.class(domain)
-    s_nets <- length(subnet_layout)
-    a <- subnet_size(s_nets + length(admin_hosts))
-    s <- sapply(subnet_layout, subnet_size)
-    names(s) <- names(subnet_layout)
-    netlist <- sort(c(admin = a, s))
+    r_nets <- length(subnet_layout)
+    a <- subnet_size(r_nets + length(admin_hosts))
+    r <- sapply(subnet_layout, subnet_size)
+    names(r) <- names(subnet_layout)
+    netlist <- sort(c(admin = a, r))
     out$networks <- list()
     out$hosts <- list()
     hostnames <- subnet_layout_names(subnet_layout)
-    hostnames$admin <- c(admin_hosts, names(s))
+    hostnames$admin <- c(admin_hosts, names(r))
     i <- 1
     while (i <= length(netlist)) {
         net <- names(netlist)[i]
