@@ -23,11 +23,18 @@ is.hostname.class <- function(x) {
 
 #' valid.hostname.class
 #' @param x test object
+#'@examples
+#'stopifnot(valid.hostname.class(vector())==FALSE)
+#'stopifnot(valid.hostname.class('')==FALSE)
+#'stopifnot(valid.hostname.class('1234567890123456789012345678901234567890123456789012345678901234')==FALSE)
+#'stopifnot(valid.hostname.class(':')==FALSE)
+#'stopifnot(valid.hostname.class(paste(collapse='',c(letters,LETTERS,'-')))==TRUE)
 #'@export
 valid.hostname.class <- function(x) {
-    if (!is.character(x)) 
-        return(FALSE)
+    x <- as.character(x)
     if (length(x) != 1) 
+        return(FALSE)
+    if (nchar(x) <= 0 || nchar(x)>63) 
         return(FALSE)
     if (gsub(RFC1123HostnameRegex, "", x) != "") 
         return(FALSE)
