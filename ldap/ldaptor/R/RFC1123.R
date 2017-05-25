@@ -1,7 +1,7 @@
 
 #'RFC1123HostnameRegex
 #'@export
-RFC1123HostnameRegex <- '([a-zA-z0-9\\-])'
+RFC1123HostnameRegex <- "([a-zA-z0-9\\-])"
 
 #' hostname.class
 #' @description a container for a valid RFC1123 hostname
@@ -9,15 +9,15 @@ RFC1123HostnameRegex <- '([a-zA-z0-9\\-])'
 #'@export
 hostname.class <- function(hostname) {
     stopifnot(valid.host.class(hostname))
-    class(hostname) <- 'hostname.class'
+    class(hostname) <- "hostname.class"
     hostname
 }
 
 #' is.hostname.class
 #' @param x test object
 #'@export
-is.hostname.class <- function(x){
-	inherits(x,'hostname.class')
+is.hostname.class <- function(x) {
+    inherits(x, "hostname.class")
 }
 
 #' valid.hostname.class
@@ -28,7 +28,7 @@ valid.hostname.class <- function(x) {
         return(FALSE)
     if (length(x) != 1) 
         return(FALSE)
-    if (gsub(RFC1123hostregex,'',x)!='') 
+    if (gsub(RFC1123hostregex, "", x) != "") 
         return(FALSE)
     return(TRUE)
 }
@@ -39,15 +39,15 @@ valid.hostname.class <- function(x) {
 #'@export
 domain.class <- function(domain) {
     stopifnot(valid.host.class(domain))
-    class(domain) <- 'domain.class'
+    class(domain) <- "domain.class"
     domain
 }
 
 #' is.domain.class
 #' @param x test object
 #'@export
-is.domain.class <- function(x){
-	inherits(x,'domain.class')
+is.domain.class <- function(x) {
+    inherits(x, "domain.class")
 }
 
 #'valid.domain.class
@@ -57,8 +57,8 @@ valid.domain.class <- function(x) {
         return(FALSE)
     if (length(x) != 1) 
         return(FALSE)
-    dots <- strsplit(gsub(RFC1123hostregex,'',x),'')[[1]]
-    if (length(dots)==0 || any(dots != '.'))
+    dots <- strsplit(gsub(RFC1123hostregex, "", x), "")[[1]]
+    if (length(dots) == 0 || any(dots != ".")) 
         return(FALSE)
     return(TRUE)
 }
