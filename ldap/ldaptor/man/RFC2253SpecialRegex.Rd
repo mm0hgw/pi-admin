@@ -9,6 +9,6 @@
 RFC2253SpecialRegex
 }
 \description{
-A regex to identify valid RFC1123 special characters
+A regex to identify valid RFC2253 special characters
 }
 \keyword{datasets}
