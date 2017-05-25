@@ -1,4 +1,4 @@
-# RFC2253 special characters c(",", "+", "\"", "\\", "<", ">", ";")
+# RFC2253 special characters c(',', '+', '\'', '\\', '<', '>', ';')
 
 #'RFC2253Regex
 #'@description A regex to identify valid RFC1123 string characters
@@ -8,7 +8,7 @@ RFC2253Regex <- "([a-zA-z0-9\\-\\.,+\\\"\\\\<>;])"
 #'RFC2253SpecialRegex
 #'@description A regex to identify valid RFC1123 special characters
 #'@export
-RFC2253SpecialRegex <- '([,+\\\"\\\\<>;])'
+RFC2253SpecialRegex <- "([,+\\\"\\\\<>;])"
 
 #' RFC2253Character
 #' @description a container RFC2253 character data 
@@ -32,14 +32,14 @@ is.RFC2253Character <- function(x) {
 #'@export
 valid.RFC2253Character <- function(x) {
     x <- as.character(x)
-    if (any(gsub(RFC2253Regex, "", x) != "") )
+    if (any(gsub(RFC2253Regex, "", x) != "")) 
         return(FALSE)
     return(TRUE)
 }
 
 #'@method format RFC2253Character
-format.RFC2253Character <- function(x,...){
-	gsub(RFC2253SpecialRegex, "\\\\\\1", x)
+format.RFC2253Character <- function(x, ...) {
+    gsub(RFC2253SpecialRegex, "\\\\\\1", x)
 }
 
 #' ldapkv
@@ -48,7 +48,7 @@ format.RFC2253Character <- function(x,...){
 #' @param value a valid 'RFC2253Character'
 #'@export
 ldapkv <- function(key, value) {
-    out <- RFC2253Character(c(key,value))
+    out <- RFC2253Character(c(key, value))
     class(out) <- "ldapkv"
     out
 }
@@ -65,7 +65,7 @@ is.ldapkv <- function(x) {
 #'@param sep the 'character' used to divide key and value 
 #'@export
 format.ldapkv <- function(x, collapse = ": ", ...) {
-   paste(collapse=collapse,sapply(x,format.RFC2253Character))
+    paste(collapse = collapse, sapply(x, format.RFC2253Character))
 }
 
 #' ldapquery
@@ -90,9 +90,9 @@ ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
 #'@method format ldapquery
 format.ldapquery <- function(x, ...) {
     dnlist <- c(list(x$pkey), x$skeylist, x$basedn)
-    dn <- paste('dn:',paste(collapse=',',sapply(dnlist,format,collapse='=')))
-    qlist <- sapply(c(list(x$pkey), x$kvlist),format)
-		paste(collapse='\n',c(dn,qlist,''))   
+    dn <- paste("dn:", paste(collapse = ",", sapply(dnlist, format, collapse = "=")))
+    qlist <- sapply(c(list(x$pkey), x$kvlist), format)
+    paste(collapse = "\n", c(dn, qlist, ""))
 }
 
 #'is.ldapquery
@@ -123,6 +123,6 @@ basedn.class <- function(domain) {
 
 #'@method format basedn.class
 format.basedn.class <- function(x, ...) {
-	paste(collapse=',',sapply(dnlist,format,collapse='='))
+    paste(collapse = ",", sapply(dnlist, format, collapse = "="))
 }
 

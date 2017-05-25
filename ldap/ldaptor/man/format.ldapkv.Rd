@@ -4,7 +4,7 @@
 \alias{format.ldapkv}
 \title{format.ldapkv}
 \usage{
-\method{format}{ldapkv}(x, sep = ": ", ...)
+\method{format}{ldapkv}(x, collapse = ": ", ...)
 }
 \arguments{
 \item{x}{ldapkv object}

@@ -7,9 +7,9 @@
 ldapkv(key, value)
 }
 \arguments{
-\item{key}{a valid 'RFC2253string'}
+\item{key}{a valid 'RFC2253Character'}
 
-\item{value}{a valid 'RFC2253string'}
+\item{value}{a valid 'RFC2253Character'}
 }
 \description{
 a container for a valid LDAP key/value pair
