@@ -47,7 +47,7 @@ format.ipv4.class <- function(x, ...) {
 #'@param e2 an 'ipv4.class' object or length==1 integer
 #'@export
 "-.ipv4.class" <- function(e1, e2) {
-	e1 + (-e2)
+    e1 + (-e2)
 }
 
 handleOverflow <- function(ip) {
