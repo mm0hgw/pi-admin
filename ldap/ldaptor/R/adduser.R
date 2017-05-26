@@ -218,7 +218,7 @@ subnet_ldif <- function(subnet, domain, statements = list("default-lease-time 14
     router_ip <- net_ip + 1
     netmask <- subnet[5]
     broadcast <- net_ip + (ipv4.class(rep(255, 4)) - subnetmask(netmask))
-    pkey <- ldapkv("cn", text_ip(net_ip))
+    pkey <- ldapkv("cn", format(net_ip))
     skeylist <- list(ldapkv("cn", "config"), ldapkv("ou", "dhcp"))
     kvlist <- c(ldapSubnet, ldapkv("dhcpNetMask", netmask), lapply(statements, ldapkv, 
         key = "dhcpStatements"))
