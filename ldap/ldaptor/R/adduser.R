@@ -94,25 +94,6 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     out
 }
 
-inc_ip <- function(ip, n = 1) {
-    j <- 1
-    while (j <= n) {
-        i <- 4
-        overflow <- TRUE
-        while (overflow) {
-            ip[i] <- ip[i] + 1
-            if (ip[i] < 256) {
-                overflow <- FALSE
-            } else {
-                ip[i] <- 0
-                i <- i - 1
-            }
-        }
-        j <- j + 1
-    }
-    ip
-}
-
 default_shell = "/bin/bash"
 default_base_ip = as.integer(c(10, 0, 0, 0))
 
