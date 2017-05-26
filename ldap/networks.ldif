@@ -1,27 +1,8 @@
-dn: cn=10.0.0.0,cn=config,ou=dhcp,dc=tillycode,dc=club
-cn: 10.0.0.0
-objectClass: top
-objectClass: dhcpSubnet
-objectClass: dhcpOptions
-dhcpNetMask: 28
-dhcpStatements: default-lease-time 14400
-dhcpStatements: max-lease-time 28800
-dhcpOption: subnet-mask 255.255.255.240
-dhcpOption: broadcast-address 10.0.0.15
-dhcpOption: routers 10.0.0.1
-dhcpOption: domain-name-servers 10.0.0.1
-dhcpOption: domain-name \"tillycode.club\"
-
-dn: cn=10.0.0.16,cn=config,ou=dhcp,dc=tillycode,dc=club
-cn: 10.0.0.16
-objectClass: top
-objectClass: dhcpSubnet
-objectClass: dhcpOptions
-dhcpNetMask: 29
-dhcpStatements: default-lease-time 14400
-dhcpStatements: max-lease-time 28800
-dhcpOption: subnet-mask 255.255.255.248
-dhcpOption: broadcast-address 10.0.0.23
-dhcpOption: routers 10.0.0.17
-dhcpOption: domain-name-servers 10.0.0.17
-dhcpOption: domain-name \"tillycode.club\"
+cn      , 10.0.0.0
+dc       , tillycode, dc       , club     
+cn    , config, ou    , dhcp  
+objectClass                 , top                         , objectClass                 , dhcpSubnet                  , objectClass                 , dhcpOptions                 , dhcpNetMask                 , 28                          , dhcpStatements              , default-lease-time 14400    , dhcpStatements              , max-lease-time 28800        , dhcpOption                  , subnet-mask 255.255.255.240 , dhcpOption                  , broadcast-address 10.0.0.15 , dhcpOption                  , routers 10.0.0.1            , dhcpOption                  , domain-name-servers 10.0.0.1, dhcpOption                  , domain-name "tillycode.club"
+cn       , 10.0.0.16
+dc       , tillycode, dc       , club     
+cn    , config, ou    , dhcp  
+objectClass                  , top                          , objectClass                  , dhcpSubnet                   , objectClass                  , dhcpOptions                  , dhcpNetMask                  , 29                           , dhcpStatements               , default-lease-time 14400     , dhcpStatements               , max-lease-time 28800         , dhcpOption                   , subnet-mask 255.255.255.248  , dhcpOption                   , broadcast-address 10.0.0.23  , dhcpOption                   , routers 10.0.0.17            , dhcpOption                   , domain-name-servers 10.0.0.17, dhcpOption                   , domain-name "tillycode.club" 
