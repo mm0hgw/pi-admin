@@ -21,7 +21,7 @@ test_admin <- c("grandpioverlord", "pioverlord")
 test_route <- c(pispace = 8)
 
 hisec_db <- list(list(c("kadmin", "kdc1", "ldap", "nfs", "www", "ns1")), list(c("kadmin", 
-    "kdc2", "ldap", "ns1"), c("kdc1", "nfs", "www", "ns2")), list(c("kadmin", "kdc2"), 
+    "kdc2", "ldap", "ns2"), c("kdc1", "nfs", "www", "ns1")), list(c("kadmin", "kdc2"), 
     c("kdc1", "ldap", "ns1"), c("nfs", "www", "ns2")), list(c("kadmin", "kdc2"), 
     c("kdc1", "ldap"), c("nfs", "ns1"), c("www", "ns2")))
 
@@ -73,7 +73,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
             hostname <- hostnames[[net]][j]
             if (net == "admin") {
                 fqdn <- paste(sep = ".", hostname, out$domain)
-                if (j <= kdc) {
+                if (j <= nAdmin) {
                   servicenames <- do.call(c, c(hostname, hisec_db[[hisec]][j]))
                   admin_dns <- paste(collapse = " ", servicenames)
                   fqdns <- paste(collapse = " ", sep = ".", servicenames, out$domain)
