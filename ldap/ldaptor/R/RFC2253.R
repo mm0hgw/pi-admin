@@ -82,15 +82,17 @@ ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
     if (valid.domain.class(basedn)) 
         basedn <- basedn.class(basedn)
     stopifnot(is.basedn.class(basedn))
-    if(!all(sapply(c(skeylist, kvlist), is.ldapkv))){
-    	errors <- ''
-    	if(any(sapply(skeylist,is.ldapkv))){
-    		errors <- paste( sep='', errors, 'skeylist errors: ',paste(collapse=',',skeylist[!sapply(skeylist,is.ldapkv)]),' ')
-    	}
-      	if(any(sapply(kvlist,is.ldapkv))){
-    		errors <- paste( sep='', errors, 'skeylist errors: ',paste(collapse=',',skeylist[!sapply(kvlist,is.ldapkv)]),' ')
-    	}
-    	stop(errors)
+    if (!all(sapply(c(skeylist, kvlist), is.ldapkv))) {
+        errors <- ""
+        if (any(sapply(skeylist, is.ldapkv))) {
+            errors <- paste(sep = "", errors, "skeylist errors: ", paste(collapse = ",", 
+                skeylist[!sapply(skeylist, is.ldapkv)]), " ")
+        }
+        if (any(sapply(kvlist, is.ldapkv))) {
+            errors <- paste(sep = "", errors, "skeylist errors: ", paste(collapse = ",", 
+                skeylist[!sapply(kvlist, is.ldapkv)]), " ")
+        }
+        stop(errors)
     }
     
     out <- list(pkey = pkey, basedn = basedn, skeylist = skeylist, kvlist = kvlist)
