@@ -1,24 +1,83 @@
-cn      , 10.0.0.0
-dc         , tortuga    , dc         , piratepress, dc         , org        
-cn    , config, ou    , dhcp  
-objectClass                          , top                                  , objectClass                          , dhcpSubnet                           , objectClass                          , dhcpOptions                          , dhcpNetMask                          , 22                                   , dhcpStatements                       , default-lease-time 14400             , dhcpStatements                       , max-lease-time 28800                 , dhcpOption                           , subnet-mask 255.255.252.0            , dhcpOption                           , broadcast-address 10.0.3.255         , dhcpOption                           , routers 10.0.0.1                     , dhcpOption                           , domain-name-servers 10.0.0.1         , dhcpOption                           , domain-name "tortuga.piratepress.org"
-cn      , 10.0.4.0
-dc         , tortuga    , dc         , piratepress, dc         , org        
-cn    , config, ou    , dhcp  
-objectClass                          , top                                  , objectClass                          , dhcpSubnet                           , objectClass                          , dhcpOptions                          , dhcpNetMask                          , 26                                   , dhcpStatements                       , default-lease-time 14400             , dhcpStatements                       , max-lease-time 28800                 , dhcpOption                           , subnet-mask 255.255.255.192          , dhcpOption                           , broadcast-address 10.0.4.63          , dhcpOption                           , routers 10.0.4.1                     , dhcpOption                           , domain-name-servers 10.0.4.1         , dhcpOption                           , domain-name "tortuga.piratepress.org"
-cn       , 10.0.4.64
-dc         , tortuga    , dc         , piratepress, dc         , org        
-cn    , config, ou    , dhcp  
-objectClass                          , top                                  , objectClass                          , dhcpSubnet                           , objectClass                          , dhcpOptions                          , dhcpNetMask                          , 27                                   , dhcpStatements                       , default-lease-time 14400             , dhcpStatements                       , max-lease-time 28800                 , dhcpOption                           , subnet-mask 255.255.255.224          , dhcpOption                           , broadcast-address 10.0.4.95          , dhcpOption                           , routers 10.0.4.65                    , dhcpOption                           , domain-name-servers 10.0.4.65        , dhcpOption                           , domain-name "tortuga.piratepress.org"
-cn       , 10.0.4.96
-dc         , tortuga    , dc         , piratepress, dc         , org        
-cn    , config, ou    , dhcp  
-objectClass                          , top                                  , objectClass                          , dhcpSubnet                           , objectClass                          , dhcpOptions                          , dhcpNetMask                          , 28                                   , dhcpStatements                       , default-lease-time 14400             , dhcpStatements                       , max-lease-time 28800                 , dhcpOption                           , subnet-mask 255.255.255.240          , dhcpOption                           , broadcast-address 10.0.4.111         , dhcpOption                           , routers 10.0.4.97                    , dhcpOption                           , domain-name-servers 10.0.4.97        , dhcpOption                           , domain-name "tortuga.piratepress.org"
-cn        , 10.0.4.112
-dc         , tortuga    , dc         , piratepress, dc         , org        
-cn    , config, ou    , dhcp  
-objectClass                          , top                                  , objectClass                          , dhcpSubnet                           , objectClass                          , dhcpOptions                          , dhcpNetMask                          , 28                                   , dhcpStatements                       , default-lease-time 14400             , dhcpStatements                       , max-lease-time 28800                 , dhcpOption                           , subnet-mask 255.255.255.240          , dhcpOption                           , broadcast-address 10.0.4.127         , dhcpOption                           , routers 10.0.4.113                   , dhcpOption                           , domain-name-servers 10.0.4.113       , dhcpOption                           , domain-name "tortuga.piratepress.org"
-cn        , 10.0.4.128
-dc         , tortuga    , dc         , piratepress, dc         , org        
-cn    , config, ou    , dhcp  
-objectClass                          , top                                  , objectClass                          , dhcpSubnet                           , objectClass                          , dhcpOptions                          , dhcpNetMask                          , 29                                   , dhcpStatements                       , default-lease-time 14400             , dhcpStatements                       , max-lease-time 28800                 , dhcpOption                           , subnet-mask 255.255.255.248          , dhcpOption                           , broadcast-address 10.0.4.135         , dhcpOption                           , routers 10.0.4.129                   , dhcpOption                           , domain-name-servers 10.0.4.129       , dhcpOption                           , domain-name "tortuga.piratepress.org"
+dn: cn=10.0.0.0,cn=config,ou=dhcp,dc=tortuga,dc=piratepress,dc=org
+cn: 10.0.0.0
+objectClass: top
+objectClass: dhcpSubnet
+objectClass: dhcpOptions
+dhcpNetMask: 22
+dhcpStatements: default-lease-time 14400
+dhcpStatements: max-lease-time 28800
+dhcpOption: subnet-mask 255.255.252.0
+dhcpOption: broadcast-address 10.0.3.255
+dhcpOption: routers 10.0.0.1
+dhcpOption: domain-name-servers 10.0.0.1
+dhcpOption: domain-name \"tortuga.piratepress.org\"
+
+dn: cn=10.0.4.0,cn=config,ou=dhcp,dc=tortuga,dc=piratepress,dc=org
+cn: 10.0.4.0
+objectClass: top
+objectClass: dhcpSubnet
+objectClass: dhcpOptions
+dhcpNetMask: 26
+dhcpStatements: default-lease-time 14400
+dhcpStatements: max-lease-time 28800
+dhcpOption: subnet-mask 255.255.255.192
+dhcpOption: broadcast-address 10.0.4.63
+dhcpOption: routers 10.0.4.1
+dhcpOption: domain-name-servers 10.0.4.1
+dhcpOption: domain-name \"tortuga.piratepress.org\"
+
+dn: cn=10.0.4.64,cn=config,ou=dhcp,dc=tortuga,dc=piratepress,dc=org
+cn: 10.0.4.64
+objectClass: top
+objectClass: dhcpSubnet
+objectClass: dhcpOptions
+dhcpNetMask: 27
+dhcpStatements: default-lease-time 14400
+dhcpStatements: max-lease-time 28800
+dhcpOption: subnet-mask 255.255.255.224
+dhcpOption: broadcast-address 10.0.4.95
+dhcpOption: routers 10.0.4.65
+dhcpOption: domain-name-servers 10.0.4.65
+dhcpOption: domain-name \"tortuga.piratepress.org\"
+
+dn: cn=10.0.4.96,cn=config,ou=dhcp,dc=tortuga,dc=piratepress,dc=org
+cn: 10.0.4.96
+objectClass: top
+objectClass: dhcpSubnet
+objectClass: dhcpOptions
+dhcpNetMask: 28
+dhcpStatements: default-lease-time 14400
+dhcpStatements: max-lease-time 28800
+dhcpOption: subnet-mask 255.255.255.240
+dhcpOption: broadcast-address 10.0.4.111
+dhcpOption: routers 10.0.4.97
+dhcpOption: domain-name-servers 10.0.4.97
+dhcpOption: domain-name \"tortuga.piratepress.org\"
+
+dn: cn=10.0.4.112,cn=config,ou=dhcp,dc=tortuga,dc=piratepress,dc=org
+cn: 10.0.4.112
+objectClass: top
+objectClass: dhcpSubnet
+objectClass: dhcpOptions
+dhcpNetMask: 28
+dhcpStatements: default-lease-time 14400
+dhcpStatements: max-lease-time 28800
+dhcpOption: subnet-mask 255.255.255.240
+dhcpOption: broadcast-address 10.0.4.127
+dhcpOption: routers 10.0.4.113
+dhcpOption: domain-name-servers 10.0.4.113
+dhcpOption: domain-name \"tortuga.piratepress.org\"
+
+dn: cn=10.0.4.128,cn=config,ou=dhcp,dc=tortuga,dc=piratepress,dc=org
+cn: 10.0.4.128
+objectClass: top
+objectClass: dhcpSubnet
+objectClass: dhcpOptions
+dhcpNetMask: 29
+dhcpStatements: default-lease-time 14400
+dhcpStatements: max-lease-time 28800
+dhcpOption: subnet-mask 255.255.255.248
+dhcpOption: broadcast-address 10.0.4.135
+dhcpOption: routers 10.0.4.129
+dhcpOption: domain-name-servers 10.0.4.129
+dhcpOption: domain-name \"tortuga.piratepress.org\"
