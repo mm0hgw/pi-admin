@@ -230,7 +230,7 @@ ldapDhcpHost <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpHo
 ldapDhcpSKeylist <- list(ldapkv("cn", "config"), ldapkv("ou", "dhcp"))
 
 exportDhcpSubnet.ldif <- function(subnet, domain, statements = list("default-lease-time 14400", 
-    "max-lease-time 28800"), skeylist = ldapDhcpSkeylist) {
+    "max-lease-time 28800"), skeylist = ldapDhcpSKeylist) {
     net_ip <- ipv4.class(subnet)
     router_ip <- net_ip + 1
     netmask <- subnet[5]
