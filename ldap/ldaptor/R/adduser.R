@@ -201,7 +201,7 @@ subnetmask <- function(bits) {
         octet <- octet - 1
         bits <- bits - 1
     }
-    out
+    ipv4.class(out)
 }
 
 server_ldif <- function(server, domain) {
@@ -217,7 +217,7 @@ subnet_ldif <- function(subnet, domain, statements = list("default-lease-time 14
     net_ip <- ipv4.class(subnet)
     router_ip <- net_ip + 1
     netmask <- subnet[5]
-    broadcast <- net_ip + (ipv4.class(rep(255, 4)) - subnetmask(netmask))
+    broadcast <- ipv4.class(as.vector(net_ip) + rep(255, 4) - as.vector(subnetmask(netmask)))
     pkey <- ldapkv("cn", format(net_ip))
     skeylist <- list(ldapkv("cn", "config"), ldapkv("ou", "dhcp"))
     kvlist <- c(ldapSubnet, ldapkv("dhcpNetMask", netmask), lapply(statements, ldapkv, 
