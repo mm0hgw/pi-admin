@@ -236,7 +236,7 @@ exportDhcpSubnet.ldif <- function(subnet, domain, statements = list("default-lea
     netmask <- subnet[5]
     broadcast <- ipv4.class(as.vector(net_ip) + rep(255, 4) - as.vector(subnetmask(netmask)))
     pkey <- ldapkv("cn", format(net_ip))
-    kvlist <- c(ldapSubnet, list(ldapkv("dhcpNetMask", netmask)), lapply(statements, 
+    kvlist <- c(ldapDhcpSubnet, list(ldapkv("dhcpNetMask", netmask)), lapply(statements, 
         ldapkv, key = "dhcpStatements"), list(ldapkv("dhcpOption", paste("subnet-mask", 
         format(subnetmask(netmask)))), ldapkv("dhcpOption", paste("broadcast-address", 
         text_ip(broadcast))), ldapkv("dhcpOption", paste("routers", text_ip(router_ip))), 
