@@ -215,15 +215,14 @@ ldapSubnet <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpSubn
 ldapDhcpSkeylist <- list(ldapkv("cn", "config"), ldapkv("ou", "dhcp"))
 
 subnet_ldif <- function(subnet, domain, statements = list("default-lease-time 14400", 
-    "max-lease-time 28800"), skeylist=ldapDhcpSkeylist) {
+    "max-lease-time 28800"), skeylist = ldapDhcpSkeylist) {
     net_ip <- ipv4.class(subnet)
     router_ip <- net_ip + 1
     netmask <- subnet[5]
     broadcast <- ipv4.class(as.vector(net_ip) + rep(255, 4) - as.vector(subnetmask(netmask)))
     pkey <- ldapkv("cn", format(net_ip))
     kvlist <- c(ldapSubnet, ldapkv("dhcpNetMask", netmask), lapply(statements, ldapkv, 
-        key = "dhcpStatements"),
-    ldapkv("dhcpOption", paste("subnet-mask", format(subnetmask(netmask)))), 
+        key = "dhcpStatements"), ldapkv("dhcpOption", paste("subnet-mask", format(subnetmask(netmask)))), 
         ldapkv("dhcpOption", paste("broadcast-address", text_ip(broadcast))), ldapkv("dhcpOption", 
             paste("routers", text_ip(router_ip))), ldapkv("dhcpOption", paste("domain-name-servers", 
             text_ip(router_ip))), ldapkv("dhcpOption", paste(sep = "", "domain-name \"", 
