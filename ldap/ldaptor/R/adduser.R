@@ -207,7 +207,7 @@ ldapUser <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "account"),
 # cn uid uidNumber gidNumber homeDirectory loginShell gecos userPassword:
 # {SASL}uid@REALM
 ldapGroup <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "posixGroup"))
-# cn gidNumber
+# cn gidNumber memberUid
 ldapHost <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "ipHost"), ldapkv("objectClass", 
     "device"))
 # cn ipHostNumber
@@ -236,7 +236,7 @@ exportDhcpServers.ldif <- function(realm) {
     lapply(names(realm$subnet_layout), function(network) {
         server <- ldapDhcpServerDef(network)
         servicedn <- ldapkv("dhcpServiceDN", paste(collapse = ",", sapply(c(server, 
-            realm$basedn), format, sep = "=")))
+            realm$basedn), format, collapse = "=")))
         kvlist <- c(ldapDhcpServer, servicedn)
         ldapquery(server[[1]], realm$basedn, server[2], kvlist)
     })
