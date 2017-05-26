@@ -30,7 +30,7 @@ basednFromDomain <- function(domain) {
     paste(collapse = ",", sep = "", "dc=", parts)
 }
 
-krb_realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
+realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     base_ip = default_base_ip) {
     stopifnot(length(admin_hosts) > 0)
     stopifnot(all(sapply(admin_hosts, valid.hostname.class)))
@@ -166,20 +166,20 @@ next_subnet <- function(ip, sn) {
     ip
 }
 
-export_networks_flatfile <- function(networks) {
-    paste(collapse = "\n", c(sapply(seq_along(networks), function(i) {
-        n <- networks[[i]]
+export_networks_flatfile <- function(realm) {
+    paste(collapse = "\n", c(sapply(seq_along(realm$networks), function(i) {
+        n <- realm$networks[[i]]
         ip <- paste(collapse = ".", n[1:4])
         net <- paste(sep = "/", ip, n[5])
-        paste(sep = "\t", net, names(networks[i]))
+        paste(sep = "\t", net, names(realm$networks[i]))
     }), ""))
 }
 
-export_hosts_flatfile <- function(hosts) {
-    paste(collapse = "\n", c(sapply(seq_along(hosts), function(i) {
-        n <- hosts[[i]]
+export_hosts_flatfile <- function(realm) {
+    paste(collapse = "\n", c(sapply(seq_along(realm$hosts), function(i) {
+        n <- realm$hosts[[i]]
         ip <- paste(collapse = ".", n)
-        paste(sep = "\t", ip, names(hosts[i]))
+        paste(sep = "\t", ip, names(realm$hosts[i]))
     }), ""))
 }
 
@@ -234,15 +234,15 @@ subnet_ldif <- function(subnet, domain, statements = list("default-lease-time 14
     ldapquery(pkey, domain, skeylist, kvlist)
 }
 
-export_networks_ldif <- function(networks, domain) {
-    lapply(seq_along(networks), function(i) {
-        name <- names(networks)[i]
-        n <- networks[[i]]
-        subnet_ldif(n, domain)
+export_networks_ldif <- function(realm) {
+    lapply(seq_along(realm$networks), function(i) {
+        name <- names(realm$networks)[i]
+        n <- realm$networks[[i]]
+        subnet_ldif(n, realm$domain)
     })
 }
 
-export_hosts_ldif <- function(hosts) {
+export_hosts_ldif <- function(realm) {
     paste(collapse = "\n", c(sapply(seq_along(hosts), function(i) {
         n <- hosts[[i]]
         ip <- paste(collapse = ".", n)
