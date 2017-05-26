@@ -1,0 +1,37 @@
+structure(list(pispace = structure(list(pkey = structure(c("cn", 
+"10.0.0.0"), class = "ldapkv"), basedn = structure(list(structure(c("dc", 
+"tillycode"), class = "ldapkv"), structure(c("dc", "club"), class = "ldapkv")), class = "basedn.class"), 
+    skeylist = list(structure(c("cn", "config"), class = "ldapkv"), 
+        structure(c("ou", "dhcp"), class = "ldapkv")), kvlist = list(
+        structure(c("objectClass", "top"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpSubnet"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpOptions"), class = "ldapkv"), 
+        structure(c("dhcpNetMask", "28"), .Names = c("", "pispace"
+        ), class = "ldapkv"), structure(c("dhcpStatements", "default-lease-time 14400"
+        ), class = "ldapkv"), structure(c("dhcpStatements", "max-lease-time 28800"
+        ), class = "ldapkv"), structure(c("dhcpOption", "subnet-mask 255.255.255.240"
+        ), class = "ldapkv"), structure(c("dhcpOption", "broadcast-address 10.0.0.15"
+        ), class = "ldapkv"), structure(c("dhcpOption", "routers 10.0.0.1"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name-servers 10.0.0.1"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name \"tillycode.club\""
+        ), class = "ldapkv"))), .Names = c("pkey", "basedn", 
+"skeylist", "kvlist"), class = "ldapquery"), tillycode = structure(list(
+    pkey = structure(c("cn", "10.0.0.16"), class = "ldapkv"), 
+    basedn = structure(list(structure(c("dc", "tillycode"), class = "ldapkv"), 
+        structure(c("dc", "club"), class = "ldapkv")), class = "basedn.class"), 
+    skeylist = list(structure(c("cn", "config"), class = "ldapkv"), 
+        structure(c("ou", "dhcp"), class = "ldapkv")), kvlist = list(
+        structure(c("objectClass", "top"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpSubnet"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpOptions"), class = "ldapkv"), 
+        structure(c("dhcpNetMask", "29"), .Names = c("", "admin"
+        ), class = "ldapkv"), structure(c("dhcpStatements", "default-lease-time 14400"
+        ), class = "ldapkv"), structure(c("dhcpStatements", "max-lease-time 28800"
+        ), class = "ldapkv"), structure(c("dhcpOption", "subnet-mask 255.255.255.248"
+        ), class = "ldapkv"), structure(c("dhcpOption", "broadcast-address 10.0.0.23"
+        ), class = "ldapkv"), structure(c("dhcpOption", "routers 10.0.0.17"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name-servers 10.0.0.17"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name \"tillycode.club\""
+        ), class = "ldapkv"))), .Names = c("pkey", "basedn", 
+"skeylist", "kvlist"), class = "ldapquery")), .Names = c("pispace", 
+"tillycode"))
