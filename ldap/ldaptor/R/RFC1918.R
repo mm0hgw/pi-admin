@@ -1,34 +1,34 @@
-#' ip.class
+#' ipv4.class
 #' @description a container for a valid RFC1918 IPv4 address
 #' @param hostname a 'character' identifier
 #'@export
-ip.class <- function(...){
+ipv4.class <- function(...){
 	out <- as.integer(c(...))
 	stopifnot(length(out)>=4)
 	out <- head(out,n=4)
 	stopifnot(!any(is.na(out)))
 	stopifnot(all(out>=0))
 	stopifnot(all(out<=255))
-	class(out) <- 'ip.class'
+	class(out) <- 'ipv4.class'
 	out
 }
 
-#'format.ip.class
-#'@param x an 'ip.class' object
+#'format.ipv4.class
+#'@param x an 'ipv4.class' object
 #'@param ... ignored
 #'@export
-format.ip.class <- function(x,...){
+format.ipv4.class <- function(x,...){
 	paste(collapse='.',x)
 }
 
-#'+.ip.class
-#'@param e1 an 'ip.class' object
-#'@param e2 an 'ip.class' object or length==1 integer
+#'+.ipv4.class
+#'@param e1 an 'ipv4.class' object
+#'@param e2 an 'ipv4.class' object or length==1 integer
 #'@export
-'+.ip.class' <- function(e1,e2){
-	if(!inherits(e1,'ip.class'))
+'+.ipv4.class' <- function(e1,e2){
+	if(!inherits(e1,'ipv4.class'))
 		stop(e1)
-	if(!inherits(e2,'ip.class')){
+	if(!inherits(e2,'ipv4.class')){
 		if(length(e2)!=1)
 			stop(e2)
 		i <- as.integer(e2)
@@ -52,6 +52,7 @@ handleOverflow <- function(ip){
 		}
 		i <- i-1
 	}
-	stopifnot(ip[1]>=0&&ip[1]<=255)
+	if(ip[1]<0&&ip[1]>255)
+		stop(ip)
 	ip
 }
