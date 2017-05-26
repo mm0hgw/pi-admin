@@ -1,37 +1,115 @@
-structure(list(pispace = structure(list(pkey = structure(c("cn", 
-"10.0.0.0"), class = "ldapkv"), basedn = structure(list(structure(c("dc", 
-"tillycode"), class = "ldapkv"), structure(c("dc", "club"), class = "ldapkv")), class = "basedn.class"), 
+structure(list(e = structure(list(pkey = structure(c("cn", "10.0.0.0"
+), class = "ldapkv"), basedn = structure(list(structure(c("dc", 
+"tortuga"), class = "ldapkv"), structure(c("dc", "piratepress"
+), class = "ldapkv"), structure(c("dc", "org"), class = "ldapkv")), class = "basedn.class"), 
     skeylist = list(structure(c("cn", "config"), class = "ldapkv"), 
         structure(c("ou", "dhcp"), class = "ldapkv")), kvlist = list(
         structure(c("objectClass", "top"), class = "ldapkv"), 
         structure(c("objectClass", "dhcpSubnet"), class = "ldapkv"), 
         structure(c("objectClass", "dhcpOptions"), class = "ldapkv"), 
-        structure(c("dhcpNetMask", "28"), .Names = c("", "pispace"
+        structure(c("dhcpNetMask", "22"), .Names = c("", "e"), class = "ldapkv"), 
+        structure(c("dhcpStatements", "default-lease-time 14400"
+        ), class = "ldapkv"), structure(c("dhcpStatements", "max-lease-time 28800"
+        ), class = "ldapkv"), structure(c("dhcpOption", "subnet-mask 255.255.252.0"
+        ), class = "ldapkv"), structure(c("dhcpOption", "broadcast-address 10.0.3.255"
+        ), class = "ldapkv"), structure(c("dhcpOption", "routers 10.0.0.1"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name-servers 10.0.0.1"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name \"tortuga.piratepress.org\""
+        ), class = "ldapkv"))), .Names = c("pkey", "basedn", 
+"skeylist", "kvlist"), class = "ldapquery"), f = structure(list(
+    pkey = structure(c("cn", "10.0.4.0"), class = "ldapkv"), 
+    basedn = structure(list(structure(c("dc", "tortuga"), class = "ldapkv"), 
+        structure(c("dc", "piratepress"), class = "ldapkv"), 
+        structure(c("dc", "org"), class = "ldapkv")), class = "basedn.class"), 
+    skeylist = list(structure(c("cn", "config"), class = "ldapkv"), 
+        structure(c("ou", "dhcp"), class = "ldapkv")), kvlist = list(
+        structure(c("objectClass", "top"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpSubnet"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpOptions"), class = "ldapkv"), 
+        structure(c("dhcpNetMask", "26"), .Names = c("", "f"), class = "ldapkv"), 
+        structure(c("dhcpStatements", "default-lease-time 14400"
+        ), class = "ldapkv"), structure(c("dhcpStatements", "max-lease-time 28800"
+        ), class = "ldapkv"), structure(c("dhcpOption", "subnet-mask 255.255.255.192"
+        ), class = "ldapkv"), structure(c("dhcpOption", "broadcast-address 10.0.4.63"
+        ), class = "ldapkv"), structure(c("dhcpOption", "routers 10.0.4.1"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name-servers 10.0.4.1"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name \"tortuga.piratepress.org\""
+        ), class = "ldapkv"))), .Names = c("pkey", "basedn", 
+"skeylist", "kvlist"), class = "ldapquery"), g = structure(list(
+    pkey = structure(c("cn", "10.0.4.64"), class = "ldapkv"), 
+    basedn = structure(list(structure(c("dc", "tortuga"), class = "ldapkv"), 
+        structure(c("dc", "piratepress"), class = "ldapkv"), 
+        structure(c("dc", "org"), class = "ldapkv")), class = "basedn.class"), 
+    skeylist = list(structure(c("cn", "config"), class = "ldapkv"), 
+        structure(c("ou", "dhcp"), class = "ldapkv")), kvlist = list(
+        structure(c("objectClass", "top"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpSubnet"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpOptions"), class = "ldapkv"), 
+        structure(c("dhcpNetMask", "27"), .Names = c("", "g"), class = "ldapkv"), 
+        structure(c("dhcpStatements", "default-lease-time 14400"
+        ), class = "ldapkv"), structure(c("dhcpStatements", "max-lease-time 28800"
+        ), class = "ldapkv"), structure(c("dhcpOption", "subnet-mask 255.255.255.224"
+        ), class = "ldapkv"), structure(c("dhcpOption", "broadcast-address 10.0.4.95"
+        ), class = "ldapkv"), structure(c("dhcpOption", "routers 10.0.4.65"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name-servers 10.0.4.65"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name \"tortuga.piratepress.org\""
+        ), class = "ldapkv"))), .Names = c("pkey", "basedn", 
+"skeylist", "kvlist"), class = "ldapquery"), tortuga = structure(list(
+    pkey = structure(c("cn", "10.0.4.96"), class = "ldapkv"), 
+    basedn = structure(list(structure(c("dc", "tortuga"), class = "ldapkv"), 
+        structure(c("dc", "piratepress"), class = "ldapkv"), 
+        structure(c("dc", "org"), class = "ldapkv")), class = "basedn.class"), 
+    skeylist = list(structure(c("cn", "config"), class = "ldapkv"), 
+        structure(c("ou", "dhcp"), class = "ldapkv")), kvlist = list(
+        structure(c("objectClass", "top"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpSubnet"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpOptions"), class = "ldapkv"), 
+        structure(c("dhcpNetMask", "28"), .Names = c("", "admin"
         ), class = "ldapkv"), structure(c("dhcpStatements", "default-lease-time 14400"
         ), class = "ldapkv"), structure(c("dhcpStatements", "max-lease-time 28800"
         ), class = "ldapkv"), structure(c("dhcpOption", "subnet-mask 255.255.255.240"
-        ), class = "ldapkv"), structure(c("dhcpOption", "broadcast-address 10.0.0.15"
-        ), class = "ldapkv"), structure(c("dhcpOption", "routers 10.0.0.1"
-        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name-servers 10.0.0.1"
-        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name \"tillycode.club\""
+        ), class = "ldapkv"), structure(c("dhcpOption", "broadcast-address 10.0.4.111"
+        ), class = "ldapkv"), structure(c("dhcpOption", "routers 10.0.4.97"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name-servers 10.0.4.97"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name \"tortuga.piratepress.org\""
         ), class = "ldapkv"))), .Names = c("pkey", "basedn", 
-"skeylist", "kvlist"), class = "ldapquery"), tillycode = structure(list(
-    pkey = structure(c("cn", "10.0.0.16"), class = "ldapkv"), 
-    basedn = structure(list(structure(c("dc", "tillycode"), class = "ldapkv"), 
-        structure(c("dc", "club"), class = "ldapkv")), class = "basedn.class"), 
+"skeylist", "kvlist"), class = "ldapquery"), h = structure(list(
+    pkey = structure(c("cn", "10.0.4.112"), class = "ldapkv"), 
+    basedn = structure(list(structure(c("dc", "tortuga"), class = "ldapkv"), 
+        structure(c("dc", "piratepress"), class = "ldapkv"), 
+        structure(c("dc", "org"), class = "ldapkv")), class = "basedn.class"), 
     skeylist = list(structure(c("cn", "config"), class = "ldapkv"), 
         structure(c("ou", "dhcp"), class = "ldapkv")), kvlist = list(
         structure(c("objectClass", "top"), class = "ldapkv"), 
         structure(c("objectClass", "dhcpSubnet"), class = "ldapkv"), 
         structure(c("objectClass", "dhcpOptions"), class = "ldapkv"), 
-        structure(c("dhcpNetMask", "29"), .Names = c("", "admin"
-        ), class = "ldapkv"), structure(c("dhcpStatements", "default-lease-time 14400"
+        structure(c("dhcpNetMask", "28"), .Names = c("", "h"), class = "ldapkv"), 
+        structure(c("dhcpStatements", "default-lease-time 14400"
+        ), class = "ldapkv"), structure(c("dhcpStatements", "max-lease-time 28800"
+        ), class = "ldapkv"), structure(c("dhcpOption", "subnet-mask 255.255.255.240"
+        ), class = "ldapkv"), structure(c("dhcpOption", "broadcast-address 10.0.4.127"
+        ), class = "ldapkv"), structure(c("dhcpOption", "routers 10.0.4.113"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name-servers 10.0.4.113"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name \"tortuga.piratepress.org\""
+        ), class = "ldapkv"))), .Names = c("pkey", "basedn", 
+"skeylist", "kvlist"), class = "ldapquery"), i = structure(list(
+    pkey = structure(c("cn", "10.0.4.128"), class = "ldapkv"), 
+    basedn = structure(list(structure(c("dc", "tortuga"), class = "ldapkv"), 
+        structure(c("dc", "piratepress"), class = "ldapkv"), 
+        structure(c("dc", "org"), class = "ldapkv")), class = "basedn.class"), 
+    skeylist = list(structure(c("cn", "config"), class = "ldapkv"), 
+        structure(c("ou", "dhcp"), class = "ldapkv")), kvlist = list(
+        structure(c("objectClass", "top"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpSubnet"), class = "ldapkv"), 
+        structure(c("objectClass", "dhcpOptions"), class = "ldapkv"), 
+        structure(c("dhcpNetMask", "29"), .Names = c("", "i"), class = "ldapkv"), 
+        structure(c("dhcpStatements", "default-lease-time 14400"
         ), class = "ldapkv"), structure(c("dhcpStatements", "max-lease-time 28800"
         ), class = "ldapkv"), structure(c("dhcpOption", "subnet-mask 255.255.255.248"
-        ), class = "ldapkv"), structure(c("dhcpOption", "broadcast-address 10.0.0.23"
-        ), class = "ldapkv"), structure(c("dhcpOption", "routers 10.0.0.17"
-        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name-servers 10.0.0.17"
-        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name \"tillycode.club\""
+        ), class = "ldapkv"), structure(c("dhcpOption", "broadcast-address 10.0.4.135"
+        ), class = "ldapkv"), structure(c("dhcpOption", "routers 10.0.4.129"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name-servers 10.0.4.129"
+        ), class = "ldapkv"), structure(c("dhcpOption", "domain-name \"tortuga.piratepress.org\""
         ), class = "ldapkv"))), .Names = c("pkey", "basedn", 
-"skeylist", "kvlist"), class = "ldapquery")), .Names = c("pispace", 
-"tillycode"))
+"skeylist", "kvlist"), class = "ldapquery")), .Names = c("e", 
+"f", "g", "tortuga", "h", "i"))
