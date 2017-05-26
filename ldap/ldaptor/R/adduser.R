@@ -26,7 +26,6 @@ hisec_db <- list(list(c("kadmin", "kdc1", "ldap", "nfs", "www", "ns1",'mail')), 
     c("kdc1", "ldap"), c("nfs", "ns1"), c("www", 'mail',"ns2")))
 
 realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, base_ip = default_base_ip) {
-    stopifnot(length(admin_hosts) > 0)
     stopifnot(all(sapply(admin_hosts, valid.hostname.class)))
     stopifnot(all(sapply(domain, valid.domain.class)))
     stopifnot(all(sapply(admin_hosts, nchar) <= 50))
