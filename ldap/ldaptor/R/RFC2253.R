@@ -87,7 +87,7 @@ ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
     	if(any(sapply(skeylist,is.ldapkv)))
     		errors <- paste( sep='', errors, 'skeylist errors: ',paste(collapse=',',skeylist[!sapply(skeylist,is.ldapkv)]),' ')
     	}
-      	if(any(sapply(kvlist,is.ldapkv)))}
+      	if(any(sapply(kvlist,is.ldapkv)))
     		errors <- paste( sep='', errors, 'skeylist errors: ',paste(collapse=',',skeylist[!sapply(kvlist,is.ldapkv)]),' ')
     	}
     	stop(errors)
