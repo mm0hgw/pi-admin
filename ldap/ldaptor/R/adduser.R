@@ -25,11 +25,6 @@ hisec_db <- list(list(c("kadmin", "kdc1", "ldap", "nfs", "www", "ns1")), list(c(
     c("kdc1", "ldap", "ns1"), c("nfs", "www", "ns2")), list(c("kadmin", "kdc2"), 
     c("kdc1", "ldap"), c("nfs", "ns1"), c("www", "ns2")))
 
-basednFromDomain <- function(domain) {
-    parts <- strsplit(domain, "\\.")[[1]]
-    paste(collapse = ",", sep = "", "dc=", parts)
-}
-
 realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, base_ip = default_base_ip) {
     stopifnot(length(admin_hosts) > 0)
     stopifnot(all(sapply(admin_hosts, valid.hostname.class)))
@@ -157,7 +152,7 @@ next_subnet <- function(ip, sn) {
     ip
 }
 
-export_networks_flatfile <- function(realm) {
+exportNetworks.flatfile <- function(realm) {
     paste(collapse = "\n", c(sapply(seq_along(realm$networks), function(i) {
         n <- realm$networks[[i]]
         ip <- paste(collapse = ".", n[1:4])
@@ -166,16 +161,12 @@ export_networks_flatfile <- function(realm) {
     }), ""))
 }
 
-export_hosts_flatfile <- function(realm) {
+exportHosts.flatfile <- function(realm) {
     paste(collapse = "\n", c(sapply(seq_along(realm$hosts), function(i) {
         n <- realm$hosts[[i]]
         ip <- paste(collapse = ".", n)
         paste(sep = "\t", ip, names(realm$hosts[i]))
     }), ""))
-}
-
-text_ip <- function(ip) {
-    paste(collapse = ".", ip)
 }
 
 subnetmask <- function(bits) {
@@ -195,9 +186,6 @@ subnetmask <- function(bits) {
     ipv4.class(out)
 }
 
-server_ldif <- function(server, domain) {
-}
-
 ldapDhcpList <- function(x, key = "dhcpStatements") {
     if (length(x) == 1) {
         x <- strsplit(x, "\n")
@@ -208,12 +196,43 @@ ldapDhcpList <- function(x, key = "dhcpStatements") {
     sapply(x, ldapkv, key = key)
 }
 
-ldapSubnet <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpSubnet"), 
+ldapOu <- list(ldapkv("objectClass", "top"),
+    ldapkv("objectClass", "organizationalUnit"))
+# ou
+
+ldapUser <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "account"), 
+    ldapkv("objectClass", "posixAccount"))
+# cn uid uidNumber gidNumber homeDirectory loginShell gecos userPassword: {SASL}uid@REALM
+ldapGroup <- list(ldapkv("objectClass", "top"),
+    ldapkv("objectClass", "posixGroup"))
+# cn gidNumber
+ldapHost <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "ipHost"), 
+    ldapkv("objectClass", "device"))
+# cn ipHostNumber
+ldapNetwork <- list(ldapkv("objectClass", "top"),
+    ldapkv("objectClass", "ipNetwork"))
+# cn ipNetworkNumber ipNetmaskNumber
+ldapEther <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "ieee802device"), 
+    ldapkv("objectClass", "device"))
+# cn macAddress
+ldapNetgroup <-  list(ldapkv("objectClass", "top"), ldapkv("objectClass", "nisNetgroup"), 
+    ldapkv("objectClass", "device"))
+# cn nisNetgroupTriple memberNisNetgroup
+
+ldapDhcpServer <- list(ldapkv("objectClass", "top"),  
+    ldapkv("objectClass", "dhcpServer"))
+# cn dhcpServiceDN
+ldapDhcpSubnet <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpSubnet"), 
     ldapkv("objectClass", "dhcpOptions"))
+# cn dhcpNetMask dhcpStatements dhcpOption
+ldapDhcpHost <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpHost"))
+# cn dhcpNetMask dhcpStatements dhcpOption
 
-ldapDhcpSkeylist <- list(ldapkv("cn", "config"), ldapkv("ou", "dhcp"))
 
-subnet_ldif <- function(subnet, domain, statements = list("default-lease-time 14400", 
+
+ldapDhcpSKeylist <- list(ldapkv("cn", "config"), ldapkv("ou", "dhcp"))
+
+exportDhcpSubnet.ldif <- function(subnet, domain, statements = list("default-lease-time 14400", 
     "max-lease-time 28800"), skeylist = ldapDhcpSkeylist) {
     net_ip <- ipv4.class(subnet)
     router_ip <- net_ip + 1
@@ -229,15 +248,15 @@ subnet_ldif <- function(subnet, domain, statements = list("default-lease-time 14
     ldapquery(pkey, domain, skeylist, kvlist)
 }
 
-export_networks_ldif <- function(realm) {
+exportDhcpSubnets.ldif <- function(realm) {
     lapply(seq_along(realm$networks), function(i) {
         name <- names(realm$networks)[i]
         n <- realm$networks[[i]]
-        subnet_ldif(n, realm$domain)
+        export_network_ldif(n, realm$domain)
     })
 }
 
-export_hosts_ldif <- function(realm) {
+exportDhcpHosts.ldif <- function(realm) {
     paste(collapse = "\n", c(sapply(seq_along(hosts), function(i) {
         n <- hosts[[i]]
         ip <- paste(collapse = ".", n)
