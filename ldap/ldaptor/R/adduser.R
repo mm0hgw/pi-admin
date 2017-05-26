@@ -35,9 +35,8 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     stopifnot(all(sapply(admin_hosts, valid.hostname.class)))
     stopifnot(all(sapply(domain, valid.domain.class)))
     stopifnot(all(sapply(admin_hosts, nchar) <= 50))
-    kdc <- length(admin_hosts)
-    ldap <- min(2, kdc)
-    hisec <- hisec_db[[min(length(hisec_db), length(admin_hosts))]]
+    nAdmin <- length(admin_hosts)
+    hisec <-min(length(hisec_db), nAdmin)
     out <- list()
     out$realm <- toupper(domain)
     out$domain <- domain.class(domain)
@@ -54,8 +53,13 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     i <- 1
     while (i <= length(netlist)) {
         net <- names(netlist)[i]
-        if (net == "admin") 
-            out$networks[[strsplit(out$domain, "\\.")[[1]][1]]] <- c(base_ip, netlist[i]) else out$networks[[net]] <- c(base_ip, netlist[i])
+        if (net == "admin") {
+            out$networks[[strsplit(out$domain, "\\.")[[1]][1]]] <- c(base_ip, netlist[i]) 
+key <-            sapply(c('kadmin','kdc','ldap','nfs','www','ns'),
+            	function(x){
+            	sapply(hisec_db[[hisec]],function(y){length(grep(x,y))!=0}}
+            out[[x]]<-	sapply(key,function(i){ipv4.class(base_ip)+i}
+            }else{ out$networks[[net]] <- c(base_ip, netlist[i])}
         host_ip <- inc_ip(base_ip)
         j <- 1
         while (j <= length(hostnames[[net]])) {
@@ -63,7 +67,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
             if (net == "admin") {
                 fqdn <- paste(sep = ".", hostname, out$domain)
                 if (j <= kdc) {
-                  servicenames <- do.call(c, c(hostname, hisec[j]))
+                  servicenames <- do.call(c, c(hostname, hisec_db[[hisec]][j]))
                   admin_dns <- paste(collapse = " ", servicenames)
                   fqdns <- paste(collapse = " ", sep = ".", servicenames, out$domain)
                   out$hosts[[paste(admin_dns, fqdns)]] <- host_ip
@@ -206,7 +210,15 @@ subnetmask <- function(bits) {
 server_ldif <- function(server, domain) {
 }
 
-
+ldapDhcpList<-function(x,key='dhcpStatements'){
+	if (length(x)==1){
+		x<-strsplit(x,'\n')
+	}
+	x <- x[x!='']
+	x <- grep('^#',x,value=TRUE,invert=TRUE)
+	x <- gsub(';$','',x)
+	sapply(x,ldapkv,key=key)
+}
 
 ldapSubnet <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpSubnet"), 
     ldapkv("objectClass", "dhcpOptions"))
