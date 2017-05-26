@@ -249,7 +249,7 @@ exportDhcpSubnets.ldif <- function(realm) {
     lapply(seq_along(realm$networks), function(i) {
         name <- names(realm$networks)[i]
         n <- realm$networks[[i]]
-        export_network_ldif(n, realm$domain)
+        exportDhcpSubnet.ldif(n, realm$domain)
     })
 }
 
