@@ -36,7 +36,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     stopifnot(all(sapply(domain, valid.domain.class)))
     stopifnot(all(sapply(admin_hosts, nchar) <= 50))
     nAdmin <- length(admin_hosts)
-    hisec <-min(length(hisec_db), nAdmin)
+    hisec <- min(length(hisec_db), nAdmin)
     out <- list()
     out$realm <- toupper(domain)
     out$domain <- domain.class(domain)
@@ -54,12 +54,18 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     while (i <= length(netlist)) {
         net <- names(netlist)[i]
         if (net == "admin") {
-            out$networks[[strsplit(out$domain, "\\.")[[1]][1]]] <- c(base_ip, netlist[i]) 
-key <-            sapply(c('kadmin','kdc','ldap','nfs','www','ns'),
-            	function(x){
-            	sapply(hisec_db[[hisec]],function(y){length(grep(x,y))!=0})})
-            out[[x]]<-	sapply(key,function(i){ipv4.class(base_ip)+i})
-            }else{ out$networks[[net]] <- c(base_ip, netlist[i])}
+            out$networks[[strsplit(out$domain, "\\.")[[1]][1]]] <- c(base_ip, netlist[i])
+            key <- sapply(c("kadmin", "kdc", "ldap", "nfs", "www", "ns"), function(x) {
+                sapply(hisec_db[[hisec]], function(y) {
+                  length(grep(x, y)) != 0
+                })
+            })
+            out[[x]] <- sapply(key, function(i) {
+                ipv4.class(base_ip) + i
+            })
+        } else {
+            out$networks[[net]] <- c(base_ip, netlist[i])
+        }
         host_ip <- inc_ip(base_ip)
         j <- 1
         while (j <= length(hostnames[[net]])) {
@@ -210,14 +216,14 @@ subnetmask <- function(bits) {
 server_ldif <- function(server, domain) {
 }
 
-ldapDhcpList<-function(x,key='dhcpStatements'){
-	if (length(x)==1){
-		x<-strsplit(x,'\n')
-	}
-	x <- x[x!='']
-	x <- grep('^#',x,value=TRUE,invert=TRUE)
-	x <- gsub(';$','',x)
-	sapply(x,ldapkv,key=key)
+ldapDhcpList <- function(x, key = "dhcpStatements") {
+    if (length(x) == 1) {
+        x <- strsplit(x, "\n")
+    }
+    x <- x[x != ""]
+    x <- grep("^#", x, value = TRUE, invert = TRUE)
+    x <- gsub(";$", "", x)
+    sapply(x, ldapkv, key = key)
 }
 
 ldapSubnet <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpSubnet"), 
