@@ -78,7 +78,7 @@ format.ldapkv <- function(x, collapse = ": ", ...) {
 #' @param kvlist a 'list' of 'ldapkv' objects (default==0) the content of the query
 #'@export
 ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
-  stopifnot(is.ldapkv(pkey))
+    stopifnot(is.ldapkv(pkey))
     if (valid.domain.class(basedn)) 
         basedn <- basedn.class(basedn)
     stopifnot(is.basedn.class(basedn))

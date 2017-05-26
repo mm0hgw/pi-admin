@@ -227,10 +227,10 @@ subnet_ldif <- function(subnet, domain, statements = list("default-lease-time 14
             paste("routers", text_ip(router_ip))), ldapkv("dhcpOption", paste("domain-name-servers", 
             text_ip(router_ip))), ldapkv("dhcpOption", paste(sep = "", "domain-name \"", 
             domain, "\"")))
-            print(pkey)
-            print(domain)
-            print(skeylist)
-            print(kvlist)
+    print(pkey)
+    print(domain)
+    print(skeylist)
+    print(kvlist)
     ldapquery(pkey, domain, skeylist, kvlist)
 }
 
