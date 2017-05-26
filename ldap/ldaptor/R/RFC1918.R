@@ -30,7 +30,7 @@ format.ipv4.class <- function(x, ...) {
         stop(e1)
     if (!inherits(e2, "ipv4.class")) {
         if (length(e2) != 1) 
-            stop(paste(collapse=',',e2))
+            stop(paste(collapse = ",", e2))
         i <- as.integer(e2)
         if (is.na(i)) 
             stop(e2)
