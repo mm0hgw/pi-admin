@@ -30,10 +30,10 @@ format.ipv4.class <- function(x, ...) {
         stop(e1)
     if (!inherits(e2, "ipv4.class")) {
         if (length(e2) != 1) 
-            stop(e2)
+            stop(paste(collapse=',',e2))
         i <- as.integer(e2)
         if (is.na(i)) 
-            stop(i)
+            stop(e2)
         j <- e1
         j[4] <- j[4] + i
         out <- handleOverflow(j)
