@@ -89,7 +89,10 @@ ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
     out
 }
 
-#'@method format ldapquery
+#'format.ldapquery
+#'@param x a 'ldapquery' object
+#'@param ... ignored
+#'@export
 format.ldapquery <- function(x, ...) {
     dnlist <- c(list(x$pkey), x$skeylist, x$basedn)
     dn <- paste("dn:", paste(collapse = ",", sapply(dnlist, format, collapse = "=")))
@@ -123,7 +126,10 @@ basedn.class <- function(domain) {
     out
 }
 
-#'@method format basedn.class
+#'format.basedn.class
+#'@param x a 'ldapquery' object
+#'@param ... ignored
+#'@export
 format.basedn.class <- function(x, ...) {
     paste(collapse = ",", sapply(dnlist, format, collapse = "="))
 }
