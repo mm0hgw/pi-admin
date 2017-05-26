@@ -20,10 +20,11 @@ test_admin <- c("grandpioverlord", "pioverlord")
 
 test_route <- c(pispace = 8)
 
-hisec_db <- list(list(c("kadmin", "kdc1", "ldap", "nfs", "www", "ns1",'mail')), list(c("kadmin", 
-    "kdc2", "ldap", "ns2"), c("kdc1", "nfs", "www", "ns1",'mail')), list(c("kadmin", "kdc2"), 
-    c("kdc1", "ldap", "ns1"), c("nfs", "www",'mail', "ns2")), list(c("kadmin", "kdc2"), 
-    c("kdc1", "ldap"), c("nfs", "ns1"), c("www", 'mail',"ns2")))
+hisec_db <- list(list(c("kadmin", "kdc1", "ldap", "nfs", "www", "ns1", "mail")), 
+    list(c("kadmin", "kdc2", "ldap", "ns2"), c("kdc1", "nfs", "www", "ns1", "mail")), 
+    list(c("kadmin", "kdc2"), c("kdc1", "ldap", "ns1"), c("nfs", "www", "mail", "ns2")), 
+    list(c("kadmin", "kdc2"), c("kdc1", "ldap"), c("nfs", "ns1"), c("www", "mail", 
+        "ns2")))
 
 realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, base_ip = default_base_ip) {
     stopifnot(length(admin_hosts) > 0)
@@ -31,7 +32,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     stopifnot(all(sapply(domain, valid.domain.class)))
     stopifnot(all(sapply(admin_hosts, nchar) <= 50))
     nAdmin <- length(admin_hosts)
-    hisec <- max(1,min(length(hisec_db), nAdmin))
+    hisec <- max(1, min(length(hisec_db), nAdmin))
     out <- list()
     out$realm <- toupper(domain)
     out$domain <- domain.class(domain)
@@ -53,7 +54,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
         net <- names(netlist)[i]
         if (net == "admin") {
             out$networks[[strsplit(out$domain, "\\.")[[1]][1]]] <- c(base_ip, netlist[i])
-            lapply(c("kadmin", "kdc", "ldap", "nfs", "www", "ns",'mail'), function(x) {
+            lapply(c("kadmin", "kdc", "ldap", "nfs", "www", "ns", "mail"), function(x) {
                 key <- sapply(hisec_db[[hisec]], function(y) {
                   length(grep(x, y)) != 0
                 })
@@ -230,37 +231,35 @@ ldapDhcpHost <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpHo
 
 
 
-ldapDhcpServerDef <- function(name)list(ldapkv("cn", name), ldapkv("ou", "dhcp"))
+ldapDhcpServerDef <- function(name) list(ldapkv("cn", name), ldapkv("ou", "dhcp"))
 
-exportDhcpServers.ldif <- function(realm){
-	lapply(names(realm$subnet_layout),
-		function(network){
-			server <- ldapDhcpServerDef(network)
-			servicedn <- ldapkv('dhcpServiceDN', paste(collapse=',',sapply(c(server,realm$basedn),format,sep='=')))
-			kvlist <- c( ldapDhcpServer,servicedn)
-			ldapquery(server[[1]],realm$basedn,server[2],kvlist)
-		}
-	)
+exportDhcpServers.ldif <- function(realm) {
+    lapply(names(realm$subnet_layout), function(network) {
+        server <- ldapDhcpServerDef(network)
+        servicedn <- ldapkv("dhcpServiceDN", paste(collapse = ",", sapply(c(server, 
+            realm$basedn), format, sep = "=")))
+        kvlist <- c(ldapDhcpServer, servicedn)
+        ldapquery(server[[1]], realm$basedn, server[2], kvlist)
+    })
 }
 
 exportDhcpSubnets.ldif <- function(realm) {
     lapply(seq_along(realm$networks), function(i) {
         name <- names(realm$networks)[i]
         subnet <- realm$networks[[i]]
-statements <- list("default-lease-time 14400", 
-    "max-lease-time 28800")
-    net_ip <- ipv4.class(subnet)
-    router_ip <- net_ip + 1
-    netmask <- subnet[5]
-    broadcast <- ipv4.class(as.vector(net_ip) + rep(255, 4) - as.vector(subnetmask(netmask)))
-    pkey <- ldapkv("cn", format(net_ip))
-    kvlist <- c(ldapDhcpSubnet, list(ldapkv("dhcpNetMask", netmask)), lapply(statements, 
-        ldapkv, key = "dhcpStatements"), list(ldapkv("dhcpOption", paste("subnet-mask", 
-        format(subnetmask(netmask)))), ldapkv("dhcpOption", paste("broadcast-address", 
-        text_ip(broadcast))), ldapkv("dhcpOption", paste("routers", text_ip(router_ip))), 
-        ldapkv("dhcpOption", paste("domain-name-servers", text_ip(router_ip))), ldapkv("dhcpOption", 
-            paste(sep = "", "domain-name \"", domain, "\""))))
-    ldapquery(pkey, domain, skeylist, kvlist)
+        statements <- list("default-lease-time 14400", "max-lease-time 28800")
+        net_ip <- ipv4.class(subnet)
+        router_ip <- net_ip + 1
+        netmask <- subnet[5]
+        broadcast <- ipv4.class(as.vector(net_ip) + rep(255, 4) - as.vector(subnetmask(netmask)))
+        pkey <- ldapkv("cn", format(net_ip))
+        kvlist <- c(ldapDhcpSubnet, list(ldapkv("dhcpNetMask", netmask)), lapply(statements, 
+            ldapkv, key = "dhcpStatements"), list(ldapkv("dhcpOption", paste("subnet-mask", 
+            format(subnetmask(netmask)))), ldapkv("dhcpOption", paste("broadcast-address", 
+            text_ip(broadcast))), ldapkv("dhcpOption", paste("routers", text_ip(router_ip))), 
+            ldapkv("dhcpOption", paste("domain-name-servers", text_ip(router_ip))), 
+            ldapkv("dhcpOption", paste(sep = "", "domain-name \"", domain, "\""))))
+        ldapquery(pkey, domain, skeylist, kvlist)
     })
 }
 
