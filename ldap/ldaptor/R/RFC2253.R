@@ -105,9 +105,7 @@ ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
 #'@param ... ignored
 #'@export
 format.ldapquery <- function(x, ...) {
-    print(x)
     dnlist <- c(list(x$pkey), x$skeylist, x$basedn)
-    print(dnlist)
     dn <- paste("dn:", paste(collapse = ",", sapply(dnlist, format, collapse = "=")))
     qlist <- sapply(c(list(x$pkey), x$kvlist), format)
     paste(collapse = "\n", c(dn, qlist, ""))
@@ -170,7 +168,7 @@ valid.ldapquerylist <- function(x) {
 #'@export
 ldapquerylist <- function(...) {
     out <- list(...)
-    if (!inherits(out[[1]], "ldapquery")) {
+    if (length(out)!=0&&!inherits(out[[1]], "ldapquery")) {
         out <- out[[1]]
     }
     if (!valid.ldapquerylist(out)) 
