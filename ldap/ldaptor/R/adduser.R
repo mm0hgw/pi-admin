@@ -90,7 +90,6 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
         base_ip <- next_subnet(base_ip, netlist[i])
         i <- i + 1
     }
-    names(out$hostnames) <- names(out$networks)
     out$services <- lapply(c(" kadmin ", " kdc. ", " ns. ", " nfs ", " www ", " mail ", 
         " ldap "), function(service) {
         out$hosts[grep(service, names(out$hosts))]
@@ -265,7 +264,7 @@ exportDhcpServers.ldif <- function(realm) {
         hostnames <- out$hostnames[[network]]
         n <- length(hostnames)
         hosts <- lapply(seq(n), function(i) {
-            cnlist <- lapply(strsplit(names(realm$hosts)[i], " ")[[1]], ldapkv, key = "cn")
+            cnlist <- lapply(strsplit(hostnames[i],' ')[[1]], ldapkv, key = "cn")
             pkey <- cnlist[[1]]
             kvlist <- c(ldapDhcpHost, list(ldapkv("dhcpStatements", paste("fixed-address", 
                 format(ip)))), cnlist[-1])
