@@ -53,7 +53,7 @@ handleOverflow <- function(ip) {
     }
     if (ip[1] < 0 && ip[1] > 255) 
         stop(ip)
-    ip
+    ipv4.class(ip)
 }
 
 #'-.ipv4.class
