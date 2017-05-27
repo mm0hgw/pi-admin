@@ -236,7 +236,7 @@ ldapDhcpHost <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpHo
 ldapDhcpServerDef <- function(name) ldapkvlist(ldapkv("cn", name), ldapkv("ou", "dhcp"))
 
 exportDhcpServers.ldif <- function(realm) {
-    out<-list(lapply(names(realm$networks), function(network) {
+    out<-lapply(names(realm$networks), function(network) {
         server <- ldapDhcpServerDef(network)
         servicedn <- ldapkv("dhcpServiceDN", paste(collapse = ",", sapply(c(server, 
             realm$basedn), format, collapse = "=")))
@@ -280,43 +280,7 @@ exportDhcpServers.ldif <- function(realm) {
         print(summary(hosts))
         out <- out + hosts
         out
-    }))
-    while(class(out[[1]])=='ldapquerylist'){
-    	out <- do.call(c,out)
-    }
+    })
+    names(out) <- names(realm$networks)
+    out
 }
-
-exportDhcpSubnets.ldif <- function(realm) {
-    ldapquerylist(lapply(seq_along(realm$networks), function(i) {
-        name <- names(realm$networks)[i]
-        subnet <- realm$networks[[i]]
-        statements <- list("default-lease-time 14400", "max-lease-time 28800")
-        net_ip <- ipv4.class(subnet)
-        router_ip <- net_ip + 1
-        netmask <- subnet[5]
-        broadcast <- ipv4.class(as.vector(net_ip) + rep(255, 4) - as.vector(subnetmask(netmask)))
-        pkey <- ldapkv("cn", format(net_ip))
-        kvlist <- c(ldapDhcpSubnet, list(ldapkv("dhcpNetMask", netmask)), lapply(statements, 
-            ldapkv, key = "dhcpStatements"), list(ldapkv("dhcpOption", paste("subnet-mask", 
-            format(subnetmask(netmask)))), ldapkv("dhcpOption", paste("broadcast-address", 
-            text_ip(broadcast))), ldapkv("dhcpOption", paste("routers", text_ip(router_ip))), 
-            ldapkv("dhcpOption", paste("domain-name-servers", text_ip(router_ip))), 
-            ldapkv("dhcpOption", paste(sep = "", "domain-name \"", realm$domain, 
-                "\""))))
-        skeylist <- ldapDhcpServerDef(name)
-        ldapquery(pkey, realm$domain, skeylist, kvlist)
-    }))
-}
-
-exportDhcpHosts.ldif <- function(realm) {
-    ldapquerylist(lapply(seq_along(realm$networks), function(i) {
-        
-        ip <- ipv4.class(realm$hosts[[i]])
-        cnlist <- lapply(strsplit(names(realm$hosts)[i], " ")[[1]], ldapkv, key = "cn")
-        pkey <- cnlist[[1]]
-        kvlist <- c(ldapDhcpHost, list(ldapkv("dhcpStatements", paste("fixed-address", 
-            format(ip)))), cnlist[-1])
-        ldapquery(pkey, realm$basedn, skeylist, kvlist)
-    }))
-}
-
