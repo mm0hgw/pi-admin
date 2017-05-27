@@ -148,8 +148,8 @@ format.basedn.class <- function(x, ...) {
 #'is.ldapquerylist
 #' @param x test object
 #'@export
-is.ldapkvlist <- function(x) {
-    inherits(x, "ldapkvlist")
+is.ldapquerylist <- function(x) {
+    inherits(x, "ldapquerylist")
 }
 
 #'valid.ldapquerylist
