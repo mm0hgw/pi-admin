@@ -237,8 +237,10 @@ exportDhcpServers.ldif <- function(realm) {
         server <- ldapDhcpServerDef(network)
         servicedn <- ldapkv("dhcpServiceDN", paste(collapse = ",", sapply(c(server, 
             realm$basedn), format, collapse = "=")))
-        kvlist <- c(ldapDhcpServer, servicedn)
-        ldapquery(server[[1]], realm$basedn, list(server[2]), kvlist)
+        kvlist <- c(ldapDhcpServer, list(servicedn))
+        pkey <- server[[1]]
+        skeylist <- server[2]
+        ldapquery(pkey, realm$basedn, skeylist, kvlist)
     })
 }
 
