@@ -265,11 +265,11 @@ exportDhcpServers.ldif <- function(realm) {
         hosts <- list()
         while (hostip < broadcast) {
             if (sum(hostindex <- sapply(realm$hosts, "==", hostip)) > 0) {
-            
+                
                 print(hostip)
                 host <- names(realm$hosts)[hostindex]
                 print(host)
-                cns <-strsplit(host, " ")[[1]]
+                cns <- strsplit(host, " ")[[1]]
                 print(cns)
                 cnlist <- lapply(cns, ldapkv, key = "cn")
                 print(cnlist)
@@ -277,9 +277,14 @@ exportDhcpServers.ldif <- function(realm) {
                 print(pkey)
                 kvlist <- c(ldapDhcpHost, list(ldapkv("dhcpStatements", paste("fixed-address", 
                   format(hostip)))), cnlist[-1])
+<<<<<<< HEAD
                  print(kvlist)
                hosts <- c(hosts, list(ldapquery(pkey, realm$basedn, skeylist, kvlist)))
                 hostip<-hostip+1
+=======
+                hosts <- c(hosts, list(ldapquery(pkey, realm$basedn, skeylist, kvlist)))
+                hostip <- hostip + 1
+>>>>>>> branch 'master' of git@github.com:mm0hgw/pi-admin
             }
         }
         out <- ldapquerylist(c(out, hosts))
