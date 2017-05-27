@@ -263,7 +263,7 @@ exportDhcpServers.ldif <- function(realm) {
             kvlist))))
         hostip <- router
         hosts <- list()
-        print(broadcast)
+        print(format(broadcast))
         while (hostip < broadcast) {
             if (sum(hostindex <- sapply(realm$hosts, "==", hostip)) > 0) {
                 
@@ -283,8 +283,9 @@ exportDhcpServers.ldif <- function(realm) {
                 cat(format(lq))
                 hosts <- c(hosts, list(lq))
                 print(summary(hosts))
-                hostip <- hostip + 1
+                
             }
+            hostip <- hostip + 1
         }
         out <- ldapquerylist(c(out, hosts))
         out
