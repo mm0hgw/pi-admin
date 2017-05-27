@@ -95,7 +95,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
         " ldap "), function(service) {
         out$hosts[grep(service, names(out$hosts))]
     })
-    names(out$services)<-c("kadmin", "kdc", "ns", "nfs", "www", "mail",'ldap') 
+    names(out$services) <- c("kadmin", "kdc", "ns", "nfs", "www", "mail", "ldap")
     out
 }
 
