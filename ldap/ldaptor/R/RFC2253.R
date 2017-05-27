@@ -184,3 +184,28 @@ ldapquerylist <- function(...) {
 format.ldapquerylist <- function(x, ...) {
     paste(collapse = "\n", sapply(x, format))
 }
+
+
+#'ldapkvlist
+#'@param ... either 1 'list' of 'ldapquery' objects, or 
+#'arbitrary 'ldapquery' objects
+#'@export
+ldapkvlist <- function(...) {
+    out <- list(...)
+    if (!inherits(out[[1]], "ldapkv")) {
+        out <- out[[1]]
+    }
+    if (!valid.ldapquerylist(out)) 
+        stop(out)
+    class(out) <- "ldapkvlist"
+    
+    out
+}
+
+#'format.ldapkvlist
+#'@param x '' object
+#'@export
+format.ldapkvlist <- function(x, ...) {
+    paste(collapse = "\n", sapply(x, format))
+}
+
