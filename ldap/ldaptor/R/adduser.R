@@ -57,7 +57,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
                 key <- sapply(hisec_db[[hisec]], function(y) {
                   length(grep(x, y)) != 0
                 })
-                out[[x]] <- sapply(key, function(i) {
+                out[[x]] <- sapply(seq(hisec)[key], function(i) {
                   ipv4.class(base_ip) + i
                 })
                 
