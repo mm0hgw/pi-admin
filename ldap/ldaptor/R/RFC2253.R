@@ -197,7 +197,7 @@ format.ldapquerylist <- function(x, ...) {
 
 # @method +.ldapquerylist default
 "+.ldapquerylist.default" <- function(e1, e2) {
-    stop(e2)
+    stop(class(e2))
 }
 
 # @method +.ldapquerylist ldapquery
@@ -260,7 +260,7 @@ format.ldapkvlist <- function(x, ...) {
 
 # @method +.ldapkvlist default
 "+.ldapkvlist.default" <- function(e1, e2) {
-    stop(e2)
+    stop(class(e2))
 }
 
 # @method +.ldapkvlist ldapkv
