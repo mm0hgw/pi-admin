@@ -41,15 +41,6 @@ format.ipv4.class <- function(x, ...) {
         out <- handleOverflow(as.vector(e1) + as.vector(e2))
     }
 }
-
-#'-.ipv4.class
-#'@param e1 an 'ipv4.class' object
-#'@param e2 an 'ipv4.class' object or length==1 integer
-#'@export
-"-.ipv4.class" <- function(e1, e2) {
-    e1 + (-e2)
-}
-
 handleOverflow <- function(ip) {
     i <- 4
     while (i > 1) {
@@ -64,3 +55,22 @@ handleOverflow <- function(ip) {
         stop(ip)
     ip
 }
+
+#'-.ipv4.class
+#'@param e1 an 'ipv4.class' object
+#'@param e2 an 'ipv4.class' object or length==1 integer
+#'@export
+"-.ipv4.class" <- function(e1, e2) {
+    e1 + (-e2)
+}
+
+#'==.ipv4.class
+#'@param e1 an 'ipv4.class' object
+#'@param e2 an 'ipv4.class' object
+#'@export
+"==.ipv4.class" <- function(e1, e2) {
+	if(!inherits(e2,'ipv4.class'))
+		stop(e2)
+    all(e1 == e2)
+}
+
