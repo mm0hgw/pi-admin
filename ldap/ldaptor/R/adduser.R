@@ -267,10 +267,11 @@ exportDhcpSubnets.ldif <- function(realm) {
 }
 
 exportDhcpHosts.ldif <- function(realm) {
-    paste(collapse = "\n", c(sapply(seq_along(hosts), function(i) {
-        n <- hosts[[i]]
-        ip <- paste(collapse = ".", n)
-        paste(sep = "\t", ip, names(hosts[i]))
-    }), ""))
+    ldapquerylist(lapply(seq_along(hosts), function(i) {
+        ip <- ipv4.class( realm$hosts[[i]])
+        cnlist <- lapply(strsplit(names(realm$hosts)[i],' ')[[1]],ldapkv,key='cn')
+        pkey <- cnlist[[1]]
+        
+    }))
 }
 
