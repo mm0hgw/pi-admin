@@ -105,7 +105,9 @@ ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
 #'@param ... ignored
 #'@export
 format.ldapquery <- function(x, ...) {
+		print(x)
     dnlist <- c(list(x$pkey), x$skeylist, x$basedn)
+    print(dnlist)
     dn <- paste("dn:", paste(collapse = ",", sapply(dnlist, format, collapse = "=")))
     qlist <- sapply(c(list(x$pkey), x$kvlist), format)
     paste(collapse = "\n", c(dn, qlist, ""))
