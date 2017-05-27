@@ -91,8 +91,10 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
         i <- i + 1
     }
     names(out$hostnames) <- names(out$networks)
-    out$services<-lapply(c(' kadmin ',' kdc. ',' ns. ',' nfs ',' www ',' mail ',' ldap '),
-    	function(service){out$hosts[grep(service,names(out$hosts))]})
+    out$services <- lapply(c(" kadmin ", " kdc. ", " ns. ", " nfs ", " www ", " mail ", 
+        " ldap "), function(service) {
+        out$hosts[grep(service, names(out$hosts))]
+    })
     out
 }
 
@@ -254,9 +256,9 @@ exportDhcpServers.ldif <- function(realm) {
             ldapkv, key = "dhcpStatements"), list(ldapkv("dhcpOption", paste("subnet-mask", 
             format(subnetmask(netmask)))), ldapkv("dhcpOption", paste("broadcast-address", 
             format(broadcast))), ldapkv("dhcpOption", paste("routers", format(router))), 
-            ldapkv("dhcpOption", paste(collapse=' ',c("domain-name-servers",sapply(out$services$ns.,format) ))), 
-            ldapkv("dhcpOption", paste(sep = "", "domain-name \"", realm$domain, 
-                "\""))))
+            ldapkv("dhcpOption", paste(collapse = " ", c("domain-name-servers", sapply(out$services$ns., 
+                format)))), ldapkv("dhcpOption", paste(sep = "", "domain-name \"", 
+                realm$domain, "\""))))
         out <- ldapquerylist(c(out, list(ldapquery(pkey, realm$basedn, skeylist, 
             kvlist))))
         hostnames <- out$hostnames[[network]]
