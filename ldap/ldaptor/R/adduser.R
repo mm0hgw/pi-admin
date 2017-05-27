@@ -280,7 +280,6 @@ exportDhcpServers.ldif <- function(realm) {
                  print(kvlist)
                 hosts <- c(hosts, list(ldapquery(pkey, realm$basedn, skeylist, kvlist)))
                 hostip <- hostip + 1
->>>>>>> branch 'master' of git@github.com:mm0hgw/pi-admin
             }
         }
         out <- ldapquerylist(c(out, hosts))
