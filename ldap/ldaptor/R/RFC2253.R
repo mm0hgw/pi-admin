@@ -168,7 +168,7 @@ valid.ldapquerylist <- function(x) {
 #'@export
 ldapquerylist <- function(...) {
     out <- list(...)
-    if (length(out)!=0&&!inherits(out[[1]], "ldapquery")) {
+    if (length(out) != 0 && !inherits(out[[1]], "ldapquery")) {
         out <- out[[1]]
     }
     if (!valid.ldapquerylist(out)) 
