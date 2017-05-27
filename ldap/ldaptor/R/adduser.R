@@ -233,7 +233,7 @@ ldapDhcpHost <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "dhcpHo
 ldapDhcpServerDef <- function(name) list(ldapkv("cn", name), ldapkv("ou", "dhcp"))
 
 exportDhcpServers.ldif <- function(realm) {
-   ldapquerylist( lapply(names(realm$subnet_layout), function(network) {
+    ldapquerylist(lapply(names(realm$subnet_layout), function(network) {
         server <- ldapDhcpServerDef(network)
         servicedn <- ldapkv("dhcpServiceDN", paste(collapse = ",", sapply(c(server, 
             realm$basedn), format, collapse = "=")))
@@ -245,7 +245,7 @@ exportDhcpServers.ldif <- function(realm) {
 }
 
 exportDhcpSubnets.ldif <- function(realm) {
- ldapquerylist(   lapply(seq_along(realm$networks), function(i) {
+    ldapquerylist(lapply(seq_along(realm$networks), function(i) {
         name <- names(realm$networks)[i]
         subnet <- realm$networks[[i]]
         statements <- list("default-lease-time 14400", "max-lease-time 28800")

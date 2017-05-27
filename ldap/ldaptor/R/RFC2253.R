@@ -155,31 +155,32 @@ is.ldapkvlist <- function(x) {
 #'valid.ldapquerylist
 #' @param x test object
 #'@export
-valid.ldapquerylist <- function(x){
-if(!all(sapply(x,is.ldapquery))){
-return(FALSE)}
-return(TRUE)
+valid.ldapquerylist <- function(x) {
+    if (!all(sapply(x, is.ldapquery))) {
+        return(FALSE)
+    }
+    return(TRUE)
 }
 
 #'ldapquerylist
 #'@param ... either 1 'list' of 'ldapquery' objects, or 
 #'arbitrary 'ldapquery' objects
 #'@export
-ldapquerylist <- function(...){
-	out <- list(...)
-	if(!inherits(out[[1]],'ldapquery')){
-		out <- out[[1]]
-	}
-	if(!valid.ldapquerylist(out))
-		stop(out)
-		    class(out) <- 'ldapquerylist'
-
-	out
+ldapquerylist <- function(...) {
+    out <- list(...)
+    if (!inherits(out[[1]], "ldapquery")) {
+        out <- out[[1]]
+    }
+    if (!valid.ldapquerylist(out)) 
+        stop(out)
+    class(out) <- "ldapquerylist"
+    
+    out
 }
 
 #'format.ldapquerylist
 #'@param x test object
 #'@export
-format.ldapquerylist <- function(x,...){
-	paste(collapse='\n',sapply(x,format))
+format.ldapquerylist <- function(x, ...) {
+    paste(collapse = "\n", sapply(x, format))
 }
