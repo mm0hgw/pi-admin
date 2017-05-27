@@ -202,12 +202,12 @@ format.ldapquerylist <- function(x, ...) {
 
 # @method +.ldapquerylist ldapquery
 "+.ldapquerylist.ldapquery" <- function(e1, e2) {
-    ldapquerylist(append(e1, e2))
+    ldapquerylist(append(e1, list(e2)))
 }
 
 # @method +.ldapquerylist ldapquerylist
 "+.ldapquerylist.ldapquerylist" <- function(e1, e2) {
-    ldapquerylist(c(e1, e2))
+    ldapquerylist(append(e1, e2))
 }
 
 #'is.ldapkvlist
