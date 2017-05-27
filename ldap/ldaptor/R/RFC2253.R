@@ -260,7 +260,7 @@ format.ldapkvlist <- function(x, ...) {
 
 # @method +.ldapkvlist default
 "+.ldapkvlist.default" <- function(e1, e2) {
-			print(e2)
+    print(e2)
     stop(class(e2))
 }
 
