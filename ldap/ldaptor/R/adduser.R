@@ -248,7 +248,7 @@ exportDhcpServers.ldif <- function(realm) {
         netip <- ipv4.class(subnet)
         router <- netip + 1
         netmask <- subnet[5]
-        broadcast <- ipv4.class(as.vector(ip) + rep(255, 4) - as.vector(subnetmask(netmask)))
+        broadcast <- ipv4.class(as.vector(netip) + rep(255, 4) - as.vector(subnetmask(netmask)))
         statements <- list("default-lease-time 14400", "max-lease-time 28800")
         pkey <- ldapkv("cn", format(netip))
         skeylist <- server
