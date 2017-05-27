@@ -277,11 +277,7 @@ exportDhcpServers.ldif <- function(realm) {
                 print(pkey)
                 kvlist <- c(ldapDhcpHost, list(ldapkv("dhcpStatements", paste("fixed-address", 
                   format(hostip)))), cnlist[-1])
-<<<<<<< HEAD
                  print(kvlist)
-               hosts <- c(hosts, list(ldapquery(pkey, realm$basedn, skeylist, kvlist)))
-                hostip<-hostip+1
-=======
                 hosts <- c(hosts, list(ldapquery(pkey, realm$basedn, skeylist, kvlist)))
                 hostip <- hostip + 1
 >>>>>>> branch 'master' of git@github.com:mm0hgw/pi-admin
