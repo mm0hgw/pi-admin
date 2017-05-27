@@ -287,7 +287,7 @@ exportDhcpServers.ldif <- function(realm) {
         }
         print(summary(out))
         print(summary(hosts))
-        out <- ldapquerylist(c(out, hosts))
+        out <- out+ hosts
         out
     }))
 }
