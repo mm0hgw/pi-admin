@@ -65,7 +65,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
         } else {
             out$networks[[net]] <- c(base_ip, netlist[i])
         }
-        host_ip <- inc_ip(base_ip)
+        host_ip <- (base_ip+1)
         j <- 1
         while (j <= length(hostnames[[net]])) {
             hostname <- hostnames[[net]][j]
@@ -94,7 +94,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
 }
 
 default_shell = "/bin/bash"
-default_base_ip = as.integer(c(10, 0, 0, 0))
+default_base_ip = ipv4.class(10, 0, 0, 0)
 
 addusertogroup <- function(user, group, basedn = default_basedn) {
     paste(sep = "", "dn: cn=", group, ",", basedn, "\n", "changeType: modify\n", 
