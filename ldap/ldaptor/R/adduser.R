@@ -276,8 +276,6 @@ exportDhcpServers.ldif <- function(realm) {
             }
             hostip <- hostip + 1
         }
-        print(summary(out))
-        print(summary(hosts))
         out <- out + hosts
         out
     })
