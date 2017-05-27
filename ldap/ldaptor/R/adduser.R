@@ -244,8 +244,8 @@ exportDhcpServers.ldif <- function(realm) {
         ip <- ipv4.class(subnet)
         router <- ip + 1
         netmask <- subnet[5]
-        broadcast <- ipv4.class(as.vector(net_ip) + rep(255, 4) - as.vector(subnetmask(netmask)))
-        pkey <- ldapkv("cn", format(net_ip))
+        broadcast <- ipv4.class(as.vector(ip) + rep(255, 4) - as.vector(subnetmask(netmask)))
+        pkey <- ldapkv("cn", format(ip))
         skeylist <- server
         kvlist <- c(ldapDhcpSubnet, list(ldapkv("dhcpNetMask", netmask)), lapply(statements, 
             ldapkv, key = "dhcpStatements"), list(ldapkv("dhcpOption", paste("subnet-mask", 
