@@ -125,7 +125,7 @@ addusers <- function(users, startuid = 2000, usersgid = 100, domain) {
 }
 
 subnet_names <- function(netname, hosts) {
-    paste(sep = "-", netname, seq(hosts))
+   c(netname, paste(sep = "-", netname, seq(hosts-1)))
 }
 
 subnet_layout_names <- function(s) {
@@ -242,7 +242,7 @@ exportDhcpServers.ldif <- function(realm) {
         pkey <- server[[1]]
         skeylist <- server[2]
         out <- ldapquerylist(ldapquery(pkey, realm$basedn, skeylist, kvlist))
-        subnet <-realm$networks[[network]])
+        subnet <-realm$networks[[network]]
         ip <- ipv4.class(subnet)
         router <- ip + 1
         netmask <- subnet[5]
@@ -257,7 +257,7 @@ exportDhcpServers.ldif <- function(realm) {
             ldapkv("dhcpOption", paste(sep = "", "domain-name \"", realm$domain, 
                 "\""))))
                 out <- ldapquerylist(c(out,list(ldapquery(pkey, realm$basedn, skeylist, kvlist))))
-               hosts <- lapply(
+               out$hostnames[[network]]
     }))
 }
 
