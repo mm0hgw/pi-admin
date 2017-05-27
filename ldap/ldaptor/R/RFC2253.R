@@ -197,6 +197,7 @@ format.ldapquerylist <- function(x, ...) {
 
 # @method +.ldapquerylist default
 "+.ldapquerylist.default" <- function(e1, e2) {
+    print(e2)
     stop(class(e2))
 }
 
