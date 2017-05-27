@@ -263,6 +263,7 @@ exportDhcpServers.ldif <- function(realm) {
             kvlist))))
         hostip <- router
         hosts <- list()
+        print(broadcast)
         while (hostip < broadcast) {
             if (sum(hostindex <- sapply(realm$hosts, "==", hostip)) > 0) {
                 
