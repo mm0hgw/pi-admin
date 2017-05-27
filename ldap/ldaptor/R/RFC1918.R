@@ -78,49 +78,55 @@ handleOverflow <- function(ip) {
 #'@param e1 an 'ipv4.class' object
 #'@param e2 an 'ipv4.class' object
 #'@export
-'<.ipv4.class' <- function(e1,e2){
+"<.ipv4.class" <- function(e1, e2) {
     if (!inherits(e2, "ipv4.class")) 
         stop(e2)
-	i<-1
-	while(i<=4){
-		if(e1[i]<e2[i])return(TRUE)
-		if(e1[i]>e2[i])return(FALSE)
-		i<-i+1
-	}
-	return(FALSE)
+    i <- 1
+    while (i <= 4) {
+        if (e1[i] < e2[i]) 
+            return(TRUE)
+        if (e1[i] > e2[i]) 
+            return(FALSE)
+        i <- i + 1
+    }
+    return(FALSE)
 }
 
 #'<.ipv4.class
 #'@param e1 an 'ipv4.class' object
 #'@param e2 an 'ipv4.class' object
 #'@export
-'>.ipv4.class' <- function(e1,e2){
+">.ipv4.class" <- function(e1, e2) {
     if (!inherits(e2, "ipv4.class")) 
         stop(e2)
-	i<-1
-	while(i<=4){
-		if(e1[i]>e2[i])return(TRUE)
-		if(e1[i]<e2[i])return(FALSE)
-		i<-i+1
-	}
-	return(FALSE)
+    i <- 1
+    while (i <= 4) {
+        if (e1[i] > e2[i]) 
+            return(TRUE)
+        if (e1[i] < e2[i]) 
+            return(FALSE)
+        i <- i + 1
+    }
+    return(FALSE)
 }
 
 #'<=.ipv4.class
 #'@param e1 an 'ipv4.class' object
 #'@param e2 an 'ipv4.class' object
 #'@export
-'<=.ipv4.class' <- function(e1,e2){
-	if(e1==e2)return(TRUE)
-	e1<e2
+"<=.ipv4.class" <- function(e1, e2) {
+    if (e1 == e2) 
+        return(TRUE)
+    e1 < e2
 }
 
 #'>=.ipv4.class
 #'@param e1 an 'ipv4.class' object
 #'@param e2 an 'ipv4.class' object
 #'@export
-'>=.ipv4.class' <- function(e1,e2){
-	if(e1==e2)return(TRUE)
-	e1<e2
+">=.ipv4.class" <- function(e1, e2) {
+    if (e1 == e2) 
+        return(TRUE)
+    e1 < e2
 }
 
