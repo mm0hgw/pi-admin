@@ -144,7 +144,7 @@ basedn.class <- function(domain) {
 #'@param ... ignored
 #'@export
 format.basedn.class <- function(x, ...) {
-    paste(collapse = ",", sapply(dnlist, format, collapse = "="))
+    paste(collapse = ",", sapply(x, format, collapse = "="))
 }
 
 #'is.ldapquerylist
