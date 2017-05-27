@@ -125,7 +125,7 @@ addusers <- function(users, startuid = 2000, usersgid = 100, domain) {
 }
 
 subnet_names <- function(netname, hosts) {
-   c(netname, paste(sep = "-", netname, seq(hosts-1)))
+    c(netname, paste(sep = "-", netname, seq(hosts - 1)))
 }
 
 subnet_layout_names <- function(s) {
@@ -240,7 +240,7 @@ exportDhcpServers.ldif <- function(realm) {
         pkey <- server[[1]]
         skeylist <- server[2]
         out <- ldapquerylist(ldapquery(pkey, realm$basedn, skeylist, kvlist))
-        subnet <-realm$networks[[network]]
+        subnet <- realm$networks[[network]]
         ip <- ipv4.class(subnet)
         router <- ip + 1
         netmask <- subnet[5]
@@ -254,16 +254,18 @@ exportDhcpServers.ldif <- function(realm) {
             ldapkv("dhcpOption", paste("domain-name-servers", text_ip(router_ip))), 
             ldapkv("dhcpOption", paste(sep = "", "domain-name \"", realm$domain, 
                 "\""))))
-                out <- ldapquerylist(c(out,list(ldapquery(pkey, realm$basedn, skeylist, kvlist))))
-              hostnames<- out$hostnames[[network]]
-               n<-length(hostnames)
-               hosts <- lapply(seq(n),function(i){
-            cnlist <- lapply(strsplit(names(realm$hosts)[i],' ')[[1]],ldapkv,key='cn')
-        pkey <- cnlist[[1]]
-        kvlist<-c(ldapDhcpHost, list(ldapkv('dhcpStatements', paste('fixed-address',format(ip)))),cnlist[-1])
-ldapquery(pkey,realm$basedn,skeylist,kvlist)
-               })
-               out<-ldapquerylist(c(out,hosts))
+        out <- ldapquerylist(c(out, list(ldapquery(pkey, realm$basedn, skeylist, 
+            kvlist))))
+        hostnames <- out$hostnames[[network]]
+        n <- length(hostnames)
+        hosts <- lapply(seq(n), function(i) {
+            cnlist <- lapply(strsplit(names(realm$hosts)[i], " ")[[1]], ldapkv, key = "cn")
+            pkey <- cnlist[[1]]
+            kvlist <- c(ldapDhcpHost, list(ldapkv("dhcpStatements", paste("fixed-address", 
+                format(ip)))), cnlist[-1])
+            ldapquery(pkey, realm$basedn, skeylist, kvlist)
+        })
+        out <- ldapquerylist(c(out, hosts))
     }))
 }
 
@@ -291,12 +293,13 @@ exportDhcpSubnets.ldif <- function(realm) {
 
 exportDhcpHosts.ldif <- function(realm) {
     ldapquerylist(lapply(seq_along(realm$networks), function(i) {
-    
-        ip <- ipv4.class( realm$hosts[[i]])
-        cnlist <- lapply(strsplit(names(realm$hosts)[i],' ')[[1]],ldapkv,key='cn')
+        
+        ip <- ipv4.class(realm$hosts[[i]])
+        cnlist <- lapply(strsplit(names(realm$hosts)[i], " ")[[1]], ldapkv, key = "cn")
         pkey <- cnlist[[1]]
-        kvlist<-c(ldapDhcpHost, list(ldapkv('dhcpStatements', paste('fixed-address',format(ip)))),cnlist[-1])
-        ldapquery(pkey,realm$basedn,skeylist,kvlist)
+        kvlist <- c(ldapDhcpHost, list(ldapkv("dhcpStatements", paste("fixed-address", 
+            format(ip)))), cnlist[-1])
+        ldapquery(pkey, realm$basedn, skeylist, kvlist)
     }))
 }
 
