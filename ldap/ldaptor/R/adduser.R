@@ -259,7 +259,8 @@ exportDhcpSubnets.ldif <- function(realm) {
             format(subnetmask(netmask)))), ldapkv("dhcpOption", paste("broadcast-address", 
             text_ip(broadcast))), ldapkv("dhcpOption", paste("routers", text_ip(router_ip))), 
             ldapkv("dhcpOption", paste("domain-name-servers", text_ip(router_ip))), 
-            ldapkv("dhcpOption", paste(sep = "", "domain-name \"", realm$domain, "\""))))
+            ldapkv("dhcpOption", paste(sep = "", "domain-name \"", realm$domain, 
+                "\""))))
         ldapquery(pkey, domain, skeylist, kvlist)
     })
 }
