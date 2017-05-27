@@ -67,8 +67,8 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
         }
         host_ip <- (base_ip + 1)
         j <- 1
-        while (j <= length(hostnames[[net]])) {
-            hostname <- hostnames[[net]][j]
+        while (j <= length(out$hostnames[[net]])) {
+            hostname <- out$hostnames[[net]][j]
             if (net == "admin") {
                 fqdn <- paste(sep = ".", hostname, out$domain)
                 if (j <= hisec) {
