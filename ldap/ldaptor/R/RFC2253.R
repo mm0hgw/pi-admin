@@ -138,7 +138,7 @@ basedn.class <- function(domain) {
 }
 
 #'format.basedn.class
-#'@param x a 'ldapquery' object
+#'@param x a 'basdedn.class' object
 #'@param ... ignored
 #'@export
 format.basedn.class <- function(x, ...) {
@@ -189,28 +189,45 @@ format.ldapquerylist <- function(x, ...) {
 #'@param e1 a 'ldapquerylist' object
 #'@param e2 a 'ldapquerylist' or 'ldapquery' object 
 #'@export
-"+.ldapquerylist" <- function(e1, e2) {
-    UseMethod("+.ldapquerylist", e2)
+'+.ldapquerylist' <- function(e1,e2){
+UseMethod('+.ldapquerylist',e2)
 }
 
-# @method +.ldapquerylist default
-"+.ldapquerylist.default" <- function(e1, e2) {
-    stop(e2)
+#@method +.ldapquerylist default
+'+.ldapquerylist.default' <- function(e1,e2){
+	stop(e2)
 }
 
-# @method +.ldapquerylist ldapquery
-"+.ldapquerylist.ldapquery" <- function(e1, e2) {
-    ldapquerylist(append(e1, e2))
+#@method +.ldapquerylist ldapquery
+'+.ldapquerylist.ldapquery' <- function(e1,e2){
+	ldapquerylist(append(e1,e2))
 }
 
-# @method +.ldapquerylist ldapquerylist
-"+.ldapquerylist.ldapquerylist" <- function(e1, e2) {
-    ldapquerylist(c(e1, e2))
+#@method +.ldapquerylist ldapquerylist
+'+.ldapquerylist.ldapquerylist' <- function(e1,e2){
+	ldapquerylist(c(e1,e2))
+}
+
+#'is.ldapkvlist
+#' @param x test object
+#'@export
+is.ldapkvlist <- function(x) {
+    inherits(x, "ldapkvlist")
+}
+
+#'valid.ldapkvlist
+#' @param x test object
+#'@export
+valid.ldapkvlist <- function(x) {
+    if (!all(sapply(x, is.ldapkv))) {
+        return(FALSE)
+    }
+    return(TRUE)
 }
 
 #'ldapkvlist
-#'@param ... either 1 'list' of 'ldapquery' objects, or 
-#'arbitrary 'ldapquery' objects
+#'@param ... either 1 'list' of 'ldapkv' objects, or 
+#'arbitrary 'ldapkv' objects
 #'@export
 ldapkvlist <- function(...) {
     out <- list(...)
@@ -235,21 +252,21 @@ format.ldapkvlist <- function(x, ...) {
 #'@param e1 a 'ldapkvlist' object
 #'@param e2 a 'ldapkvlist' or 'ldapkv' object 
 #'@export
-"+.ldapkvlist" <- function(e1, e2) {
-    UseMethod("+.ldapkvlist", e2)
+'+.ldapkvlist' <- function(e1,e2){
+UseMethod('+.ldapkvlist',e2)
 }
 
-# @method +.ldapkvlist default
-"+.ldapkvlist.default" <- function(e1, e2) {
-    stop(e2)
+#@method +.ldapkvlist default
+'+.ldapkvlist.default' <- function(e1,e2){
+	stop(e2)
 }
 
-# @method +.ldapkvlist ldapkv
-"+.ldapkvlist.ldapkv" <- function(e1, e2) {
-    ldapkvlist(append(e1, e2))
+#@method +.ldapkvlist ldapkv
+'+.ldapkvlist.ldapkv' <- function(e1,e2){
+	ldapkvlist(append(e1,e2))
 }
 
-# @method +.ldapkvlist ldapkvlist
-"+.ldapkvlist.ldapkvlist" <- function(e1, e2) {
-    ldapkvlist(c(e1, e2))
+#@method +.ldapkvlist ldapkvlist
+'+.ldapkvlist.ldapkvlist' <- function(e1,e2){
+	ldapkvlist(c(e1,e2))
 }
