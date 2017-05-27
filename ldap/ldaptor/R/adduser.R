@@ -71,7 +71,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
             hostname <- hostnames[[net]][j]
             if (net == "admin") {
                 fqdn <- paste(sep = ".", hostname, out$domain)
-                if (j <= nAdmin) {
+                if (j <= hisec) {
                   servicenames <- do.call(c, c(hostname, hisec_db[[hisec]][j]))
                   admin_dns <- paste(collapse = " ", servicenames)
                   fqdns <- paste(collapse = " ", sep = ".", servicenames, out$domain)
