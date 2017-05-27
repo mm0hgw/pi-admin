@@ -7,7 +7,7 @@
 \method{format}{basedn.class}(x, ...)
 }
 \arguments{
-\item{x}{a 'ldapquery' object}
+\item{x}{a 'basdedn.class' object}
 
 \item{...}{ignored}
 }
