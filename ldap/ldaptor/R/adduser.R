@@ -279,7 +279,7 @@ exportDhcpServers.ldif <- function(realm) {
                 # print(format(skeylist))
                 lq <- ldapquery(pkey, realm$basedn, skeylist, kvlist)
                 # cat(format(lq))
-                hosts <- c(hosts, list(lq))
+                hosts <- hosts+ lq
                 # print(summary(hosts))
                 
             }
