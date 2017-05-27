@@ -217,7 +217,7 @@ ldapkvlist <- function(...) {
     if (!inherits(out[[1]], "ldapkv")) {
         out <- out[[1]]
     }
-    if (!valid.ldapquerylist(out)) 
+    if (!valid.ldapkvlist(out)) 
         stop(out)
     class(out) <- "ldapkvlist"
     
