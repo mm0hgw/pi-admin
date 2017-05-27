@@ -7,8 +7,8 @@
 ldapkvlist(...)
 }
 \arguments{
-\item{...}{either 1 'list' of 'ldapquery' objects, or 
-arbitrary 'ldapquery' objects}
+\item{...}{either 1 'list' of 'ldapkv' objects, or 
+arbitrary 'ldapkv' objects}
 }
 \description{
 ldapkvlist
