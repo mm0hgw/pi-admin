@@ -69,8 +69,8 @@ handleOverflow <- function(ip) {
 #'@param e2 an 'ipv4.class' object
 #'@export
 "==.ipv4.class" <- function(e1, e2) {
-	if(!inherits(e2,'ipv4.class'))
-		stop(e2)
+    if (!inherits(e2, "ipv4.class")) 
+        stop(e2)
     all(e1 == e2)
 }
 
