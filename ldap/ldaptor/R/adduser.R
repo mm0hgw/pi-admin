@@ -261,19 +261,19 @@ exportDhcpServers.ldif <- function(realm) {
                 realm$domain, "\""))))
         out <- ldapquerylist(c(out, list(ldapquery(pkey, realm$basedn, skeylist, 
             kvlist))))
-        hostip<-router
-        hosts <-list()
-        while(hostip<broadcast){
-        		if(sum(hostindex <- sapply(realm$hosts,'==',hostip))>0){
-        host<-names(realm$hosts)[hostindex]
-        print(host)
-            cnlist <- lapply(strsplit(host, " ")[[1]], ldapkv, key = "cn")
-            pkey <- cnlist[[1]]
-            kvlist <- c(ldapDhcpHost, list(ldapkv("dhcpStatements", paste("fixed-address", 
-                format(hostip)))), cnlist[-1])
-            hosts<-c(hosts,list( ldapquery(pkey, realm$basedn, skeylist, kvlist)))
-            hostip <- hostip +1
-        }}
+        hostip <- router
+        hosts <- list()
+        while (hostip < broadcast) {
+            if (sum(hostindex <- sapply(realm$hosts, "==", hostip)) > 0) {
+                host <- names(realm$hosts)[hostindex]
+                print(host)
+                cnlist <- lapply(strsplit(host, " ")[[1]], ldapkv, key = "cn")
+                pkey <- cnlist[[1]]
+                kvlist <- c(ldapDhcpHost, list(ldapkv("dhcpStatements", paste("fixed-address", 
+                  format(hostip)))), cnlist[-1])
+                hosts <- c(hosts, list(ldapquery(pkey, realm$basedn, skeylist, kvlist)))
+            }
+        }
         out <- ldapquerylist(c(out, hosts))
         out
     }))
