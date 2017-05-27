@@ -265,14 +265,18 @@ exportDhcpServers.ldif <- function(realm) {
         hosts <- list()
         while (hostip < broadcast) {
             if (sum(hostindex <- sapply(realm$hosts, "==", hostip)) > 0) {
-                host <- names(realm$hosts)[hostindex]
+            
                 print(hostip)
-                cnlist <- lapply(strsplit(host, " ")[[1]], ldapkv, key = "cn")
+                host <- names(realm$hosts)[hostindex]
+                print(host)
+                cns <-strsplit(host, " ")[[1]]
+                print(cns)
+                cnlist <- lapply(cns, ldapkv, key = "cn")
                 pkey <- cnlist[[1]]
                 kvlist <- c(ldapDhcpHost, list(ldapkv("dhcpStatements", paste("fixed-address", 
                   format(hostip)))), cnlist[-1])
                 hosts <- c(hosts, list(ldapquery(pkey, realm$basedn, skeylist, kvlist)))
-                hostip <- hostip + 1
+                hostip<-hostip+1
             }
         }
         out <- ldapquerylist(c(out, hosts))
