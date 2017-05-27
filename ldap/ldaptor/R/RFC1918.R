@@ -71,6 +71,6 @@ handleOverflow <- function(ip) {
 "==.ipv4.class" <- function(e1, e2) {
     if (!inherits(e2, "ipv4.class")) 
         stop(e2)
-    all(e1 == e2)
+    all(as.vector(e1) == as.vector(e2))
 }
 
