@@ -35,10 +35,10 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     out <- list()
     out$realm <- toupper(domain)
     out$domain <- domain.class(domain)
-    out$basedn <- basedn.class(domain)
-    out$admin_hosts <- admin_hosts
-    out$subnet_layout <- subnet_layout
-    out$base_ip <- base_ip
+    out$args <- list()
+    out$args$admin_hosts <- admin_hosts
+    out$args$subnet_layout <- subnet_layout
+    out$args$base_ip <- base_ip
     r_nets <- length(subnet_layout)
     a <- subnet_size(r_nets + length(admin_hosts))
     r <- sapply(subnet_layout, subnet_size)
