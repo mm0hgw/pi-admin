@@ -1,15 +1,15 @@
 
 mac802Regex <- "([0123456789ABCDEF])"
 
-mac802 <- function(mac){
-	out<-strsplit(toupper(strsplit(mac,'[:space:]')[[1]][1]),':')[[1]]
-	if(!valid.mac802(out)){
-		print(mac)
-		print(out)
-		stop()
-	}
-	class(out)<-'mac802'
-	out
+mac802 <- function(mac) {
+    out <- strsplit(toupper(strsplit(mac, "[:space:]")[[1]][1]), ":")[[1]]
+    if (!valid.mac802(out)) {
+        print(mac)
+        print(out)
+        stop()
+    }
+    class(out) <- "mac802"
+    out
 }
 
 valid.mac802 <- function(x) {
