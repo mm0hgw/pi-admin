@@ -59,7 +59,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
                 
             })
         } else {
-            out$networks[[net]] <- ipv4.subnet(base_ip, netlist[i])
+            out$networks[[net]] <- ipv4.subnet(c(base_ip, netlist[i]))
         }
         host_ip <- (base_ip + 1)
         j <- 1

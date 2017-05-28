@@ -136,8 +136,8 @@ handleOverflow <- function(ip) {
 #'@export
 ipv4.subnet <- function(...) {
     arg <- as.integer(c(...))
-    stopifnot(length(out) >= 5)
-    out <- head(out, n = 5)
+    stopifnot(length(arg) >= 5)
+    out <- head(arg, n = 5)
     stopifnot(!any(is.na(out)))
     stopifnot(all(out[1:4] >= 0))
     stopifnot(all(out[1:4] <= 255))
