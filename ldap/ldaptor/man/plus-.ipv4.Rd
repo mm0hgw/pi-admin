@@ -10,7 +10,7 @@
 \item{e1}{an 'ipv4' object}
 
 \item{e2}{an 'ipv4' object
-expprt}
+export}
 }
 \description{
 +.ipv4
