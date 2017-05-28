@@ -1,5 +1,5 @@
-allOnes <- ipv4(255,255,255,255)
-
+#32-bit limit
+allOnes <- 2^33-1
 
 #' valid.ipv4
 #' @param x a test object
@@ -10,17 +10,6 @@ valid.ipv4 <-function(x){
 	if(y<0)return(FALSE)
 	if(y>allOnes)return(FALSE)
 	return(TRUE)
-}
-
-#' ipv4
-#' @description a container for a valid RFC1918 IPv4 address
-#' @param '...' 4 'numeric' or 'integer' type address identifiers
-#'@export
-ipv4 <- function(...) {
-    arg <- as.integer(c(...))
-    stopifnot(length(arg) >= 4)
-    vec <- head(arg, n = 4)
-    as.ipv4(vec2ip(vec))   
 }
 
 #' as.ipv4
@@ -34,6 +23,17 @@ as.ipv4 <-function(x){
     return(y)
 	}
 	stop(x)
+}
+
+#' ipv4
+#' @description a container for a valid RFC1918 IPv4 address
+#' @param '...' 4 'numeric' or 'integer' type address identifiers
+#'@export
+ipv4 <- function(...) {
+    arg <- as.integer(c(...))
+    stopifnot(length(arg) >= 4)
+    vec <- head(arg, n = 4)
+    as.ipv4(vec2ip(vec))   
 }
 
 #' is.ipv4
