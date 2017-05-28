@@ -1,12 +1,3 @@
-ldapDhcpList <- function(x, key = "dhcpStatements") {
-    if (length(x) == 1) {
-        x <- strsplit(x, "\n")
-    }
-    x <- x[x != ""]
-    x <- grep("^#", x, value = TRUE, invert = TRUE)
-    x <- gsub(";$", "", x)
-    sapply(x, ldapkv, key = key)
-}
 
 ldapOu <- list(ldapkv("objectClass", "top"), ldapkv("objectClass", "organizationalUnit"))
 # ou

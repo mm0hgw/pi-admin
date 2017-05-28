@@ -46,3 +46,13 @@ exportDhcpServers.ldif <- function(realm) {
     names(out) <- names(realm$networks)
     out
 }
+
+ldapDhcpList <- function(x, key = "dhcpStatements") {
+    if (length(x) == 1) {
+        x <- strsplit(x, "\n")
+    }
+    x <- x[x != ""]
+    x <- grep("^#", x, value = TRUE, invert = TRUE)
+    x <- gsub(";$", "", x)
+    sapply(x, ldapkv, key = key)
+}
