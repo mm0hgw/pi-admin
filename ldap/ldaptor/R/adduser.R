@@ -33,12 +33,8 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     nAdmin <- length(admin_hosts)
     hisec <- max(1, min(length(hisec_db), nAdmin))
     out <- list()
-    out$realm <- toupper(domain)
     out$domain <- domain.class(domain)
-    out$args <- list()
-    out$args$admin_hosts <- admin_hosts
-    out$args$subnet_layout <- subnet_layout
-    out$args$base_ip <- base_ip
+    out$args <- as.list(match.call())
     r_nets <- length(subnet_layout)
     a <- subnet_size(r_nets + length(admin_hosts))
     r <- sapply(subnet_layout, subnet_size)
@@ -46,8 +42,8 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     netlist <- sort(c(admin = a, r))
     out$networks <- list()
     out$hosts <- list()
-    out$hostnames <- subnet_layout_names(subnet_layout)
-    out$hostnames$admin <- c(admin_hosts, names(r))
+    hostnames <- subnet_layout_names(subnet_layout)
+    hostnames$admin <- c(admin_hosts, names(r))
     i <- 1
     while (i <= length(netlist)) {
         net <- names(netlist)[i]
@@ -63,12 +59,12 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
                 
             })
         } else {
-            out$networks[[net]] <- c(base_ip, netlist[i])
+            out$networks[[net]] <- ipv4.subnet(base_ip, netlist[i])
         }
         host_ip <- (base_ip + 1)
         j <- 1
-        while (j <= length(out$hostnames[[net]])) {
-            hostname <- out$hostnames[[net]][j]
+        while (j <= length(hostnames[[net]])) {
+            hostname <- hostnames[[net]][j]
             if (net == "admin") {
                 fqdn <- paste(sep = ".", hostname, out$domain)
                 if (j <= hisec) {

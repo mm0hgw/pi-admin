@@ -1,34 +1,34 @@
-#' ipv4.class
+#' ipv4
 #' @description a container for a valid RFC1918 IPv4 address
-#' @param hostname a 'character' identifier
+#' @param '...' 4 'numeric' or 'integer' type address identifiers
 #'@export
-ipv4.class <- function(...) {
+ipv4 <- function(...) {
     out <- as.integer(c(...))
     stopifnot(length(out) >= 4)
     out <- head(out, n = 4)
     stopifnot(!any(is.na(out)))
     stopifnot(all(out >= 0))
     stopifnot(all(out <= 255))
-    class(out) <- "ipv4.class"
+    class(out) <- "ipv4"
     out
 }
 
-#'format.ipv4.class
-#'@param x an 'ipv4.class' object
+#'format.ipv4
+#'@param x an 'ipv4' object
 #'@param ... ignored
 #'@export
-format.ipv4.class <- function(x, ...) {
+format.ipv4 <- function(x, ...) {
     paste(collapse = ".", x)
 }
 
-#'+.ipv4.class
-#'@param e1 an 'ipv4.class' object
-#'@param e2 an 'ipv4.class' object or length==1 integer
+#'+.ipv4
+#'@param e1 an 'ipv4' object
+#'@param e2 an 'ipv4' object or length==1 integer
 #'@export
-"+.ipv4.class" <- function(e1, e2) {
-    if (!inherits(e1, "ipv4.class")) 
+"+.ipv4" <- function(e1, e2) {
+    if (!inherits(e1, "ipv4")) 
         stop(e1)
-    if (!inherits(e2, "ipv4.class")) {
+    if (!inherits(e2, "ipv4")) {
         if (length(e2) != 1) 
             stop(paste(collapse = ",", e2))
         i <- as.integer(e2)
@@ -53,33 +53,33 @@ handleOverflow <- function(ip) {
     }
     if (ip[1] < 0 && ip[1] > 255) 
         stop(ip)
-    ipv4.class(ip)
+    ipv4(ip)
 }
 
-#'-.ipv4.class
-#'@param e1 an 'ipv4.class' object
-#'@param e2 an 'ipv4.class' object or length==1 integer
+#'-.ipv4
+#'@param e1 an 'ipv4' object
+#'@param e2 an 'ipv4' object or length==1 integer
 #'@export
-"-.ipv4.class" <- function(e1, e2) {
+"-.ipv4" <- function(e1, e2) {
     e1 + (-e2)
 }
 
-#'==.ipv4.class
-#'@param e1 an 'ipv4.class' object
-#'@param e2 an 'ipv4.class' object
+#'==.ipv4
+#'@param e1 an 'ipv4' object
+#'@param e2 an 'ipv4' object
 #'@export
-"==.ipv4.class" <- function(e1, e2) {
-    if (!inherits(e2, "ipv4.class")) 
+"==.ipv4" <- function(e1, e2) {
+    if (!inherits(e2, "ipv4")) 
         stop(e2)
     all(as.vector(e1) == as.vector(e2))
 }
 
-#'>.ipv4.class
-#'@param e1 an 'ipv4.class' object
-#'@param e2 an 'ipv4.class' object
+#'>.ipv4
+#'@param e1 an 'ipv4' object
+#'@param e2 an 'ipv4' object
 #'@export
-"<.ipv4.class" <- function(e1, e2) {
-    if (!inherits(e2, "ipv4.class")) 
+"<.ipv4" <- function(e1, e2) {
+    if (!inherits(e2, "ipv4")) 
         stop(e2)
     i <- 1
     while (i <= 4) {
@@ -92,12 +92,12 @@ handleOverflow <- function(ip) {
     return(FALSE)
 }
 
-#'<.ipv4.class
-#'@param e1 an 'ipv4.class' object
-#'@param e2 an 'ipv4.class' object
+#'<.ipv4
+#'@param e1 an 'ipv4' object
+#'@param e2 an 'ipv4' object
 #'@export
-">.ipv4.class" <- function(e1, e2) {
-    if (!inherits(e2, "ipv4.class")) 
+">.ipv4" <- function(e1, e2) {
+    if (!inherits(e2, "ipv4")) 
         stop(e2)
     i <- 1
     while (i <= 4) {
@@ -110,23 +110,40 @@ handleOverflow <- function(ip) {
     return(FALSE)
 }
 
-#'<=.ipv4.class
-#'@param e1 an 'ipv4.class' object
-#'@param e2 an 'ipv4.class' object
+#'<=.ipv4
+#'@param e1 an 'ipv4' object
+#'@param e2 an 'ipv4' object
 #'@export
-"<=.ipv4.class" <- function(e1, e2) {
+"<=.ipv4" <- function(e1, e2) {
     if (e1 == e2) 
         return(TRUE)
     e1 < e2
 }
 
-#'>=.ipv4.class
-#'@param e1 an 'ipv4.class' object
-#'@param e2 an 'ipv4.class' object
+#'>=.ipv4
+#'@param e1 an 'ipv4' object
+#'@param e2 an 'ipv4' object
 #'@export
-">=.ipv4.class" <- function(e1, e2) {
+">=.ipv4" <- function(e1, e2) {
     if (e1 == e2) 
         return(TRUE)
     e1 < e2
 }
 
+#' ipv4.subnet
+#' @description a container for a valid RFC1918 IPv4 subnet
+#' @param '...' 5 'numeric' or 'integer' type subnet identifiers
+#'@export
+ipv4.subnet <- function(...) {
+    arg <- as.integer(c(...))
+    stopifnot(length(out) >= 5)
+    out <- head(out, n = 5)
+    stopifnot(!any(is.na(out)))
+    stopifnot(all(out[1:4] >= 0))
+    stopifnot(all(out[1:4] <= 255))
+    stopifnot(out[5] >= 0)
+    stopifnot(out[5] <= 30)
+    stopifnot(!any(is.na(out)))
+    class(out) <- c('ipv4.subnet')
+    out
+}
