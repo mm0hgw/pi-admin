@@ -54,7 +54,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
                   length(grep(x, y)) != 0
                 })
                 out[[x]] <- sapply(seq(hisec)[key], function(i) {
-                  ipv4.class(base_ip) + i
+                  ipv4(base_ip) + i
                 })
                 
             })
@@ -95,7 +95,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
 }
 
 default_shell = "/bin/bash"
-default_base_ip = ipv4.class(10, 0, 0, 0)
+default_base_ip = ipv4(10, 0, 0, 0)
 
 addusertogroup <- function(user, group, basedn = default_basedn) {
     paste(sep = "", "dn: cn=", group, ",", basedn, "\n", "changeType: modify\n", 
@@ -187,7 +187,7 @@ subnetmask <- function(bits) {
         octet <- octet - 1
         bits <- bits - 1
     }
-    ipv4.class(out)
+    ipv4(out)
 }
 
 ldapDhcpList <- function(x, key = "dhcpStatements") {
@@ -241,10 +241,10 @@ exportDhcpServers.ldif <- function(realm) {
         skeylist <- server[2]
         out <- ldapquerylist(ldapquery(pkey, realm$basedn, skeylist, kvlist))
         subnet <- realm$networks[[network]]
-        netip <- ipv4.class(subnet)
+        netip <- ipv4(subnet)
         router <- netip + 1
         netmask <- subnet[5]
-        broadcast <- ipv4.class(as.vector(netip) + rep(255, 4) - as.vector(subnetmask(netmask)))
+        broadcast <- ipv4(as.vector(netip) + rep(255, 4) - as.vector(subnetmask(netmask)))
         statements <- list("default-lease-time 14400", "max-lease-time 28800")
         pkey <- ldapkv("cn", format(netip))
         skeylist <- server
