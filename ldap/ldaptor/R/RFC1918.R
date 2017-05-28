@@ -1,5 +1,5 @@
 #32-bit limit
-allOnes <- 2^33-1
+ipv4.allOnes <- 2^33-1
 
 #' valid.ipv4
 #' @param x a test object
@@ -8,12 +8,11 @@ valid.ipv4 <-function(x){
 	y <- as.numeric(x)
 	if(is.na(y))return(FALSE)
 	if(y<0)return(FALSE)
-	if(y>allOnes)return(FALSE)
+	if(y>ipv4.allOnes)return(FALSE)
 	return(TRUE)
 }
 
 #' as.ipv4
-#' @description a container for a valid RFC1918 IPv4 address
 #' @param x a single value, coerced to numeric
 #'@export
 as.ipv4 <-function(x){
@@ -37,7 +36,6 @@ ipv4 <- function(...) {
 }
 
 #' is.ipv4
-#' @description a container for a valid RFC1918 IPv4 address
 #' @param x a test object
 #'@export
 is.ipv4 <- function(x){
@@ -77,7 +75,7 @@ format.ipv4 <- function(x, ...) {
 #'+.ipv4
 #'@param e1 an 'ipv4' object
 #'@param e2 an 'ipv4' object
-#'expprt
+#'export
 '+.ipv4' <- function(e1,e2){
 	as.ipv4(as.numeric(e1)+e2)
 }
@@ -85,7 +83,7 @@ format.ipv4 <- function(x, ...) {
 #'-.ipv4
 #'@param e1 an 'ipv4' object
 #'@param e2 an 'ipv4' object
-#'expprt
+#'export
 '-.ipv4' <- function(e1,e2){
 	as.ipv4(as.numeric(e1)-e2)
 }
@@ -134,4 +132,23 @@ ipv4.subnet.netmask <- function(subnet){
 #'@export
 ipv4.subnet.broadcast <- function(subnet){
 	as.ipv4(subnet$ip+2^(32-subnet$mask)-1)
+}
+
+#' as.ipv4.subnet
+#' @param x a single value, coerced to numeric
+#'@export
+as.ipv4.subnet <-function(x){
+	y<- as.numeric(x)
+	if (valid.ipv4.subnet(y)){
+		class(y) <- "ipv4.subnet"
+    return(y)
+	}
+	stop(x)
+}
+
+#' is.ipv4.subnet
+#' @param x a test object
+#'@export
+is.ipv4.subnet <- function(x){
+inherits(x,'ipv4.subnet')	
 }
