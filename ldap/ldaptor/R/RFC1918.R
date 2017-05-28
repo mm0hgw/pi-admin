@@ -1,28 +1,31 @@
-#32-bit limit
-allOnes <- 2^33-1
+# 32-bit limit
+allOnes <- 2^33 - 1
 
 #' valid.ipv4
 #' @param x a test object
 #'@export
-valid.ipv4 <-function(x){
-	y <- as.numeric(x)
-	if(is.na(y))return(FALSE)
-	if(y<0)return(FALSE)
-	if(y>allOnes)return(FALSE)
-	return(TRUE)
+valid.ipv4 <- function(x) {
+    y <- as.numeric(x)
+    if (is.na(y)) 
+        return(FALSE)
+    if (y < 0) 
+        return(FALSE)
+    if (y > allOnes) 
+        return(FALSE)
+    return(TRUE)
 }
 
 #' as.ipv4
 #' @description a container for a valid RFC1918 IPv4 address
 #' @param x a single value, coerced to numeric
 #'@export
-as.ipv4 <-function(x){
-	y<- as.numeric(x)
-	if (valid.ipv4(y)){
-		class(y) <- "ipv4"
-    return(y)
-	}
-	stop(x)
+as.ipv4 <- function(x) {
+    y <- as.numeric(x)
+    if (valid.ipv4(y)) {
+        class(y) <- "ipv4"
+        return(y)
+    }
+    stop(x)
 }
 
 #' ipv4
@@ -33,29 +36,29 @@ ipv4 <- function(...) {
     arg <- as.integer(c(...))
     stopifnot(length(arg) >= 4)
     vec <- head(arg, n = 4)
-    as.ipv4(vec2ip(vec))   
+    as.ipv4(vec2ip(vec))
 }
 
 #' is.ipv4
 #' @description a container for a valid RFC1918 IPv4 address
 #' @param x a test object
 #'@export
-is.ipv4 <- function(x){
-inherits(x,'ipv4')	
+is.ipv4 <- function(x) {
+    inherits(x, "ipv4")
 }
 
-vec2ip <- function(vec){
-	sum(sapply(seq(4),function(i){
-		j <- 2^((4-i)*8)
-		vec[i]*j
-	}))
+vec2ip <- function(vec) {
+    sum(sapply(seq(4), function(i) {
+        j <- 2^((4 - i) * 8)
+        vec[i] * j
+    }))
 }
 
-ip2vec <- function(ip){
-	sapply(seq(4),function(i){
-		j <- 2^((4-i)*8)
-		(ip %/% j)%%256
-})	
+ip2vec <- function(ip) {
+    sapply(seq(4), function(i) {
+        j <- 2^((4 - i) * 8)
+        (ip%/%j)%%256
+    })
 }
 
 #'print.ipv4
@@ -63,7 +66,7 @@ ip2vec <- function(ip){
 #'@param ... passed to print.character
 #'@export
 print.ipv4 <- function(x, ...) {
-    cat(format(x),'\n',...)
+    cat(format(x), "\n", ...)
 }
 
 #'format.ipv4
@@ -78,16 +81,16 @@ format.ipv4 <- function(x, ...) {
 #'@param e1 an 'ipv4' object
 #'@param e2 an 'ipv4' object
 #'expprt
-'+.ipv4' <- function(e1,e2){
-	as.ipv4(as.numeric(e1)+e2)
+"+.ipv4" <- function(e1, e2) {
+    as.ipv4(as.numeric(e1) + e2)
 }
 
 #'-.ipv4
 #'@param e1 an 'ipv4' object
 #'@param e2 an 'ipv4' object
 #'expprt
-'-.ipv4' <- function(e1,e2){
-	as.ipv4(as.numeric(e1)-e2)
+"-.ipv4" <- function(e1, e2) {
+    as.ipv4(as.numeric(e1) - e2)
 }
 
 #' ipv4.subnet
@@ -101,7 +104,7 @@ ipv4.subnet <- function(...) {
     stopifnot(arg[5] <= 30)
     stopifnot(!any(is.na(arg)))
     ip <- ipv4(arg)
-    out<-list(ip=ip,mask=arg[5])
+    out <- list(ip = ip, mask = arg[5])
     class(out) <- c("ipv4.subnet")
     out
 }
@@ -111,7 +114,7 @@ ipv4.subnet <- function(...) {
 #'@param ... passed to print.character
 #'@export
 print.ipv4.subnet <- function(x, ...) {
-    cat(format(x),'\n',...)
+    cat(format(x), "\n", ...)
 }
 
 #'format.ipv4.subnet
@@ -119,19 +122,19 @@ print.ipv4.subnet <- function(x, ...) {
 #'@param ... ignored
 #'@export
 format.ipv4.subnet <- function(x, ...) {
-    paste(sep='/',format(x$ip),x$mask)
+    paste(sep = "/", format(x$ip), x$mask)
 }
 
 #'ipv4.subnet.netmask
 #'@param subnet an 'ipv4.subnet' object
 #'@export
-ipv4.subnet.netmask <- function(subnet){
-	as.ipv4((2^33-1)-(2^(32-subnet$mask)-1))
+ipv4.subnet.netmask <- function(subnet) {
+    as.ipv4((2^33 - 1) - (2^(32 - subnet$mask) - 1))
 }
 
 #'ipv4.subnet.broadcast
 #'@param subnet an 'ipv4.subnet' object
 #'@export
-ipv4.subnet.broadcast <- function(subnet){
-	as.ipv4(subnet$ip+2^(32-subnet$mask)-1)
+ipv4.subnet.broadcast <- function(subnet) {
+    as.ipv4(subnet$ip + 2^(32 - subnet$mask) - 1)
 }
