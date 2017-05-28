@@ -144,6 +144,6 @@ ipv4.subnet <- function(...) {
     stopifnot(out[5] >= 0)
     stopifnot(out[5] <= 30)
     stopifnot(!any(is.na(out)))
-    class(out) <- c('ipv4.subnet')
+    class(out) <- c("ipv4.subnet")
     out
 }
