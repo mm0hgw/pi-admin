@@ -9,7 +9,8 @@
 \arguments{
 \item{e1}{an 'ipv4' object}
 
-\item{e2}{an 'ipv4' object or length==1 integer}
+\item{e2}{an 'ipv4' object
+expprt}
 }
 \description{
 +.ipv4
