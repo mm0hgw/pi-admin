@@ -128,7 +128,7 @@ valid.ipv4.subnet <- function(x){
 #' @description a container for a valid RFC1918 IPv4 subnet
 #' @param '...' 5 'numeric' or 'integer' type subnet identifiers
 #'@export
-ipv4.subnet <- function(...) {
+ipv4.subnet <- function(x,...) {
     UseMethod("ipv4.subnet", x)
 }
 
