@@ -51,6 +51,8 @@ ipv4.list <- ipv4.integer
 
 #'@method ipv4 ipv4
 ipv4.ipv4 <- function(x,...){
+	if(!valid.ipv4(x))
+		stop(paste('ipv4 set to',x))
 	x
 }
 
