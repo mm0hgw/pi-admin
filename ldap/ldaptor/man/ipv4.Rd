@@ -4,7 +4,7 @@
 \alias{ipv4}
 \title{ipv4}
 \usage{
-ipv4(...)
+ipv4(x, ...)
 }
 \arguments{
 \item{'...'}{4 'numeric' or 'integer' type address identifiers}

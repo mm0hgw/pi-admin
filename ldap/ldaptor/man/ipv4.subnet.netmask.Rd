@@ -4,7 +4,7 @@
 \alias{ipv4.subnet.netmask}
 \title{ipv4.subnet.netmask}
 \usage{
-ipv4.subnet.netmask(subnet)
+\method{ipv4}{subnet.netmask}(subnet)
 }
 \arguments{
 \item{subnet}{an 'ipv4.subnet' object}
