@@ -109,20 +109,61 @@ format.ipv4 <- function(x, ...) {
     as.ipv4(as.numeric(e1) - e2)
 }
 
+valid.ipv4.subnetmask <- function(x){
+	if(length(x)!=1)
+	return(FALSE)
+	if(is.na(x))
+	return(FALSE)
+	if(x<0||x>30)		
+	return(FALSE)
+	return(TRUE)
+
+}
+
+valid.ipv4.subnet <- function(x){
+	valid.ipv4(x$ip)&&valid.ipv4.subnetmask(x$mask)
+}
+
 #' ipv4.subnet
 #' @description a container for a valid RFC1918 IPv4 subnet
 #' @param '...' 5 'numeric' or 'integer' type subnet identifiers
 #'@export
 ipv4.subnet <- function(...) {
-    arg <- as.integer(c(...))
-    stopifnot(length(arg) >= 5)
-    stopifnot(arg[5] >= 0)
-    stopifnot(arg[5] <= 30)
+    UseMethod("ipv4.subnet", x)
+}
+
+#'@method ipv4.subnet integer
+ipv4.subnet.integer <- function(x, ...) {
+    arg <- c(unlist(x), unlist(list(...)))
     stopifnot(!any(is.na(arg)))
+    stopifnot(length(arg) >= 5)
+    stopifnot(!valid.ipv4.subnetmask(arg[5]))
     ip <- ipv4(arg)
     out <- list(ip = ip, mask = arg[5])
     class(out) <- c("ipv4.subnet")
     out
+}
+
+#'@method ipv4.subnet numeric
+ipv4.subnet.numeric <- ipv4.subnet.integer
+
+#'@method ipv4.subnet list
+ipv4.subnet.list <- ipv4.subnet.integer
+
+#'@method ipv4.subnet ipv4
+ipv4.subnet.ipv4 <- function(x, ...) {
+		out$ip <- x
+		out$mask <- c(...)
+    if (!valid.ipv4.subnet(out)) 
+        stop(match.call())
+    class(out)<-'ipv4.subnet'
+    out
+}
+#'@method ipv4.subnet ipv4
+ipv4.subnet.ipv4 <- function(x, ...) {
+    if (!valid.ipv4.subnet(x)) 
+        stop(match.call())
+    x
 }
 
 #'print.ipv4.subnet
@@ -145,7 +186,7 @@ format.ipv4.subnet <- function(x, ...) {
 #'@param subnet an 'ipv4.subnet' object
 #'@export
 ipv4.subnet.netmask <- function(subnet) {
-    as.ipv4((2^33 - 1) - (2^(32 - subnet$mask) - 1))
+    as.ipv4(ipv4.allOnes - (2^(32 - subnet$mask) - 1))
 }
 
 #'ipv4.subnet.broadcast
@@ -173,3 +214,4 @@ as.ipv4.subnet <- function(x) {
 is.ipv4.subnet <- function(x) {
     inherits(x, "ipv4.subnet")
 }
+
