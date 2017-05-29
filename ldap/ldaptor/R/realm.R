@@ -52,7 +52,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
                 fqdn <- paste(sep = ".", hostname, net, out$domain)
                 out$hosts[[paste(hostname, fqdn)]] <- host_ip
             }
-            host_ip <- inc_ip(host_ip)
+            host_ip <- host_ip+1
             j <- j + 1
         }
         base_ip <- next_subnet(base_ip, netlist[i])
