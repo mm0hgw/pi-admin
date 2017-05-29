@@ -31,7 +31,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
                 
             })
         } else {
-            out$networks[[net]] <- ipv4.subnet(c(base_ip, netlist[i]))
+            out$networks[[net]] <- ipv4.subnet(base_ip, netlist[i])
         }
         host_ip <- (base_ip + 1)
         j <- 1
@@ -66,7 +66,6 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     out
 }
 
-subnet_key <- 2^seq(24) - 2
 
 is_subnet_layout <- function(s) {
     if (any(s%%1 != 0)) 
@@ -103,6 +102,8 @@ subnet_layout_names <- function(s) {
     out
 }
 
+subnet_key <- 2^seq(24) - 2
+
 subnet_size <- function(s) {
     out <- 31
     i <- 1
@@ -113,12 +114,13 @@ subnet_size <- function(s) {
     out
 }
 
-next_subnet <- function(ip, sn) {
+next_subnet <- function(ipv4, sn) {
+			ip <-ip2vec(ipv4)
     i <- 1
     while (sn > 8) {
         sn <- sn - 8
         i <- i + 1
     }
     ip[i] <- ip[i] + 2^(8 - sn)
-    ip
+    ipv4(ip)
 }
