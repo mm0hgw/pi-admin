@@ -109,6 +109,25 @@ format.ipv4 <- function(x, ...) {
     as.ipv4(as.numeric(e1) - e2)
 }
 
+#'@import bit
+#'@method as.bit ipv4
+as.bit.ipv4 <- function(x){
+	out<-bit::bit(32)
+	i<-32
+	while(i>=1){
+		j <- 2^(i-1)
+		if(x>=j){
+			x<-x-j
+			out[i]<-TRUE
+		}
+		i<-i+1
+	}
+	out
+}
+
+#' valid.ipv4.subnetmask
+#' @param x a test object
+#'@export
 valid.ipv4.subnetmask <- function(x) {
     if (length(x) != 1) 
         return(FALSE)
@@ -120,8 +139,18 @@ valid.ipv4.subnetmask <- function(x) {
     
 }
 
+#' valid.ipv4.subnet
+#' @param x a test object
+#'@export
 valid.ipv4.subnet <- function(x) {
-    valid.ipv4(x$ip) && valid.ipv4.subnetmask(x$mask)
+    if(!valid.ipv4(x$ip))
+    	return(FALSE)
+    if(!valid.ipv4.subnetmask(x$mask))
+    	return(FALSE)
+    ipbit <- as.bit(x$ip)
+    bitsum <- sum(head(ipbit,n=32-x$mask))
+    if(bitsum!=0)return(FALSE)
+   	return(TRUE)
 }
 
 #' ipv4.subnet
