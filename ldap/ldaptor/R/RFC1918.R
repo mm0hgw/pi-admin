@@ -135,9 +135,12 @@ ipv4.subnet <- function(x,...) {
 #'@method ipv4.subnet integer
 ipv4.subnet.integer <- function(x, ...) {
     arg <- c(unlist(x), unlist(list(...)))
-    stopifnot(!any(is.na(arg)))
-    stopifnot(length(arg) >= 5)
-    stopifnot(!valid.ipv4.subnetmask(arg[5]))
+    if(!any(is.na(arg)))
+        stop(match.call())
+    if(length(arg) >= 5)
+        stop(match.call())
+    if(!valid.ipv4.subnetmask(arg[5]))
+        stop(match.call())
     ip <- ipv4(arg)
     out <- list(ip = ip, mask = arg[5])
     class(out) <- c("ipv4.subnet")
