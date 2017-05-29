@@ -4,7 +4,7 @@
 \alias{ipv4.subnet}
 \title{ipv4.subnet}
 \usage{
-ipv4.subnet(...)
+\method{ipv4}{subnet}(...)
 }
 \arguments{
 \item{'...'}{5 'numeric' or 'integer' type subnet identifiers}

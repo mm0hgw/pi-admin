@@ -4,7 +4,7 @@
 \alias{ipv4.subnet.broadcast}
 \title{ipv4.subnet.broadcast}
 \usage{
-ipv4.subnet.broadcast(subnet)
+\method{ipv4}{subnet.broadcast}(subnet)
 }
 \arguments{
 \item{subnet}{an 'ipv4.subnet' object}

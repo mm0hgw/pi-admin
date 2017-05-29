@@ -31,13 +31,13 @@ as.ipv4 <- function(x) {
 #' @description a container for a valid RFC1918 IPv4 address
 #' @param '...' 4 'numeric' or 'integer' type address identifiers
 #'@export
-ipv4 <- function(x,...) {
-	UseMethod('ipv4',x)
+ipv4 <- function(x, ...) {
+    UseMethod("ipv4", x)
 }
 
 #'@method ipv4 integer
-ipv4.integer <- function(x,...){	
-    arg <- c(unlist(x),unlist(list(...)))
+ipv4.integer <- function(x, ...) {
+    arg <- c(unlist(x), unlist(list(...)))
     stopifnot(length(arg) >= 4)
     vec <- head(arg, n = 4)
     as.ipv4(vec2ip(vec))
