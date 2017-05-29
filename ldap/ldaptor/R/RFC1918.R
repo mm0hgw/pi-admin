@@ -109,19 +109,19 @@ format.ipv4 <- function(x, ...) {
     as.ipv4(as.numeric(e1) - e2)
 }
 
-valid.ipv4.subnetmask <- function(x){
-	if(length(x)!=1)
-	return(FALSE)
-	if(is.na(x))
-	return(FALSE)
-	if(x<0||x>30)		
-	return(FALSE)
-	return(TRUE)
-
+valid.ipv4.subnetmask <- function(x) {
+    if (length(x) != 1) 
+        return(FALSE)
+    if (is.na(x)) 
+        return(FALSE)
+    if (x < 0 || x > 30) 
+        return(FALSE)
+    return(TRUE)
+    
 }
 
-valid.ipv4.subnet <- function(x){
-	valid.ipv4(x$ip)&&valid.ipv4.subnetmask(x$mask)
+valid.ipv4.subnet <- function(x) {
+    valid.ipv4(x$ip) && valid.ipv4.subnetmask(x$mask)
 }
 
 #' ipv4.subnet
@@ -152,11 +152,11 @@ ipv4.subnet.list <- ipv4.subnet.integer
 
 #'@method ipv4.subnet ipv4
 ipv4.subnet.ipv4 <- function(x, ...) {
-		out$ip <- x
-		out$mask <- c(...)
+    out$ip <- x
+    out$mask <- c(...)
     if (!valid.ipv4.subnet(out)) 
         stop(match.call())
-    class(out)<-'ipv4.subnet'
+    class(out) <- "ipv4.subnet"
     out
 }
 #'@method ipv4.subnet ipv4
