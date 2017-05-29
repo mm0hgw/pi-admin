@@ -120,7 +120,7 @@ as.bit.ipv4 <- function(x){
 			x<-x-j
 			out[i]<-TRUE
 		}
-		i<-i+1
+		i<-i-1
 	}
 	out
 }
