@@ -190,14 +190,14 @@ ipv4.subnet.ipv4 <- function(x, ...) {
     out <- list()
     out$ip <- x
     out$mask <- c(...)
-    print(out)
     if (!valid.ipv4.subnet(out)) 
         stop(match.call())
     class(out) <- "ipv4.subnet"
     out
 }
-#'@method ipv4.subnet ipv4
-ipv4.subnet.ipv4 <- function(x, ...) {
+
+#'@method ipv4.subnet ipv4.subnet
+ipv4.subnet.ipv4.subnet <- function(x, ...) {
     if (!valid.ipv4.subnet(x)) 
         stop(match.call())
     x
