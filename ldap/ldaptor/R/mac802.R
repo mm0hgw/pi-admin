@@ -35,7 +35,7 @@ as.mac802 <- function(x) {
 
 #'@method as.mac802 default
 as.mac802.default <- function(x) {
-    y <- strsplit(toupper(strsplit(mac, "([[:space:]])")[[1]][1]), ":")[[1]]
+    y <- strsplit(toupper(strsplit(x, "([[:space:]])")[[1]][1]), ":")[[1]]
     if (valid.mac802(y)) {
         class(y) <- "mac802"
         return(y)
@@ -78,8 +78,8 @@ valid.mac802list <- function(x) {
 }
 
 #'mac802list
-#' @param x a 'character' filename like '/etc/hosts' 
-#' or a 'character' vector like scan('/etc/hosts',what='character',sep='\\n')
+#' @param x a 'character' filename like '/etc/ethers' 
+#' or a 'character' vector like scan('/etc/ethers',what='character',sep='\\n')
 #' or a 'list' of 'mac802' objects
 #'@export
 mac802list <- function(x, ...) {

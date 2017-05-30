@@ -14,9 +14,7 @@ hostname.class <- function(hostname) {
     hostname
 }
 
-#' is.hostname.class
-#' @param x test object
-#'@export
+#'@method is hostname.class
 is.hostname.class <- function(x) {
     inherits(x, "hostname.class")
 }
@@ -52,9 +50,7 @@ domain.class <- function(domain) {
     domain
 }
 
-#' is.domain.class
-#' @param x test object
-#'@export
+#'@method is domain.class
 is.domain.class <- function(x) {
     inherits(x, "domain.class")
 }
