@@ -8,7 +8,7 @@ ipv4list(x, ...)
 }
 \arguments{
 \item{x}{a 'character' filename like '/etc/hosts' 
-or a character vector like scan('/etc/hosts',what='character',sep='\n')}
+or a character vector like scan('/etc/hosts',what='character',sep='\\n')}
 }
 \description{
 ipv4list
