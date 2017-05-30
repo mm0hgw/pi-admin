@@ -132,7 +132,7 @@ valid.ipv4.subnetmask <- function(x) {
 as.ipv4.bit <- function(x,...){
 	if(length(x)!=32)
 		stop('32 bits to an ipv4')
-	sum(sapply(seq(32),function(i){if(x[i]){2^i}else{0}}))
+	as.ipv4(sum(sapply(seq(32),function(i){if(x[i]){2^i}else{0}})))
 }
 
 #'@import bit
