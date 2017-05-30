@@ -59,11 +59,8 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
         base_ip <- next_subnet(base_ip, netlist[i])
         i <- i + 1
     }
-    out$services <- lapply(c(" kadmin ", " kdc. ", " ns. ", " nfs ", " www ", " mail ", 
-        " ldap "), function(service) {
-        out$hosts[grep(service, names(out$hosts))]
-    })
-    names(out$services) <- c("kadmin", "kdc", "ns", "nfs", "www", "mail", "ldap")
+    out$hosts <- ipv4list(out$hosts)
+    out$networks <- ipv4.subnetlist(out$networks)
     out
 }
 
