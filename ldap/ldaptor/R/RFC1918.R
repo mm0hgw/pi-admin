@@ -340,12 +340,12 @@ ipv4.subnetlist.character <- function(x,...){
 	if(length(x)==1 && file.exists(x)){
 		x <- scan(x,what='character',sep='\n')
 	}
-	x<-grep('^#',x,invert=TRUE,value=TRUE
+	x<-grep('^#',x,invert=TRUE,value=TRUE)
 	x <- strsplit(x,'([[:space:]])')
 	templist <- lapply(x,function(y){
 		ip <- ipv4.subnet(y[1])
 		name <- paste(collapse=' ',y[-1])
-	}
+	})
 	out <- lapply(templist,'[[','ip')
 	names(out) <- sapply(templist,'[[','name')
 	if(!valid.ipv4.subnetlist)
