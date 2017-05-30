@@ -305,7 +305,7 @@ ipv4list.character <- function(x,...){
 	templist <- lapply(x,function(y){
 		ip <- ipv4(y[1])
 		name <- paste(collapse=' ',y[-1])
-	}
+	})
 	out <- lapply(templist,'[[','ip')
 	names(out) <- sapply(templist,'[[','name')
 	if(!valid.ipv4list)
