@@ -8,7 +8,7 @@ ipv4.subnetlist(x, ...)
 }
 \arguments{
 \item{x}{a 'character' filename like '/etc/networks' 
-or a character vector like scan('/etc/networks',what='character',sep='\n')}
+or a character vector like scan('/etc/networks',what='character',sep='\\n')}
 }
 \description{
 ipv4.subnetlist
