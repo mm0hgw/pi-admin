@@ -289,7 +289,7 @@ valid.ipv4list <- function(x){
 
 #'ipv4list
 #' @param x a 'character' filename like '/etc/hosts' 
-#' or a character vector like scan('/etc/hosts',what='character',sep='\n')
+#' or a character vector like scan('/etc/hosts',what='character',sep='\\n')
 #'@export
 ipv4list <- function(x,...){
 	UseMethod('ipv4list',x)
@@ -329,7 +329,7 @@ valid.ipv4.subnetlist <- function(x){
 
 #'ipv4.subnetlist
 #' @param x a 'character' filename like '/etc/networks' 
-#' or a character vector like scan('/etc/networks',what='character',sep='\n')
+#' or a character vector like scan('/etc/networks',what='character',sep='\\n')
 #'@export
 ipv4.subnetlist <- function(x,...){
 	UseMethod('ipv4.subnetlist',x)
