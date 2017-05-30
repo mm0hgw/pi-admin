@@ -212,6 +212,7 @@ print.ipv4.subnet <- function(x, ...) {
 #'@param ... ignored
 #'@export
 format.ipv4.subnet <- function(x, ...) {
+		print(as.list(x))
     paste(sep = "/", format(x$ip), x$mask)
 }
 
