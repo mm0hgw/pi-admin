@@ -30,7 +30,7 @@ valid.mac802 <- function(x) if (length(x) != 6) {
 
 #'@method as mac802
 as.mac802 <- function(x) {
-	UseMethod('as.mac802',x)
+    UseMethod("as.mac802", x)
 }
 
 #'@method as.mac802 default
@@ -45,7 +45,8 @@ as.mac802.default <- function(x) {
 
 #'@method as.mac802 mac802
 as.mac802.mac802 <- function(x) {
-x}
+    x
+}
 
 #'@method is mac802
 is.mac802 <- function(x) {
@@ -112,51 +113,54 @@ mac802list.character <- function(x, ...) {
 #'@method format mac802list
 format.mac802list <- function(x, ...) {
     paste(collapse = "\n", sapply(seq_along(x), function(i) {
-        paste(format(x[[i]]), names(x)[i],sep='\t')
+        paste(format(x[[i]]), names(x)[i], sep = "\t")
     }))
 }
 
 #'@method print mac802list 
 print.mac802list <- print.mac802
 
-crunchHexChars <- c('([13579BDF])','([2367ABEF])','([4567CDEF])','([89ABCDEF])')
+crunchHexChars <- c("([13579BDF])", "([2367ABEF])", "([4567CDEF])", "([89ABCDEF])")
 
-crunchNibble <- function(x){
-	if(nchar(x)!=1)
-	stop(x)
-	sapply(crunchHexChars,function(y){
-	length(grep(y,x))!=0})
+crunchNibble <- function(x) {
+    if (nchar(x) != 1) 
+        stop(x)
+    sapply(crunchHexChars, function(y) {
+        length(grep(y, x)) != 0
+    })
 }
 
-crunchByte <- function(x){
-	sapply(seq(2),function(i)crunchNibble(x[i]))
+crunchByte <- function(x) {
+    sapply(seq(2), function(i) crunchNibble(x[i]))
 }
 
-uncrunchHexchars <- '0123456789ABCDEF'
+uncrunchHexchars <- "0123456789ABCDEF"
 
-uncrunchNibble <- function(x){
-	i <- x[1]*1 + x[2]*2 + x[3]*4 +x[4]*8
-	substr(uncrunchHexchars,i,i)
+uncrunchNibble <- function(x) {
+    i <- x[1] * 1 + x[2] * 2 + x[3] * 4 + x[4] * 8
+    substr(uncrunchHexchars, i, i)
 }
 
-uncrunchByte <- function(x){
-	paste(collapse='',sapply(seq(0,1),function(i)crunchNibble(x[(1:4)+i*4])))
+uncrunchByte <- function(x) {
+    paste(collapse = "", sapply(seq(0, 1), function(i) crunchNibble(x[(1:4) + i * 
+        4])))
 }
 
 #'@method as.bit mac802
-as.bit.mac802 <- function(x){
-	out <- bit(48)
-	address <- sapply(x,crunchByte)
-	i<-1
-	while(i<=48){
-		out[i]<-address[i]
-		i<-i+1
-	}
-	out
+as.bit.mac802 <- function(x) {
+    out <- bit(48)
+    address <- sapply(x, crunchByte)
+    i <- 1
+    while (i <= 48) {
+        out[i] <- address[i]
+        i <- i + 1
+    }
+    out
 }
 
 #'@method as.mac802 bit
-as.mac802.bit <- function(x){
-	as.mac802(paste(collapse=':',sapply(seq(0,5),function(i)uncrunchByte(x[1:8+i*8]))))
+as.mac802.bit <- function(x) {
+    as.mac802(paste(collapse = ":", sapply(seq(0, 5), function(i) uncrunchByte(x[1:8 + 
+        i * 8]))))
 }
 
