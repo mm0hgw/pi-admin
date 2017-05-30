@@ -275,6 +275,13 @@ is.ipv4.subnet <- function(x) {
     inherits(x, "ipv4.subnet")
 }
 
+#'valid.ipv4list
+#' @param x a test object
+#'@export
+valid.ipv4list <- function(x){
+	all(sapply(x,is.ipv4))
+}
+
 #'ipv4list
 #' @param x a 'character' filename like '/etc/hosts' 
 #' or a character vector like scan('/etc/hosts',what='character',sep='\n')
@@ -296,6 +303,8 @@ ipv4list.character <- function(x,...){
 	}
 	out <- lapply(templist,'[[','ip')
 	names(out) <- sapply(templist,'[[','name')
+	if(!valid.ipv4list)
+		stop(out)
 	out
 }
 
