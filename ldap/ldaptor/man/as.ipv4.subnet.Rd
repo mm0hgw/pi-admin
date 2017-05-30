@@ -4,7 +4,7 @@
 \alias{as.ipv4.subnet}
 \title{as.ipv4.subnet}
 \usage{
-as.ipv4.subnet(x)
+\method{as.ipv4}{subnet}(x)
 }
 \arguments{
 \item{x}{a single value, coerced to numeric}
