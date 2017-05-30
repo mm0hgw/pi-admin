@@ -315,7 +315,7 @@ ipv4list.character <- function(x, ...) {
 #'@method format ipv4list
 format.ipv4list <- function(x, ...) {
     paste(collapse = "\n", sapply(seq_along(x), function(i) {
-        paste(format(x[[i]]), names(x)[i])
+        paste(format(x[[i]]), names(x)[i],sep='\t')
     }))
 }
 
