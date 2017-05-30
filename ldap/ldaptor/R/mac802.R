@@ -103,17 +103,14 @@ mac802list.character <- function(x, ...) {
     }
     x <- grep("^#", x, invert = TRUE, value = TRUE)
     x <- strsplit(x, "([[:space:]])")
-    print(x)
     templist <- lapply(x, function(y) {
         
         mac <- mac802(y[1])
         name <- paste(collapse = " ", y[-1])
         list(mac = mac, name = name)
     })
-    print(templist)
     out <- lapply(templist, "[[", "mac")
     names(out) <- sapply(templist, "[[", "name")
-    print(out)
     mac802list(out)
 }
 
