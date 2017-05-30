@@ -102,6 +102,7 @@ mac802list.character <- function(x, ...) {
     }
     x <- grep("^#", x, invert = TRUE, value = TRUE)
     x <- strsplit(x, "([[:space:]])")
+    print(x)
     templist <- lapply(x, function(y) {
         ip <- mac802(y[1])
         name <- paste(collapse = " ", y[-1])
@@ -120,48 +121,4 @@ format.mac802list <- function(x, ...) {
 
 #'@method print mac802list 
 print.mac802list <- print.mac802
-
-crunchHexChars <- c("([13579BDF])", "([2367ABEF])", "([4567CDEF])", "([89ABCDEF])")
-
-crunchNibble <- function(x) {
-    if (nchar(x) != 1) 
-        stop(x)
-    sapply(crunchHexChars, function(y) {
-        length(grep(y, x)) != 0
-    })
-}
-
-crunchByte <- function(x) {
-    sapply(seq(2), function(i) crunchNibble(substr(x,i,i)))
-}
-
-uncrunchHexchars <- "0123456789ABCDEF"
-
-uncrunchNibble <- function(x) {
-    i <- x[1] * 1 + x[2] * 2 + x[3] * 4 + x[4] * 8
-    substr(uncrunchHexchars, i, i)
-}
-
-uncrunchByte <- function(x) {
-    paste(collapse = "", sapply(seq(0, 1), function(i) uncrunchNibble(x[(1:4) + i * 
-        4])))
-}
-
-#'@method as.bit mac802
-as.bit.mac802 <- function(x) {
-    out <- bit(48)
-    address <- sapply(x, crunchByte)
-    i <- 1
-    while (i <= 48) {
-        out[i] <- address[i]
-        i <- i + 1
-    }
-    out
-}
-
-#'@method as.mac802 bit
-as.mac802.bit <- function(x) {
-    as.mac802(paste(collapse = ":", sapply(seq(0, 5), function(i) uncrunchByte(x[1:8 + 
-        i * 8]))))
-}
 
