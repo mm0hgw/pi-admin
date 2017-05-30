@@ -19,7 +19,7 @@ mac802 <- function(mac) {
 #' valid.mac802
 #' @param x a test object
 #'@export
-valid.mac802 <- function(x) if (length(x) != 6) {
+valid.mac802 <- function(x) {if (length(x) != 6) 
     return(FALSE)
     if (any(sapply(x, nchar) != 2)) 
         return(FALSE)
