@@ -115,7 +115,7 @@ subnet_size <- function(s) {
 }
 
 next_subnet <- function(ipv4, sn) {
-			ip <-ip2vec(ipv4)
+    ip <- ip2vec(ipv4)
     i <- 1
     while (sn > 8) {
         sn <- sn - 8
