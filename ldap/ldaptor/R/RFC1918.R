@@ -15,9 +15,7 @@ valid.ipv4 <- function(x) {
     return(TRUE)
 }
 
-#' as.ipv4
-#' @param x a single value, coerced to numeric
-#'@export
+#'@method as ipv4
 as.ipv4 <- function(x) {
     UseMethod("as.ipv4", x)
 }
@@ -66,9 +64,7 @@ ipv4.ipv4 <- function(x, ...) {
     x
 }
 
-#' is.ipv4
-#' @param x a test object
-#'@export
+#'@method is ipv4
 is.ipv4 <- function(x) {
     inherits(x, "ipv4")
 }
@@ -87,34 +83,22 @@ ip2vec <- function(ip) {
     })
 }
 
-#'print.ipv4
-#'@param x an 'ipv4' object
-#'@param ... passed to print.character
-#'@export
+#'@method print ipv4
 print.ipv4 <- function(x, ...) {
     cat(format(x), "\n", ...)
 }
 
-#'format.ipv4
-#'@param x an 'ipv4' object
-#'@param ... ignored
-#'@export
+#'@method format ipv4
 format.ipv4 <- function(x, ...) {
     paste(collapse = ".", ip2vec(x))
 }
 
-#'+.ipv4
-#'@param e1 an 'ipv4' object
-#'@param e2 an 'ipv4' object
-#'export
+#'@method + ipv4
 "+.ipv4" <- function(e1, e2) {
     as.ipv4(as.numeric(e1) + e2)
 }
 
-#'-.ipv4
-#'@param e1 an 'ipv4' object
-#'@param e2 an 'ipv4' object
-#'export
+#'@method - ipv4
 "-.ipv4" <- function(e1, e2) {
     as.ipv4(as.numeric(e1) - e2)
 }
@@ -253,9 +237,7 @@ ipv4.subnet.broadcast <- function(subnet) {
     as.ipv4(subnet$ip + 2^(32 - subnet$mask) - 1)
 }
 
-#' as.ipv4.subnet
-#' @param x a single value, coerced to numeric
-#'@export
+#'@method as ipv4.subnet
 as.ipv4.subnet <- function(x) {
     y <- as.numeric(x)
     if (valid.ipv4.subnet(y)) {
@@ -265,9 +247,7 @@ as.ipv4.subnet <- function(x) {
     stop(x)
 }
 
-#' is.ipv4.subnet
-#' @param x a test object
-#'@export
+#'@method is ipv4.subnet
 is.ipv4.subnet <- function(x) {
     inherits(x, "ipv4.subnet")
 }
@@ -363,7 +343,7 @@ ipv4.subnetlist.character <- function(x, ...) {
 }
 
 #'@method print ipv4.subnetlist 
-print.ipv4.subnetlist <- print.ipv4
+print.ipv4.subnetlist <- print.ipv4list
 
 #'@method format ipv4.subnetlist 
 format.ipv4.subnetlist <- format.ipv4list
