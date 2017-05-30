@@ -111,8 +111,9 @@ mac802list.character <- function(x, ...) {
         list(mac, name)
     })
     print(templist)
-    out <- lapply(templist, "[[", "mac")
-    names(out) <- sapply(templist, "[[", "name")
+    out <- lapply(templist, "[[", "1")
+    names(out) <- sapply(templist, "[[", "2")
+    print(out)
     mac802list(out)
 }
 
