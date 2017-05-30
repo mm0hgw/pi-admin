@@ -105,7 +105,7 @@ mac802list.character <- function(x, ...) {
     x <- strsplit(x, "([[:space:]])")
     print(x)
     templist <- lapply(x, function(y) {
-    	
+        
         mac <- mac802(y[1])
         name <- paste(collapse = " ", y[-1])
         list(mac,name)
