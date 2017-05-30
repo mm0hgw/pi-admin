@@ -171,9 +171,9 @@ ipv4.subnet.integer <- function(x, ...) {
     if (any(is.na(arg))) 
         stop('NA input')
     if (length(arg) < 5) 
-        stop(paste('too few arguments,n=',length(arg),sep=''))
+        stop(paste("too few arguments,n=", length(arg), sep = ""))
     if (!valid.ipv4.subnetmask(arg[5])) 
-        stop(paste('bad subnet size:',arg[5]))
+        stop(paste("bad subnet size:", arg[5]))
     out <- list(ip = ipv4(arg[1:4]), mask = arg[5])
     class(out) <- c("ipv4.subnet")
     out
