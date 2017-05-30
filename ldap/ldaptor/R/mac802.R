@@ -132,7 +132,7 @@ crunchNibble <- function(x) {
 }
 
 crunchByte <- function(x) {
-    sapply(seq(2), function(i) crunchNibble(substr(x,i,i)))
+    sapply(seq(2), function(i) crunchNibble(substr(x, i, i)))
 }
 
 uncrunchHexchars <- "0123456789ABCDEF"
