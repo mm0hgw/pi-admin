@@ -20,7 +20,8 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     while (i <= length(netlist)) {
         net <- names(netlist)[i]
         if (net == "admin") {
-            out$networks[[strsplit(out$domain, "\\.")[[1]][1]]] <- ipv4.subnet(base_ip, netlist[i])
+            out$networks[[strsplit(out$domain, "\\.")[[1]][1]]] <- ipv4.subnet(base_ip, 
+                netlist[i])
             lapply(c("kadmin", "kdc", "ldap", "nfs", "www", "ns", "mail"), function(x) {
                 key <- sapply(hisec_db[[hisec]], function(y) {
                   length(grep(x, y)) != 0
