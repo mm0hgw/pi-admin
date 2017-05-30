@@ -49,8 +49,8 @@ ipv4.integer <- function(x, ...) {
 }
 
 #'@method ipv4 character
-ipv4.character <- function(x,...){
-	ipv4(as.integer(strsplit(x,'.')[[1]]))
+ipv4.character <- function(x, ...) {
+    ipv4(as.integer(strsplit(x, ".")[[1]]))
 }
 
 #'@method ipv4 numeric
@@ -203,8 +203,8 @@ ipv4.subnet.integer <- function(x, ...) {
 }
 
 #'@method ipv4.subnet character
-ipv4.subnet.character <- function(x,...){
-	ipv4.subnet(as.integer(strsplit(x,'([\\./]).')[[1]]))
+ipv4.subnet.character <- function(x, ...) {
+    ipv4.subnet(as.integer(strsplit(x, "([\\./]).")[[1]]))
 }
 
 #'@method ipv4.subnet numeric
@@ -283,72 +283,72 @@ is.ipv4.subnet <- function(x) {
 #'valid.ipv4list
 #' @param x a test object
 #'@export
-valid.ipv4list <- function(x){
-	all(sapply(x,is.ipv4))
+valid.ipv4list <- function(x) {
+    all(sapply(x, is.ipv4))
 }
 
 #'ipv4list
 #' @param x a 'character' filename like '/etc/hosts' 
 #' or a character vector like scan('/etc/hosts',what='character',sep='\n')
 #'@export
-ipv4list <- function(x,...){
-	UseMethod('ipv4list',x)
+ipv4list <- function(x, ...) {
+    UseMethod("ipv4list", x)
 }
 
 #'@method ipv4list character
-ipv4list.character <- function(x,...){
-	if(length(x)==1 && file.exists(x)){
-		x <- scan(x,what='character',sep='\n')
-	}
-	x<-grep('^#',x,invert=TRUE,value=TRUE)
-	x <- strsplit(x,'([[:space:]])')
-	templist <- lapply(x,function(y){
-		ip <- ipv4(y[1])
-		name <- paste(collapse=' ',y[-1])
-	})
-	out <- lapply(templist,'[[','ip')
-	names(out) <- sapply(templist,'[[','name')
-	if(!valid.ipv4list)
-		stop(out)
-	out
+ipv4list.character <- function(x, ...) {
+    if (length(x) == 1 && file.exists(x)) {
+        x <- scan(x, what = "character", sep = "\n")
+    }
+    x <- grep("^#", x, invert = TRUE, value = TRUE)
+    x <- strsplit(x, "([[:space:]])")
+    templist <- lapply(x, function(y) {
+        ip <- ipv4(y[1])
+        name <- paste(collapse = " ", y[-1])
+    })
+    out <- lapply(templist, "[[", "ip")
+    names(out) <- sapply(templist, "[[", "name")
+    if (!valid.ipv4list) 
+        stop(out)
+    out
 }
 
 #'@method format ipv4list
-format.ipv4list <-function(x,...){
-	paste(collapse='\n',sapply(seq_along(x),function(i){
-		paste(format(x[[i]]),names(x)[i])
-	}))
+format.ipv4list <- function(x, ...) {
+    paste(collapse = "\n", sapply(seq_along(x), function(i) {
+        paste(format(x[[i]]), names(x)[i])
+    }))
 }
 
 #'valid.ipv4.subnetlist
 #' @param x a test object
 #'@export
-valid.ipv4.subnetlist <- function(x){
-	all(sapply(x,is.ipv4.subnet))
+valid.ipv4.subnetlist <- function(x) {
+    all(sapply(x, is.ipv4.subnet))
 }
 
 #'ipv4.subnetlist
 #' @param x a 'character' filename like '/etc/networks' 
 #' or a character vector like scan('/etc/networks',what='character',sep='\n')
 #'@export
-ipv4.subnetlist <- function(x,...){
-	UseMethod('ipv4.subnetlist',x)
+ipv4.subnetlist <- function(x, ...) {
+    UseMethod("ipv4.subnetlist", x)
 }
 
 #'@method ipv4.subnetlist character
-ipv4.subnetlist.character <- function(x,...){
-	if(length(x)==1 && file.exists(x)){
-		x <- scan(x,what='character',sep='\n')
-	}
-	x<-grep('^#',x,invert=TRUE,value=TRUE)
-	x <- strsplit(x,'([[:space:]])')
-	templist <- lapply(x,function(y){
-		ip <- ipv4.subnet(y[1])
-		name <- paste(collapse=' ',y[-1])
-	})
-	out <- lapply(templist,'[[','ip')
-	names(out) <- sapply(templist,'[[','name')
-	if(!valid.ipv4.subnetlist)
-		stop(out)
-	out
+ipv4.subnetlist.character <- function(x, ...) {
+    if (length(x) == 1 && file.exists(x)) {
+        x <- scan(x, what = "character", sep = "\n")
+    }
+    x <- grep("^#", x, invert = TRUE, value = TRUE)
+    x <- strsplit(x, "([[:space:]])")
+    templist <- lapply(x, function(y) {
+        ip <- ipv4.subnet(y[1])
+        name <- paste(collapse = " ", y[-1])
+    })
+    out <- lapply(templist, "[[", "ip")
+    names(out) <- sapply(templist, "[[", "name")
+    if (!valid.ipv4.subnetlist) 
+        stop(out)
+    out
 }
