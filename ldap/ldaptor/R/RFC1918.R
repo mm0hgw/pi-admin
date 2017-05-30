@@ -18,7 +18,12 @@ valid.ipv4 <- function(x) {
 #' as.ipv4
 #' @param x a single value, coerced to numeric
 #'@export
-as.ipv4 <- function(x) {
+as.ipv4 <- function(x){
+    UseMethod("as.ipv4", x)
+}
+
+#'@method as.ipv4 default
+as.ipv4.default <- function(x) {
     y <- as.numeric(x)
     if (valid.ipv4(y)) {
         class(y) <- "ipv4"
@@ -109,22 +114,6 @@ format.ipv4 <- function(x, ...) {
     as.ipv4(as.numeric(e1) - e2)
 }
 
-#'@import bit
-#'@method as.bit ipv4
-as.bit.ipv4 <- function(x) {
-    out <- bit::bit(32)
-    i <- 32
-    while (i >= 1) {
-        j <- 2^(i - 1)
-        if (x >= j) {
-            x <- x - j
-            out[i] <- TRUE
-        }
-        i <- i - 1
-    }
-    out
-}
-
 #' valid.ipv4.subnetmask
 #' @param x a test object
 #'@export
@@ -137,6 +126,29 @@ valid.ipv4.subnetmask <- function(x) {
         return(FALSE)
     return(TRUE)
     
+}
+
+#'@method as.ipv4 bit
+as.ipv4.bit <- function(x,...){
+	if(length(x)!=32)
+		stop('32 bits to an ipv4')
+	sum(sapply(seq(32),function(i){if(x[i]){2^i}else{0}}))
+}
+
+#'@import bit
+#'@method as.bit ipv4
+as.bit.ipv4 <- function(x,...) {
+    out <- bit::bit(32)
+    i <- 32
+    while (i >= 1) {
+        j <- 2^(i - 1)
+        if (x >= j) {
+            x <- x - j
+            out[i] <- TRUE
+        }
+        i <- i - 1
+    }
+    out
 }
 
 #' valid.ipv4.subnet
