@@ -231,18 +231,10 @@ ipv4.subnet.ipv4.subnet <- function(x, ...) {
     x
 }
 
-#'print.ipv4.subnet
-#'@param x an 'ipv4.subnet' object
-#'@param ... passed to print.character
-#'@export
-print.ipv4.subnet <- function(x, ...) {
-    cat(format(x), "\n", ...)
-}
+#'@method print ipv4.subnet
+print.ipv4.subnet <- print.ipv4
 
-#'format.ipv4.subnet
-#'@param x an 'ipv4.subnet' object
-#'@param ... ignored
-#'@export
+#'@method format ipv4.subnet
 format.ipv4.subnet <- function(x, ...) {
     paste(sep = "/", format(x$ip), x$mask)
 }
@@ -320,6 +312,9 @@ format.ipv4list <- function(x, ...) {
     }))
 }
 
+#'@method print ipv4list 
+print.ipv4list <- print.ipv4
+
 #'valid.ipv4.subnetlist
 #' @param x a test object
 #'@export
@@ -352,3 +347,9 @@ ipv4.subnetlist.character <- function(x, ...) {
         stop(out)
     out
 }
+
+#'@method print ipv4.subnetlist 
+print.ipv4.subnetlist <- print.ipv4
+
+#'@method format ipv4.subnetlist 
+format.ipv4.subnetlist <- format.ipv4list
