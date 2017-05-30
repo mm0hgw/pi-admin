@@ -20,9 +20,7 @@ RFC2253Character <- function(string) {
     string
 }
 
-#' is.RFC2253Character
-#' @param x test object
-#'@export
+#'@method is RFC2253Character
 is.RFC2253Character <- function(x) {
     inherits(x, "RFC2253Character")
 }
@@ -55,17 +53,12 @@ ldapkv <- function(key, value) {
     out
 }
 
-#'is.ldapkv
-#' @param x test object
-#'@export
+#'@method is ldapkv
 is.ldapkv <- function(x) {
     inherits(x, "ldapkv")
 }
 
-#'format.ldapkv
-#'@param x ldapkv object
-#'@param sep the 'character' used to divide key and value 
-#'@export
+#'@method format ldapkv
 format.ldapkv <- function(x, collapse = ": ", ...) {
     paste(collapse = collapse, sapply(x, format.RFC2253Character))
 }
@@ -100,10 +93,7 @@ ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
     out
 }
 
-#'format.ldapquery
-#'@param x a 'ldapquery' object
-#'@param ... ignored
-#'@export
+#'@method format ldapquery
 format.ldapquery <- function(x, ...) {
     dnlist <- c(list(x$pkey), x$skeylist, x$basedn)
     dn <- paste("dn:", paste(collapse = ",", sapply(dnlist, format, collapse = "=")))
@@ -111,16 +101,12 @@ format.ldapquery <- function(x, ...) {
     paste(collapse = "\n", c(dn, qlist, ""))
 }
 
-#'is.ldapquery
-#' @param x test object
-#'@export
+#'@method is ldapquery
 is.ldapquery <- function(x) {
     inherits(x, "ldapquery")
 }
 
-#'is.basedn.class
-#' @param x test object
-#'@export
+#'@method is basedn.class
 is.basedn.class <- function(x) {
     inherits(x, "basedn.class")
 }
@@ -137,17 +123,12 @@ basedn.class <- function(domain) {
     out
 }
 
-#'format.basedn.class
-#'@param x a 'basdedn.class' object
-#'@param ... ignored
-#'@export
+#'@method format basedn.class
 format.basedn.class <- function(x, ...) {
     paste(collapse = ",", sapply(x, format, collapse = "="))
 }
 
-#'is.ldapquerylist
-#' @param x test object
-#'@export
+#'@method is ldapquerylist
 is.ldapquerylist <- function(x) {
     inherits(x, "ldapquerylist")
 }
@@ -178,17 +159,12 @@ ldapquerylist <- function(...) {
     out
 }
 
-#'format.ldapquerylist
-#'@param x test object
-#'@export
+#'@method format ldapquerylist
 format.ldapquerylist <- function(x, ...) {
     paste(collapse = "\n", sapply(x, format))
 }
 
-#'+.ldapquerylist
-#'@param e1 a 'ldapquerylist' object
-#'@param e2 a 'ldapquerylist' or 'ldapquery' object 
-#'@export
+#'@method + ldapquerylist
 "+.ldapquerylist" <- function(e1, e2) {
     UseMethod("+.ldapquerylist", e2)
 }
@@ -209,9 +185,7 @@ format.ldapquerylist <- function(x, ...) {
     ldapquerylist(append(e1, e2))
 }
 
-#'is.ldapkvlist
-#' @param x test object
-#'@export
+#'@method is ldapkvlist
 is.ldapkvlist <- function(x) {
     inherits(x, "ldapkvlist")
 }
@@ -242,17 +216,12 @@ ldapkvlist <- function(...) {
     out
 }
 
-#'format.ldapkvlist
-#'@param x '' object
-#'@export
+#'@method format ldapkvlist
 format.ldapkvlist <- function(x, ...) {
     paste(collapse = "\n", sapply(x, format))
 }
 
-#'+.ldapkvlist
-#'@param e1 a 'ldapkvlist' object
-#'@param e2 a 'ldapkvlist' or 'ldapkv' object 
-#'@export
+#'@method + ldapkvlist
 "+.ldapkvlist" <- function(e1, e2) {
     UseMethod("+.ldapkvlist", e2)
 }
