@@ -184,7 +184,7 @@ ipv4.subnet.list <- ipv4.subnet.integer
 
 #'@method ipv4.subnet ipv4
 ipv4.subnet.ipv4 <- function(x, ...) {
-	out<-list()
+    out <- list()
     out$ip <- x
     out$mask <- c(...)
     if (!valid.ipv4.subnet(out)) 
@@ -212,7 +212,7 @@ print.ipv4.subnet <- function(x, ...) {
 #'@param ... ignored
 #'@export
 format.ipv4.subnet <- function(x, ...) {
-		print(as.list(x))
+    print(as.list(x))
     paste(sep = "/", format(x$ip), x$mask)
 }
 
