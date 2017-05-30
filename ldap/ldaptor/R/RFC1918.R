@@ -171,8 +171,7 @@ ipv4.subnet.integer <- function(x, ...) {
         stop(match.call())
     if (!valid.ipv4.subnetmask(arg[5])) 
         stop(match.call())
-    ip <- ipv4(arg)
-    out <- list(ip = ip, mask = arg[5])
+    out <- list(ip = ipv4(arg[1:4]), mask = arg[5])
     class(out) <- c("ipv4.subnet")
     out
 }
@@ -185,6 +184,7 @@ ipv4.subnet.list <- ipv4.subnet.integer
 
 #'@method ipv4.subnet ipv4
 ipv4.subnet.ipv4 <- function(x, ...) {
+	out<-list()
     out$ip <- x
     out$mask <- c(...)
     if (!valid.ipv4.subnet(out)) 
