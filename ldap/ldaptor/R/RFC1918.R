@@ -281,10 +281,19 @@ valid.ipv4list <- function(x) {
 
 #'ipv4list
 #' @param x a 'character' filename like '/etc/hosts' 
-#' or a character vector like scan('/etc/hosts',what='character',sep='\\n')
+#' or a 'character' vector like scan('/etc/hosts',what='character',sep='\\n')
+#' or a 'list' of 'ipv4' objects
 #'@export
 ipv4list <- function(x, ...) {
     UseMethod("ipv4list", x)
+}
+
+#'@method ipv4list list
+ipv4list.list <- function(x, ...) {
+    if (!valid.ipv4list(x)) 
+        stop(x)
+    class(x) <- 'ipv4list'
+	x
 }
 
 #'@method ipv4list character
@@ -300,9 +309,7 @@ ipv4list.character <- function(x, ...) {
     })
     out <- lapply(templist, "[[", "ip")
     names(out) <- sapply(templist, "[[", "name")
-    if (!valid.ipv4list) 
-        stop(out)
-    out
+    ipv4list(out)
 }
 
 #'@method format ipv4list
@@ -324,10 +331,19 @@ valid.ipv4.subnetlist <- function(x) {
 
 #'ipv4.subnetlist
 #' @param x a 'character' filename like '/etc/networks' 
-#' or a character vector like scan('/etc/networks',what='character',sep='\\n')
+#' or a 'character' vector like scan('/etc/networks',what='character',sep='\\n')
+#' or a 'list' of 'ipv4.subnet' objects
 #'@export
 ipv4.subnetlist <- function(x, ...) {
     UseMethod("ipv4.subnetlist", x)
+}
+
+#'@method ipv4list list
+ipv4.subnetlist.list <- function(x, ...) {
+    if (!valid.ipv4.subnetlist(x)) 
+        stop(x)
+    class(x) <- 'ipv4.subnetlist'
+	x
 }
 
 #'@method ipv4.subnetlist character
@@ -343,9 +359,7 @@ ipv4.subnetlist.character <- function(x, ...) {
     })
     out <- lapply(templist, "[[", "ip")
     names(out) <- sapply(templist, "[[", "name")
-    if (!valid.ipv4.subnetlist) 
-        stop(out)
-    out
+    valid.ipv4.subnetlist(out)
 }
 
 #'@method print ipv4.subnetlist 

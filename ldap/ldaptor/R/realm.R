@@ -6,7 +6,7 @@ realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, 
     hisec <- max(1, min(length(hisec_db), nAdmin))
     out <- list()
     out$domain <- domain.class(domain)
-    out$call <- match.call()
+    out$args <- as.list(match.call())[-1]
     r_nets <- length(subnet_layout)
     a <- subnet_size(r_nets + length(admin_hosts))
     r <- sapply(subnet_layout, subnet_size)
