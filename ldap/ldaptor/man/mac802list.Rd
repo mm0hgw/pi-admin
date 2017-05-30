@@ -7,8 +7,8 @@
 mac802list(x, ...)
 }
 \arguments{
-\item{x}{a 'character' filename like '/etc/hosts' 
-or a 'character' vector like scan('/etc/hosts',what='character',sep='\\n')
+\item{x}{a 'character' filename like '/etc/ethers' 
+or a 'character' vector like scan('/etc/ethers',what='character',sep='\\n')
 or a 'list' of 'mac802' objects}
 }
 \description{
