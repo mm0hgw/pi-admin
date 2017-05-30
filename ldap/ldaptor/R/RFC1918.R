@@ -292,8 +292,8 @@ ipv4list <- function(x, ...) {
 ipv4list.list <- function(x, ...) {
     if (!valid.ipv4list(x)) 
         stop(x)
-    class(x) <- 'ipv4list'
-	x
+    class(x) <- "ipv4list"
+    x
 }
 
 #'@method ipv4list character
@@ -342,8 +342,8 @@ ipv4.subnetlist <- function(x, ...) {
 ipv4.subnetlist.list <- function(x, ...) {
     if (!valid.ipv4.subnetlist(x)) 
         stop(x)
-    class(x) <- 'ipv4.subnetlist'
-	x
+    class(x) <- "ipv4.subnetlist"
+    x
 }
 
 #'@method ipv4.subnetlist character
