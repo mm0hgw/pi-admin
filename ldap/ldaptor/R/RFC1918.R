@@ -143,6 +143,8 @@ valid.ipv4.subnetmask <- function(x) {
 #' @param x a test object
 #'@export
 valid.ipv4.subnet <- function(x) {
+    if (!is.list(x)) 
+        return(FALSE)
     if (!valid.ipv4(x$ip)) 
         return(FALSE)
     if (!valid.ipv4.subnetmask(x$mask)) 
