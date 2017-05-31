@@ -205,7 +205,7 @@ format.ldapkvlist <- function(x, ...) {
 }
 
 # @method +.ldapkvlist ldapkv
-"+.ldapkvlist.ldapkv" <- function(e1, list(e2)) {
+"+.ldapkvlist.ldapkv" <- function(e1, e2) {
     ldapkvlist(append(e1, list(e2)))
 }
 
