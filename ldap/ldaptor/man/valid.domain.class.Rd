@@ -14,9 +14,9 @@ valid.domain.class
 }
 \examples{
 hexchars <-'123456789ABCDEF'
-stopifnot(valid.hostname.class(vector())==FALSE)
-stopifnot(valid.hostname.class('')==FALSE)
-stopifnot(valid.hostname.class(paste(collapse='',rep(16,hexchars)))==FALSE)
-stopifnot(valid.hostname.class(':')==FALSE)
-stopifnot(valid.hostname.class(paste(collapse='',c(letters,,'.',LETTERS,'-')))==TRUE)
+stopifnot(valid.domain.class(vector())==FALSE)
+stopifnot(valid.domain.class('')==FALSE)
+stopifnot(valid.domain.class(paste(collapse='',rep(16,hexchars)))==FALSE)
+stopifnot(valid.domain.class(':')==FALSE)
+stopifnot(valid.domain.class(paste(collapse='',c(letters,,'.',LETTERS,'-')))==TRUE)
 }
