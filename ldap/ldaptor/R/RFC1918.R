@@ -244,6 +244,7 @@ is.ipv4.subnet <- function(x) {
 
 #'@method valid ipv4list
 valid.ipv4list <- function(x) {
+		if(!identical(typeof(x),'list'))return(FALSE)
     all(sapply(x, is.ipv4))
 }
 
