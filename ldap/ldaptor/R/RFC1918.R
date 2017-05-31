@@ -278,7 +278,7 @@ ipv4list.character <- function(x, ...) {
         t1 <- strsplit(y[1], "\\.")[[1]]
         print(t1)
         if (identical(length(t1), 4)) {
-        	
+            
             ip <- ipv4(y[1])
             name <- paste(collapse = " ", y[-1])
             list(data = TRUE, ip = ip, name = name)
