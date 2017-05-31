@@ -22,7 +22,7 @@ is.hostname.class <- function(x) {
 #' valid.hostname.class
 #' @param x test object
 #'@examples
-#'hexchars <-'123456789ABCDEF'
+#'hexchars <-'0123456789ABCDEF'
 #'stopifnot(valid.hostname.class(vector())==FALSE)
 #'stopifnot(valid.hostname.class('')==FALSE)
 #'stopifnot(valid.hostname.class(paste(collapse='',rep(4,hexchars)))==FALSE)
@@ -58,7 +58,7 @@ is.domain.class <- function(x) {
 #' valid.domain.class
 #' @param x test object
 #'@examples
-#'hexchars <-'123456789ABCDEF'
+#'hexchars <-'0123456789ABCDEF'
 #'stopifnot(valid.domain.class(vector())==FALSE)
 #'stopifnot(valid.domain.class('')==FALSE)
 #'stopifnot(valid.domain.class(paste(collapse='',rep(16,hexchars)))==FALSE)

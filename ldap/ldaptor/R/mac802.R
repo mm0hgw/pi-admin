@@ -16,9 +16,7 @@ mac802 <- function(mac) {
     out
 }
 
-#' valid.mac802
-#' @param x a test object
-#'@export
+#'@method valid mac802
 valid.mac802 <- function(x) {
     if (length(x) != 6) 
         return(FALSE)
@@ -72,9 +70,7 @@ format.mac802 <- function(x, ...) {
     return(FALSE)
 }
 
-#'valid.mac802list
-#' @param x a test object
-#'@export
+#'@method valid mac802list
 valid.mac802list <- function(x) {
     all(sapply(x, is.mac802))
 }
