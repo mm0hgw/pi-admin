@@ -1,5 +1,3 @@
-mac802Regex <- "([0123456789ABCDEF])"
-
 #' mac802
 #' @description a container for a valid mac802 ethernet address
 #' @param x a single value, coerced to numeric
@@ -22,7 +20,7 @@ valid.mac802 <- function(x) {
         return(FALSE)
     if (any(sapply(x, nchar) != 2)) 
         return(FALSE)
-    if (gsub(mac802Regex, "", paste(collapse = "", x)) != "") 
+    if (gsub(hexRegex, "", paste(collapse = "", x)) != "") 
         return(FALSE)
     return(TRUE)
 }

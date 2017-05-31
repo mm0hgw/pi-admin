@@ -1,15 +1,5 @@
 # RFC2253 special characters c(',', '+', '\'', '\\', '<', '>', ';')
 
-#'RFC2253Regex
-#'@description A regex to identify valid RFC2253 string characters
-#'@export
-RFC2253Regex <- "([-[:space:]ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\\.,+\\\"\\\\<=>;])"
-
-#'RFC2253SpecialRegex
-#'@description A regex to identify valid RFC2253 special characters
-#'@export
-RFC2253SpecialRegex <- "([,+\\\"\\\\<=>;])"
-
 #' RFC2253Character
 #' @description a container RFC2253 character data 
 #' @param string a 'character' string
@@ -81,7 +71,7 @@ ldapquery <- function(pkey, basedn, skeylist = list(), kvlist = list()) {
         }
         if (any(!sapply(kvlist, is.ldapkv))) {
             errors <- paste(sep = "", errors, "skeylist errors: ", paste(collapse = ",", 
-                skeylist[!sapply(kvlist, is.ldapkv)]), " ")
+                kvlist[!sapply(kvlist, is.ldapkv)]), " ")
         }
         stop(errors)
     }
@@ -165,12 +155,6 @@ format.ldapquerylist <- function(x, ...) {
     UseMethod("+.ldapquerylist", e2)
 }
 
-# @method +.ldapquerylist default
-"+.ldapquerylist.default" <- function(e1, e2) {
-    print(e2)
-    stop(class(e2))
-}
-
 # @method +.ldapquerylist ldapquery
 "+.ldapquerylist.ldapquery" <- function(e1, e2) {
     ldapquerylist(append(e1, list(e2)))
@@ -220,14 +204,8 @@ format.ldapkvlist <- function(x, ...) {
     UseMethod("+.ldapkvlist", e2)
 }
 
-# @method +.ldapkvlist default
-"+.ldapkvlist.default" <- function(e1, e2) {
-    print(summary(e2))
-    stop(class(e2))
-}
-
 # @method +.ldapkvlist ldapkv
-"+.ldapkvlist.ldapkv" <- function(e1, e2) {
+"+.ldapkvlist.ldapkv" <- function(e1, list(e2)) {
     ldapkvlist(append(e1, list(e2)))
 }
 

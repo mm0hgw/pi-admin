@@ -1,6 +1,3 @@
-# 32-bit limit
-ipv4.allOnes <- 2^33 - 1
-
 #'@method valid ipv4
 valid.ipv4 <- function(x) {
     y <- as.numeric(x)
@@ -216,17 +213,17 @@ format.ipv4.subnet <- function(x, ...) {
     paste(sep = "/", format(x$ip), x$mask)
 }
 
-#'ipv4.subnet.netmask
+#'netmask
 #'@param subnet an 'ipv4.subnet' object
 #'@export
-ipv4.subnet.netmask <- function(subnet) {
+netmask <- function(subnet) {
     as.ipv4(ipv4.allOnes - (2^(32 - subnet$mask) - 1))
 }
 
-#'ipv4.subnet.broadcast
+#'broadcast
 #'@param subnet an 'ipv4.subnet' object
 #'@export
-ipv4.subnet.broadcast <- function(subnet) {
+broadcast <- function(subnet) {
     as.ipv4(subnet$ip + 2^(32 - subnet$mask) - 1)
 }
 
