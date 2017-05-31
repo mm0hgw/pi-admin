@@ -35,7 +35,6 @@ as.mac802 <- function(x) {
 #'@method as.mac802 default
 as.mac802.default <- function(x) {
     y <- strsplit(toupper(strsplit(x, "([[:space:]])")[[1]][1]), ":")[[1]]
-    print(y)
     if (valid.mac802(y)) {
         class(y) <- "mac802"
         return(y)
