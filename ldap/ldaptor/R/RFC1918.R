@@ -276,7 +276,6 @@ ipv4list.character <- function(x, ...) {
     }
     x <- grep("^#", x, invert = TRUE, value = TRUE)
     x <- strsplit(x, "([[:space:]])")
-    print(x)
     templist <- lapply(x, function(y) {
         ip <- ipv4(y[1])
         name <- paste(collapse = " ", y[-1])
