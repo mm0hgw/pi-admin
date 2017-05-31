@@ -13,7 +13,7 @@ valid.hostname.class(x)
 valid.hostname.class
 }
 \examples{
-hexchars <-'123456789ABCDEF'
+hexchars <-'0123456789ABCDEF'
 stopifnot(valid.hostname.class(vector())==FALSE)
 stopifnot(valid.hostname.class('')==FALSE)
 stopifnot(valid.hostname.class(paste(collapse='',rep(4,hexchars)))==FALSE)

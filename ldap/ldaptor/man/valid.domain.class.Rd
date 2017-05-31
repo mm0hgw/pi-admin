@@ -13,7 +13,7 @@ valid.domain.class(x)
 valid.domain.class
 }
 \examples{
-hexchars <-'123456789ABCDEF'
+hexchars <-'0123456789ABCDEF'
 stopifnot(valid.domain.class(vector())==FALSE)
 stopifnot(valid.domain.class('')==FALSE)
 stopifnot(valid.domain.class(paste(collapse='',rep(16,hexchars)))==FALSE)
