@@ -1,5 +1,5 @@
 
-@method valid poolDef
+#'@method valid poolDef
 valid.poolDef <- function(x){
 	if(!identical(typeof(x),'list'))
 		return(FALSE)
@@ -19,6 +19,8 @@ valid.poolDef <- function(x){
 	return(TRUE)	
 }
 
+#'poolDef
+#'@export
 poolDef <- function(subnet,start,end,...){
 	as.poolDef(as.list(match.call())[-1])
 }
