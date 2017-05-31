@@ -284,12 +284,8 @@ ipv4list.character <- function(x, ...) {
             list(data = FALSE)
         }
     })
-<<<<<<< HEAD
     print(templist)
     templist <- templist[sapply(templist,'[[','data')]
-=======
-    templist <- templist[sapply(templist, "[[", "data")]
->>>>>>> branch 'master' of git@github.com:mm0hgw/pi-admin
     out <- lapply(templist, "[[", "ip")
     names(out) <- sapply(templist, "[[", "name")
     ipv4list(out)
