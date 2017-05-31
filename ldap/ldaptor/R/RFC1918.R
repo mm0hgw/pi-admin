@@ -244,7 +244,8 @@ is.ipv4.subnet <- function(x) {
 
 #'@method valid ipv4list
 valid.ipv4list <- function(x) {
-		if(!identical(typeof(x),'list'))return(FALSE)
+    if (!identical(typeof(x), "list")) 
+        return(FALSE)
     all(sapply(x, is.ipv4))
 }
 
@@ -276,7 +277,7 @@ ipv4list.character <- function(x, ...) {
     templist <- lapply(x, function(y) {
         ip <- ipv4(y[1])
         name <- paste(collapse = " ", y[-1])
-        list(ip=ip,name=name)
+        list(ip = ip, name = name)
     })
     out <- lapply(templist, "[[", "ip")
     names(out) <- sapply(templist, "[[", "name")

@@ -62,7 +62,7 @@ format.mac802 <- function(x, ...) {
 
 #'@method == mac802
 "==.mac802" <- function(e1, e2) {
-    if (identical(format(e1) , format(e2))) 
+    if (identical(format(e1), format(e2))) 
         return(TRUE)
     return(FALSE)
 }
