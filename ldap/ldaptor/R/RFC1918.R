@@ -46,7 +46,7 @@ ipv4.integer <- function(x, ...) {
 
 #'@method ipv4 character
 ipv4.character <- function(x, ...) {
-    ipv4(as.integer(strsplit(x, ".")[[1]]))
+    ipv4(as.integer(strsplit(x, "\\.")[[1]]))
 }
 
 #'@method ipv4 numeric
