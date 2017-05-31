@@ -13,3 +13,4 @@ RFC2253Regex <- "([-[:space:]ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxy
 #'@export
 RFC2253SpecialRegex <- "([,+\\\"\\\\<=>;])"
 
+mac802OUI <- rbind('Raspberry Pi'=c('B8','27','EB'))
