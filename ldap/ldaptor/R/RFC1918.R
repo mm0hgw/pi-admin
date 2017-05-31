@@ -273,6 +273,7 @@ ipv4list.character <- function(x, ...) {
         x <- scan(x, what = "character", sep = "\n")
     }
     x <- grep("^#", x, invert = TRUE, value = TRUE)
+    x <- grep("^f", x, invert = TRUE, value = TRUE)#skip ipv6
     x <- strsplit(x, "([[:space:]])")
     templist <- lapply(x, function(y) {
         ip <- ipv4(y[1])
