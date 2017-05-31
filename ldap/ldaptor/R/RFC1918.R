@@ -68,6 +68,7 @@ is.ipv4 <- function(x) {
 }
 
 vec2ip <- function(vec) {
+	print(vec)
     sum(sapply(seq(4), function(i) {
         j <- 2^((4 - i) * 8)
         vec[i] * j

@@ -2,7 +2,7 @@ Package: ldaptor
 Title: ldaptor
 Version: 0.0.0.9001
 Authors@R: person("Dale", email = "dale@piratepress.org", role = c("aut", "cre", "cph"))
-Description: Routines for development, building and testing.
+Description: Routines for LDAP based LAN management.
 Depends: R (>= 3.3.2)
 Imports: valid
 License: GPL-2

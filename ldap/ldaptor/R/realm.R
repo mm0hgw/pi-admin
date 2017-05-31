@@ -1,3 +1,6 @@
+
+#'realm
+#'@export
 realm <- function(domain, admin_hosts = test_admin, subnet_layout = test_route, base_ip = default_base_ip) {
     stopifnot(all(sapply(admin_hosts, valid.hostname.class)))
     stopifnot(all(sapply(domain, valid.domain.class)))
