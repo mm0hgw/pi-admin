@@ -1,9 +1,7 @@
 # 32-bit limit
 ipv4.allOnes <- 2^33 - 1
 
-#' valid.ipv4
-#' @param x a test object
-#'@export
+#'@method valid ipv4
 valid.ipv4 <- function(x) {
     y <- as.numeric(x)
     if (is.na(y)) 
@@ -103,9 +101,7 @@ format.ipv4 <- function(x, ...) {
     as.ipv4(as.numeric(e1) - e2)
 }
 
-#' valid.ipv4.subnetmask
-#' @param x a test object
-#'@export
+#'@method valid ipv4.subnetmask
 valid.ipv4.subnetmask <- function(x) {
     if (length(x) != 1) 
         return(FALSE)
@@ -146,9 +142,7 @@ as.bit.ipv4 <- function(x, ...) {
     out
 }
 
-#' valid.ipv4.subnet
-#' @param x a test object
-#'@export
+#'@method valid ipv4.subnet
 valid.ipv4.subnet <- function(x) {
     if (typeof(x) != "list") 
         return(FALSE)
@@ -252,9 +246,7 @@ is.ipv4.subnet <- function(x) {
     inherits(x, "ipv4.subnet")
 }
 
-#'valid.ipv4list
-#' @param x a test object
-#'@export
+#'@method valid ipv4list
 valid.ipv4list <- function(x) {
     all(sapply(x, is.ipv4))
 }
@@ -302,9 +294,7 @@ format.ipv4list <- function(x, ...) {
 #'@method print ipv4list 
 print.ipv4list <- print.ipv4
 
-#'valid.ipv4.subnetlist
-#' @param x a test object
-#'@export
+#'@method valid ipv4.subnetlist
 valid.ipv4.subnetlist <- function(x) {
     all(sapply(x, is.ipv4.subnet))
 }

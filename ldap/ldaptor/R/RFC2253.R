@@ -25,9 +25,7 @@ is.RFC2253Character <- function(x) {
     inherits(x, "RFC2253Character")
 }
 
-#' valid.RFC2253Character
-#' @param x test object
-#'@export
+#'@method valid RFC2253Character
 valid.RFC2253Character <- function(x) {
     x <- as.character(x)
     if (any(gsub(RFC2253Regex, "", x) != "")) 
@@ -133,9 +131,7 @@ is.ldapquerylist <- function(x) {
     inherits(x, "ldapquerylist")
 }
 
-#'valid.ldapquerylist
-#' @param x test object
-#'@export
+#'@method valid ldapquerylist
 valid.ldapquerylist <- function(x) {
     if (!all(sapply(x, is.ldapquery))) {
         return(FALSE)
@@ -190,9 +186,7 @@ is.ldapkvlist <- function(x) {
     inherits(x, "ldapkvlist")
 }
 
-#'valid.ldapkvlist
-#' @param x test object
-#'@export
+#'@method valid ldapkvlist
 valid.ldapkvlist <- function(x) {
     if (!all(sapply(x, is.ldapkv))) {
         return(FALSE)
