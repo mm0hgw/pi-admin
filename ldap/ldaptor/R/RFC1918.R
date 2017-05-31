@@ -284,7 +284,7 @@ ipv4list.character <- function(x, ...) {
             list(data = FALSE)
         }
     })
-	   templist <- templist[sapply(templist, "[[", "data")]
+    templist <- templist[sapply(templist, "[[", "data")]
     out <- lapply(templist, "[[", "ip")
     names(out) <- sapply(templist, "[[", "name")
     ipv4list(out)
