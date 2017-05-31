@@ -169,7 +169,6 @@ ipv4.subnet <- function(x, ...) {
 #'@method ipv4.subnet integer
 ipv4.subnet.integer <- function(x, ...) {
     arg <- c(unlist(x), unlist(list(...)))
-    print(arg)
     if (any(is.na(arg))) 
         stop("NA input")
     if (length(arg) < 5) 
